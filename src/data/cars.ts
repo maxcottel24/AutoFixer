@@ -45,7 +45,7 @@ export const cars = [
       "pv": 70
     },
     "prix": "24000",
-    "image": "https://images.unsplash.com/photo-1549399542-7e3f8b79c341?auto=format&fit=crop&q=80&w=1200"
+    "image": "https://images.unsplash.com/photo-1737757473707-c9f77477a7ba?q=80&w=1932&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
   },
   {
     "nom": "Colby CX410 Butte",
@@ -77,10 +77,10 @@ export const cars = [
       "pv": 54
     },
     "prix": "29000",
-    "image": "https://images.unsplash.com/photo-1552519507-da3b142c6e3d?auto=format&fit=crop&q=80&w=1200"
+    "image": "https://images.unsplash.com/photo-1737757473700-aecd2e9c1744?q=80&w=1932&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
   },
   {
-    "nom": "Galena Gecko",
+    "nom": "Galena Rattler",
     "fabricant": "Thorton",
     "classe": "Économique",
     "caractéristiques": {
@@ -89,11 +89,11 @@ export const cars = [
       "accélération_0_60_kmh": "2.42 sec",
       "puissance": "365 CV",
       "transmission": "Transmission intégrale (AWD)",
-      "réduction_des_dégâts": 10,
+      "réduction_des_dégâts": 7,
       "pv": 50
     },
     "prix": "30000",
-    "image": "https://images.unsplash.com/photo-1580273916550-e323be2ae537?auto=format&fit=crop&q=80&w=1200"
+    "image": "https://images.unsplash.com/photo-1737757473691-133b97989eab?q=80&w=1932&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
   },
   {
     "nom": "Alvarado V4F 570 Delegate",
@@ -125,7 +125,7 @@ export const cars = [
       "pv": 48
     },
     "prix": "25000",
-    "image": "https://images.unsplash.com/photo-1603584173870-7f23fdae1b7a?auto=format&fit=crop&q=80&w=1200"
+    "image": "https://images.unsplash.com/photo-1737756922063-aba2edcd9412?q=80&w=1932&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
   },
   {
     "nom": "Thrax 388 Jefferson",
@@ -269,7 +269,7 @@ export const cars = [
       "pv": 27
     },
     "prix": "31000",
-    "image": "https://images.unsplash.com/photo-1449426468159-d96dbf08f19f?auto=format&fit=crop&q=80&w=1200"
+    "image": "https://images.unsplash.com/photo-1737756922065-0f848b530f2e?q=80&w=1932&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
   },
   {
     "nom": "Turbo-R V-Tech",
@@ -285,7 +285,7 @@ export const cars = [
       "pv": 51
     },
     "prix": "75000",
-    "image": "https://images.unsplash.com/photo-1544829099-b9a0c07fad1a?auto=format&fit=crop&q=80&w=1200"
+    "image": "https://images.unsplash.com/photo-1737757473709-0ccb7f0fdd03?q=80&w=1932&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
   },
   {
     "nom": "Maimai P126",

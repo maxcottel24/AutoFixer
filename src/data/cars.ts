@@ -178,7 +178,7 @@ export const cars = [
   {
     "nom": "Apollo",
     "fabricant": "Brennan",
-    "classe": "Moto",
+    "classe": "Motos",
     "caractéristiques": {
       "vitesse_max": "220 km/h",
       "accélération_0_100_kmh": "8.01 sec",
@@ -194,7 +194,7 @@ export const cars = [
   {
     "nom": "Nazare",
     "fabricant": "Arch Motorcycles",
-    "classe": "Moto",
+    "classe": "Motos",
     "caractéristiques": {
       "vitesse_max": "286 km/h",
       "accélération_0_100_kmh": "6.8 sec",
@@ -208,36 +208,36 @@ export const cars = [
     "image": "https://images.unsplash.com/photo-1558981359-219d6364c9c8?auto=format&fit=crop&q=80&w=1200"
   },
   {
-    "nom": "Dodge Viper 1996",
+    "nom": "Viper 1996",
     "fabricant": "Dodge",
     "classe": "Sport",
     "caractéristiques": {
       "vitesse_max": "305 km/h",
       "accélération_0_100_kmh": "4.6 sec",
       "accélération_0_60_kmh": "2.8 sec",
-      "puissance": "415 CV",
+      "puissance": "501 CV",
       "transmission": "Propulsion arrière (RWD)",
       "réduction_des_dégâts": 2,
       "pv": 43
     },
     "prix": "55000",
-    "image": "https://images.unsplash.com/photo-1553440569-bcc63803a83d?auto=format&fit=crop&q=80&w=1200"
+    "image": "https://www.sportscarmarket.com/wp-content/uploads/2021/05/1996-dodge-viper-gts-coupe-drivers-front.jpg"
   },
   {
     "nom": "Corvette C6 2005",
     "fabricant": "Chevrolet",
     "classe": "Sport",
     "caractéristiques": {
-      "vitesse_max": "298 km/h",
+      "vitesse_max": "312 km/h",
       "accélération_0_100_kmh": "4.1 sec",
       "accélération_0_60_kmh": "2.7 sec",
-      "puissance": "400 CV",
+      "puissance": "505 CV",
       "transmission": "Propulsion arrière (RWD)",
       "réduction_des_dégâts": 3,
       "pv": 40
     },
     "prix": "55000",
-    "image": "https://images.unsplash.com/photo-1552519507-88aa2dfa9fdb?auto=format&fit=crop&q=80&w=1200"
+    "image": "https://images.unsplash.com/photo-1733299710470-f5b8b6a79849?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
   },
   {
     "nom": "Columbus V340-F Freight",
@@ -258,7 +258,7 @@ export const cars = [
   {
     "nom": "Kusanagi CT-3X",
     "fabricant": "Yaiba",
-    "classe": "Moto",
+    "classe": "Motos",
     "caractéristiques": {
       "vitesse_max": "288 km/h",
       "accélération_0_100_kmh": "4.99 sec",

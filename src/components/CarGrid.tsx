@@ -16,7 +16,7 @@ export const CarGrid: React.FC = () => {
       const matchesPrice = price >= priceRange[0] && price <= priceRange[1];
       const matchesClass = selectedClasses.length === 0 || selectedClasses.includes(car.classe);
       return matchesPrice && matchesClass;
-    });
+    }).sort((a,b) => Number(b.prix) - Number(a.prix));
   }, [priceRange, selectedClasses]);
 
   return (

@@ -1,3 +1,20 @@
+type Car = {
+  nom: string;
+  fabricant: string;
+  classe: string;
+  caractéristiques: {
+    vitesse_max: string;
+    accélération_0_100_kmh: string;
+    accélération_0_60_kmh: string;
+    puissance: string;
+    transmission: string;
+    réduction_des_dégâts: number;
+    pv: number;
+  };
+  prix: string;
+  image: string;
+};
+
 export const cars = [
   {
     "nom": "Aerondight S9 Guinevere",
@@ -304,3 +321,7 @@ export const cars = [
     "image": "https://i.imgur.com/cxj7AM3.jpeg"
   }
 ];
+
+const sortedCars = cars.sort((a: Car, b: Car) => Number(b.prix) - Number(a.prix));
+
+console.log(sortedCars);

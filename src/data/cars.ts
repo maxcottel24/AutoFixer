@@ -40,7 +40,7 @@ export const cars = [
       "vitesse_max": "339 km/h",
       "accélération_0_100_kmh": "4.3 sec",
       "accélération_0_60_kmh": "2.15 sec",
-      "puissance": "1660 CV",
+      "puissance": "980 CV",
       "transmission": "Transmission intégrale (AWD)",
       "réduction_des_dégâts": 6,
       "pv": 40

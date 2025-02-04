@@ -5,19 +5,21 @@ import { cars } from '../data/cars';
 
 export const CarGrid: React.FC = () => {
   const maxPrice = Math.max(...cars.map(car => parseInt(car.prix)));
-  const availableClasses = Array.from(new Set(cars.map(car => car.classe))).sort();
-  
+  const availableClasses = Array.from(new Set(cars.map(car => car.classe))).sort(); 
   const [priceRange, setPriceRange] = useState<[number, number]>([0, maxPrice]);
   const [selectedClasses, setSelectedClasses] = useState<string[]>([]);
+  const [selectedBrand, setSelectedBrand] = useState<string[]>([]);
+  const availableBrands = Array.from(new Set(cars.map(car => car.fabricant))).sort();
 
   const filteredCars = useMemo(() => {
     return cars.filter(car => {
       const price = parseInt(car.prix);
       const matchesPrice = price >= priceRange[0] && price <= priceRange[1];
       const matchesClass = selectedClasses.length === 0 || selectedClasses.includes(car.classe);
-      return matchesPrice && matchesClass;
+      const matchesBrand = selectedBrand.length === 0 || selectedBrand.includes(car.fabricant);
+      return matchesPrice && matchesClass && matchesBrand;
     }).sort((a,b) => Number(b.prix) - Number(a.prix));
-  }, [priceRange, selectedClasses]);
+  }, [priceRange, selectedClasses, selectedBrand]);
 
   return (
     <div className="flex gap-6 p-6">
@@ -29,6 +31,9 @@ export const CarGrid: React.FC = () => {
             selectedClasses={selectedClasses}
             setSelectedClasses={setSelectedClasses}
             availableClasses={availableClasses}
+            selectedBrand={selectedBrand}
+            setSelectedBrand={setSelectedBrand}
+            availableBrands={availableBrands}
             maxPrice={maxPrice}
           />
         </div>

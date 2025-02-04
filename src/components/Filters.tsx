@@ -7,6 +7,9 @@ interface FiltersProps {
   selectedClasses: string[];
   setSelectedClasses: (classes: string[]) => void;
   availableClasses: string[];
+  selectedBrand: string[];
+  setSelectedBrand: (brands: string[]) => void;
+  availableBrands: string[];
   maxPrice: number;
 }
 
@@ -16,6 +19,9 @@ export const Filters: React.FC<FiltersProps> = ({
   selectedClasses,
   setSelectedClasses,
   availableClasses,
+  selectedBrand,
+  setSelectedBrand,
+  availableBrands,
   maxPrice,
 }) => {
   const handleClassToggle = (classe: string) => {
@@ -38,6 +44,26 @@ export const Filters: React.FC<FiltersProps> = ({
       </div>
 
       <div className="space-y-6">
+        {/* Type de véhicule (Premier élément) */}
+        <div>
+          <h3 className="text-white mb-3">Type de véhicule</h3>
+          <div className="grid grid-cols-2 gap-2">
+            {availableClasses.map((classe) => (
+              <button
+                key={classe}
+                onClick={() => handleClassToggle(classe)}
+                className={`px-3 py-2 rounded text-sm ${selectedClasses.includes(classe)
+                  ? 'bg-red-500 text-white'
+                  : 'bg-gray-800 text-gray-400 hover:bg-gray-700'
+                  }`}
+              >
+                {classe}
+              </button>
+            ))}
+          </div>
+        </div>
+
+        {/* Fourchette de prix (Deuxième élément) */}
         <div>
           <h3 className="text-white mb-3">Fourchette de prix (¥)</h3>
           <div className="flex items-center gap-4">
@@ -68,20 +94,29 @@ export const Filters: React.FC<FiltersProps> = ({
           </div>
         </div>
 
+        {/* Filtrer par marque (Dernier élément) */}
         <div>
-          <h3 className="text-white mb-3">Type de véhicule</h3>
-          <div className="grid grid-cols-2 gap-2">
-            {availableClasses.map((classe) => (
+          <h3 className="text-gray-400 mb-2">Filtrer par marque :</h3>
+          <div className="flex flex-wrap gap-2">
+            {availableBrands.map((brand) => (
               <button
-                key={classe}
-                onClick={() => handleClassToggle(classe)}
-                className={`px-3 py-2 rounded text-sm ${
-                  selectedClasses.includes(classe)
-                    ? 'bg-red-500 text-white'
-                    : 'bg-gray-800 text-gray-400 hover:bg-gray-700'
+                key={brand}
+                onClick={() => {
+                  setSelectedBrand((prevSelected: string[]) => {
+                    const updatedSelection = prevSelected.includes(brand)
+                      ? prevSelected.filter((b) => b !== brand) // Retire si déjà sélectionné
+                      : [...prevSelected, brand]; // Ajoute sinon
+                
+                    return updatedSelection;
+                  });
+                }}
+                className={`px-3 py-1 rounded-md border ${
+                  selectedBrand.includes(brand)
+                    ? "bg-green-500 text-white border-green-600"
+                    : "bg-gray-800 text-gray-400 border-gray-600"
                 }`}
               >
-                {classe}
+                {brand}
               </button>
             ))}
           </div>

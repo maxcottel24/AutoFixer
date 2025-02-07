@@ -5,8 +5,10 @@ import { useCart } from '../hooks/useCart';
 import { 
   GaugeCircle, Battery, Shield, Zap, 
   Timer, Cog, Plus,
-  ChevronLeft, ChevronRight 
+  ChevronLeft, ChevronRight,
+  ArrowLeft
 } from 'lucide-react';
+import { ImageModal } from '../components/ImageModal';
 
 const formatPrice = (price: string) => {
   return price.replace(/\B(?=(\d{3})+(?!\d))/g, ',');
@@ -14,6 +16,7 @@ const formatPrice = (price: string) => {
 
 export const CarPage: React.FC = () => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const [isModalOpen, setIsModalOpen] = useState(false);
   
   const { carName } = useParams();
   const navigate = useNavigate();
@@ -38,12 +41,21 @@ export const CarPage: React.FC = () => {
   return (
     <div className="min-h-screen bg-gray-800 py-8">
       <div className="max-w-6xl mx-auto px-4">
+        <button
+          onClick={() => navigate('/')}
+          className="mb-4 flex items-center gap-2 text-white hover:text-gray-300 transition-colors"
+        >
+          <ArrowLeft size={24} />
+          <span>Retour</span>
+        </button>
+
         <div className="bg-gray-900 rounded-lg overflow-hidden">
           <div className="relative">
             <img 
               src={allImages[currentImageIndex]} 
               alt={car.nom}
-              className="w-full h-96 object-cover"
+              className="w-full h-96 object-cover cursor-zoom-in"
+              onClick={() => setIsModalOpen(true)}
             />
             {allImages.length > 1 && (
               <>
@@ -73,6 +85,16 @@ export const CarPage: React.FC = () => {
               </>
             )}
           </div>
+          
+          {isModalOpen && (
+            <ImageModal 
+              imageUrl={allImages[currentImageIndex]}
+              onClose={() => setIsModalOpen(false)}
+              onNext={nextImage}
+              onPrevious={previousImage}
+              hasMultipleImages={allImages.length > 1}
+            />
+          )}
           
           <div className="p-8">
             <div className="flex justify-between items-start mb-6">

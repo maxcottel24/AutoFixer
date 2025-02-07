@@ -36,9 +36,9 @@ export const cars = [
       "https://i.imgur.com/xO3Ccoh.jpeg",
       "https://i.imgur.com/xO3Ccoh.jpeg",
       "https://i.imgur.com/xO3Ccoh.jpeg",
+      "https://i.imgur.com/j9XFzvW.jpeg",
       "https://i.imgur.com/xO3Ccoh.jpeg",
-      "https://i.imgur.com/xO3Ccoh.jpeg",
-      "https://i.imgur.com/xO3Ccoh.jpeg"
+      "https://i.imgur.com/j9XFzvW.jpeg"
     ]
   },
   {

@@ -1,10 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { cars } from '../data/cars';
 import { useCart } from '../hooks/useCart';
 import { 
   GaugeCircle, Battery, Shield, Zap, 
-  Timer, Cog, Plus 
+  Timer, Cog, Plus,
+  ChevronLeft, ChevronRight 
 } from 'lucide-react';
 
 const formatPrice = (price: string) => {
@@ -12,12 +13,24 @@ const formatPrice = (price: string) => {
 };
 
 export const CarPage: React.FC = () => {
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  
   const { carName } = useParams();
   const navigate = useNavigate();
   const { addToCart } = useCart();
   
   const car = cars.find(c => c.nom === carName);
   
+  const allImages = car ? [car.image, ...(car.additionalImages || [])] : [];
+  
+  const nextImage = () => {
+    setCurrentImageIndex((prev) => (prev + 1) % allImages.length);
+  };
+
+  const previousImage = () => {
+    setCurrentImageIndex((prev) => (prev - 1 + allImages.length) % allImages.length);
+  };
+
   if (!car) {
     return <div>Véhicule non trouvé</div>;
   }
@@ -26,11 +39,40 @@ export const CarPage: React.FC = () => {
     <div className="min-h-screen bg-gray-800 py-8">
       <div className="max-w-6xl mx-auto px-4">
         <div className="bg-gray-900 rounded-lg overflow-hidden">
-          <img 
-            src={car.image} 
-            alt={car.nom}
-            className="w-full h-96 object-cover"
-          />
+          <div className="relative">
+            <img 
+              src={allImages[currentImageIndex]} 
+              alt={car.nom}
+              className="w-full h-96 object-cover"
+            />
+            {allImages.length > 1 && (
+              <>
+                <button 
+                  onClick={previousImage}
+                  className="absolute left-4 top-1/2 -translate-y-1/2 bg-black/50 p-2 rounded-full hover:bg-black/75 transition-colors"
+                >
+                  <ChevronLeft size={24} className="text-white" />
+                </button>
+                <button 
+                  onClick={nextImage}
+                  className="absolute right-4 top-1/2 -translate-y-1/2 bg-black/50 p-2 rounded-full hover:bg-black/75 transition-colors"
+                >
+                  <ChevronRight size={24} className="text-white" />
+                </button>
+                <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2">
+                  {allImages.map((_, index) => (
+                    <button
+                      key={index}
+                      onClick={() => setCurrentImageIndex(index)}
+                      className={`w-2 h-2 rounded-full transition-colors ${
+                        index === currentImageIndex ? 'bg-white' : 'bg-white/50'
+                      }`}
+                    />
+                  ))}
+                </div>
+              </>
+            )}
+          </div>
           
           <div className="p-8">
             <div className="flex justify-between items-start mb-6">
@@ -62,7 +104,7 @@ export const CarPage: React.FC = () => {
                   <p className="text-white">{car.caractéristiques.vitesse_max}</p>
                 </div>
               </div>
-              
+
               <div className="flex items-center gap-3">
                 <Timer size={24} className="text-red-500" />
                 <div>

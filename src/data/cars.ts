@@ -13,6 +13,7 @@ type Car = {
   };
   prix: string;
   image: string;
+  additionalImages?: string[];
 };
 
 export const cars = [
@@ -30,7 +31,15 @@ export const cars = [
       "pv": 45
     },
     "prix": "225000",
-    "image": "https://i.imgur.com/xO3Ccoh.jpeg"
+    "image": "https://i.imgur.com/xO3Ccoh.jpeg",
+    "additionalImages": [
+      "https://i.imgur.com/xO3Ccoh.jpeg",
+      "https://i.imgur.com/xO3Ccoh.jpeg",
+      "https://i.imgur.com/xO3Ccoh.jpeg",
+      "https://i.imgur.com/xO3Ccoh.jpeg",
+      "https://i.imgur.com/xO3Ccoh.jpeg",
+      "https://i.imgur.com/xO3Ccoh.jpeg"
+    ]
   },
   {
     "nom": "Caliburn",
@@ -51,7 +60,7 @@ export const cars = [
   {
     "nom": "Colby C125",
     "fabricant": "Thorton",
-    "classe": "Économique",
+    "classe": "Utilitaire",
     "caractéristiques": {
       "vitesse_max": "220 km/h",
       "accélération_0_100_kmh": "12 sec",
@@ -67,7 +76,7 @@ export const cars = [
   {
     "nom": "Colby CX410 Butte",
     "fabricant": "Thorton",
-    "classe": "Économique",
+    "classe": "Tout terrain",
     "caractéristiques": {
       "vitesse_max": "220 km/h",
       "accélération_0_100_kmh": "13 sec",
@@ -83,7 +92,7 @@ export const cars = [
   {
     "nom": "Quartz EC-L R275",
     "fabricant": "Archer",
-    "classe": "Sport",
+    "classe": "Citadine",
     "caractéristiques": {
       "vitesse_max": "259 km/h",
       "accélération_0_100_kmh": "7 sec",
@@ -99,7 +108,7 @@ export const cars = [
   {
     "nom": "Galena Rattler",
     "fabricant": "Thorton",
-    "classe": "Économique",
+    "classe": "Citadine",
     "caractéristiques": {
       "vitesse_max": "290 km/h",
       "accélération_0_100_kmh": "5.1 sec",
@@ -115,7 +124,7 @@ export const cars = [
   {
     "nom": "Alvarado V4F 570 Delegate",
     "fabricant": "Villefort",
-    "classe": "Exécutive",
+    "classe": "Berline",
     "caractéristiques": {
       "vitesse_max": "243 km/h",
       "accélération_0_100_kmh": "16 sec",
@@ -131,7 +140,7 @@ export const cars = [
   {
     "nom": "Cortes V5000 Valor",
     "fabricant": "Villefort",
-    "classe": "Exécutive",
+    "classe": "Berline",
     "caractéristiques": {
       "vitesse_max": "243 km/h",
       "accélération_0_100_kmh": "N/A",
@@ -147,7 +156,7 @@ export const cars = [
   {
     "nom": "Thrax 388 Jefferson",
     "fabricant": "Chevillon",
-    "classe": "Exécutive",
+    "classe": "Berline",
     "caractéristiques": {
       "vitesse_max": "243 km/h",
       "accélération_0_100_kmh": "N/A",
@@ -259,7 +268,7 @@ export const cars = [
   {
     "nom": "Columbus V340-F Freight",
     "fabricant": "Villefort",
-    "classe": "Exécutive",
+    "classe": "Utilitaire",
     "caractéristiques": {
       "vitesse_max": "209 km/h",
       "accélération_0_100_kmh": "11.08 sec",
@@ -307,7 +316,7 @@ export const cars = [
   {
     "nom": "Maimai P126",
     "fabricant": "Makigai",
-    "classe": "Économique",
+    "classe": "Citadine",
     "caractéristiques": {
       "vitesse_max": "191 km/h",
       "accélération_0_100_kmh": "N/A",

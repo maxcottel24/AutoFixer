@@ -22,9 +22,9 @@ export const CarGrid: React.FC = () => {
   }, [priceRange, selectedClasses, selectedBrand]);
 
   return (
-    <div className="flex gap-6 p-6">
-      <div className="w-80 flex-shrink-0">
-        <div className="sticky top-6">
+    <div className="flex flex-col lg:flex-row gap-6 p-4 lg:p-6">
+      <div className="w-full lg:w-80 lg:flex-shrink-0">
+        <div className="lg:sticky lg:top-6">
           <Filters
             priceRange={priceRange}
             setPriceRange={setPriceRange}
@@ -40,7 +40,7 @@ export const CarGrid: React.FC = () => {
       </div>
       
       <div className="flex-1">
-        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-4 lg:gap-6">
           {filteredCars.map((car) => (
             <CarCard key={car.nom} car={car} />
           ))}
@@ -48,7 +48,7 @@ export const CarGrid: React.FC = () => {
         
         {filteredCars.length === 0 && (
           <div className="text-center py-12">
-            <p className="text-gray-400">No vehicles match your filters</p>
+            <p className="text-gray-400">Aucun véhicule ne correspond à vos filtres</p>
           </div>
         )}
       </div>

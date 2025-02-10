@@ -4,9 +4,10 @@ import { Filters } from './Filters';
 import { cars } from '../data/cars';
 
 export const CarGrid: React.FC = () => {
+  const minPrice = Math.min(...cars.map(car => parseInt(car.prix)));
   const maxPrice = Math.max(...cars.map(car => parseInt(car.prix)));
   const availableClasses = Array.from(new Set(cars.map(car => car.classe))).sort(); 
-  const [priceRange, setPriceRange] = useState<[number, number]>([0, maxPrice]);
+  const [priceRange, setPriceRange] = useState<[number, number]>([minPrice, maxPrice]);
   const [selectedClasses, setSelectedClasses] = useState<string[]>([]);
   const [selectedBrand, setSelectedBrand] = useState<string[]>([]);
   const availableBrands = Array.from(new Set(cars.map(car => car.fabricant))).sort();

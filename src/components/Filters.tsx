@@ -72,7 +72,11 @@ export const Filters: React.FC<FiltersProps> = ({
               min="0"
               max={maxPrice}
               value={priceRange[0]}
-              onChange={(e) => setPriceRange([parseInt(e.target.value), priceRange[1]])}
+              onChange={(e) => {
+                const newMin = parseInt(e.target.value);
+                // Ensure minimum doesn't exceed maximum
+                setPriceRange([Math.min(newMin, priceRange[1]), priceRange[1]]);
+              }}
               className="w-full h-2 bg-gray-700 rounded-lg appearance-none cursor-pointer accent-red-500"
             />
             <span className="text-green-400 font-mono whitespace-nowrap">
@@ -85,7 +89,11 @@ export const Filters: React.FC<FiltersProps> = ({
               min="0"
               max={maxPrice}
               value={priceRange[1]}
-              onChange={(e) => setPriceRange([priceRange[0], parseInt(e.target.value)])}
+              onChange={(e) => {
+                const newMax = parseInt(e.target.value);
+                // Ensure maximum doesn't go below minimum
+                setPriceRange([priceRange[0], Math.max(newMax, priceRange[0])]);
+              }}
               className="w-full h-2 bg-gray-700 rounded-lg appearance-none cursor-pointer accent-red-500"
             />
             <span className="text-green-400 font-mono whitespace-nowrap">

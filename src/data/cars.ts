@@ -31,14 +31,17 @@ export const cars = [
       "pv": 45
     },
     "prix": "225000",
-    "image": "https://i.imgur.com/xO3Ccoh.jpeg",
+    "image": "https://i.imgur.com/Ymey91P.jpeg",
     "additionalImages": [
       "https://i.imgur.com/xO3Ccoh.jpeg",
-      "https://i.imgur.com/xO3Ccoh.jpeg",
-      "https://i.imgur.com/xO3Ccoh.jpeg",
-      "https://i.imgur.com/j9XFzvW.jpeg",
-      "https://i.imgur.com/xO3Ccoh.jpeg",
-      "https://i.imgur.com/j9XFzvW.jpeg"
+      "https://i.imgur.com/xAHdOIu.jpeg",
+      "https://i.imgur.com/0baaBt6.jpeg",
+      "https://i.imgur.com/TZnYTmo.jpeg",
+      "https://i.imgur.com/IORiuTJ.jpeg",
+      "https://i.imgur.com/Z19GPNF.jpeg",
+      "https://i.imgur.com/dT8Keo4.jpeg",
+      "https://i.imgur.com/2F4r9Os.jpeg",
+      "https://i.imgur.com/40TPf9b.jpeg"
     ]
   },
   {
@@ -55,7 +58,15 @@ export const cars = [
       "pv": 40
     },
     "prix": "157000",
-    "image": "https://i.imgur.com/j9XFzvW.jpeg"
+    "image": "https://i.imgur.com/j9XFzvW.jpeg",
+    "additionalImages": [
+      "https://i.imgur.com/LKsjGZw.jpeg",
+      "https://i.imgur.com/zarWULq.jpeg",
+      "https://i.imgur.com/k56TpvB.jpeg",
+      "https://i.imgur.com/W4Rzjoo.jpeg",
+      "https://i.imgur.com/e8N7Jwc.jpeg",
+      "https://i.imgur.com/tfFiuhe.jpeg"
+    ]
   },
   {
     "nom": "Colby C125",

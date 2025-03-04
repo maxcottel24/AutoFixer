@@ -4,7 +4,7 @@ import { cars } from '../data/cars';
 import { useCart } from '../hooks/useCart';
 import { 
   GaugeCircle, Battery, Shield, Zap, 
-  Timer, Cog, Plus,
+  Cog, Plus, Users,
   ChevronLeft, ChevronRight,
   ArrowLeft
 } from 'lucide-react';
@@ -17,6 +17,7 @@ const formatPrice = (price: string) => {
 export const CarPage: React.FC = () => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [selectedColor, setSelectedColor] = useState<string>('');
   
   const { carName } = useParams();
   const navigate = useNavigate();
@@ -118,7 +119,7 @@ export const CarPage: React.FC = () => {
               </div>
             </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6 mt-8">
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6 mt-8 mb-8">
               <div className="flex items-center gap-3 bg-gray-800/50 p-3 rounded-lg">
                 <GaugeCircle size={24} className="text-red-500 shrink-0" />
                 <div>
@@ -128,10 +129,10 @@ export const CarPage: React.FC = () => {
               </div>
 
               <div className="flex items-center gap-3 bg-gray-800/50 p-3 rounded-lg">
-                <Timer size={24} className="text-red-500 shrink-0" />
+                <Users size={24} className="text-red-500 shrink-0" />
                 <div>
-                  <p className="text-gray-400 text-sm">0-100 km/h</p>
-                  <p className="text-white">{car.caractéristiques.accélération_0_100_kmh}</p>
+                  <p className="text-gray-400 text-sm">Nombre de places</p>
+                  <p className="text-white">{car.caractéristiques.nombre_de_places}</p>
                 </div>
               </div>
 
@@ -167,6 +168,57 @@ export const CarPage: React.FC = () => {
                 </div>
               </div>
             </div>
+
+            {car.exclusiveColor && (
+              <div className="mb-6">
+                <h3 className="text-white text-lg mb-4 text-center">Couleur exclusive {car.fabricant}</h3>
+                <div className="flex justify-center">
+                  <button
+                    onClick={() => setSelectedColor(car.exclusiveColor!.hex)}
+                    className="group relative"
+                  >
+                    <div 
+                      className={`w-11 h-11 rounded-full border-2 transition-all duration-200 ${
+                        selectedColor === car.exclusiveColor.hex 
+                          ? 'border-red-500 scale-110' 
+                          : 'border-transparent hover:border-red-500/50'
+                      }`}
+                      style={{ backgroundColor: car.exclusiveColor.hex }}
+                    />
+                    <div className="absolute top-full left-1/2 -translate-x-1/2 mt-2 bg-gray-900 text-white px-2 py-1 rounded text-sm whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity text-center min-w-[120px]">
+                      {car.exclusiveColor.name}
+                    </div>
+                  </button>
+                </div>
+              </div>
+            )}
+
+            {car.colors && car.colors.length > 0 && (
+              <div className="mb-8">
+                <h3 className="text-white text-lg mb-4 text-center">Couleurs AutoFixer</h3>
+                <div className="flex flex-wrap gap-3 justify-center">
+                  {car.colors.map((color) => (
+                    <button
+                      key={color.hex}
+                      onClick={() => setSelectedColor(color.hex)}
+                      className={`group relative`}
+                    >
+                      <div 
+                        className={`w-11 h-11 rounded-full border-2 transition-all duration-200 ${
+                          selectedColor === color.hex 
+                            ? 'border-red-500 scale-110' 
+                            : 'border-transparent hover:border-red-500/50'
+                        }`}
+                        style={{ backgroundColor: color.hex }}
+                      />
+                      <div className="absolute top-full left-1/2 -translate-x-1/2 mt-2 bg-gray-900 text-white px-2 py-1 rounded text-sm whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity text-center min-w-[120px]">
+                        {color.name}
+                      </div>
+                    </button>
+                  ))}
+                </div>
+              </div>
+            )}
           </div>
         </div>
       </div>

@@ -196,12 +196,12 @@ export const CarPage: React.FC = () => {
             {car.colors && car.colors.length > 0 && (
               <div className="mb-8">
                 <h3 className="text-white text-lg mb-4 text-center">Couleurs AutoFixer</h3>
-                <div className="flex flex-wrap gap-3 justify-center">
+                <div className="flex flex-wrap gap-x-3 gap-y-8 justify-center">
                   {car.colors.map((color) => (
                     <button
                       key={color.hex}
                       onClick={() => setSelectedColor(color.hex)}
-                      className={`group relative`}
+                      className="group relative"
                     >
                       <div 
                         className={`w-11 h-11 rounded-full border-2 transition-all duration-200 ${
@@ -211,7 +211,7 @@ export const CarPage: React.FC = () => {
                         }`}
                         style={{ backgroundColor: color.hex }}
                       />
-                      <div className="absolute top-full left-1/2 -translate-x-1/2 mt-2 bg-gray-900 text-white px-2 py-1 rounded text-sm whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity text-center min-w-[120px]">
+                      <div className="absolute top-[calc(100%+0.5rem)] left-1/2 -translate-x-1/2 mt-2 bg-gray-900 text-white px-2 py-1 rounded text-sm whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity text-center min-w-[120px] z-10">
                         {color.name}
                       </div>
                     </button>

@@ -217,7 +217,15 @@ export const cars = [
       "pv": 60
     },
     "prix": "45000",
-    "image": "https://i.imgur.com/TROhhwz.jpeg",
+    "image": "https://i.imgur.com/TROhhwz.jpeg", // à changer
+    "additionalImages": [
+      "https://i.imgur.com/L84zMR0.jpeg",
+      "https://i.imgur.com/ZKdrmJx.jpeg",
+      // photo de l'arrière du véhicule
+      "https://i.imgur.com/vfsIUD6.jpeg",
+      "https://i.imgur.com/1SK7EPX.jpeg",
+      "https://i.imgur.com/tcDCtO1.jpeg"
+    ],
     "colors": standardColors,
     "exclusiveColor": exclusiveColors.Villefort
   },
@@ -270,8 +278,8 @@ export const cars = [
     "prix": "62000",
     "image": "https://i.imgur.com/gPtKbUQ.jpeg",
     "additionalImages": [
-      "https://i.imgur.com/whyflIX.jpeg",
-      "https://i.imgur.com/niLw7OS.jpeg",
+      "https://i.imgur.com/HRcKwAs.jpeg",
+      "https://i.imgur.com/wrKU37b.jpeg",
       "https://i.imgur.com/wHqNWW8.jpeg",
       "https://i.imgur.com/YYp1LuR.jpeg",
       "https://i.imgur.com/miDfSJZ.jpeg"
@@ -369,6 +377,11 @@ export const cars = [
     },
     "prix": "55000",
     "image": "https://images.unsplash.com/photo-1733299710470-f5b8b6a79849?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "additionalImages": [ 
+      "https://images.unsplash.com/photo-1733299710040-f24eb2231436?q=80&w=3870&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "https://images.unsplash.com/photo-1733299707207-0c94238c3704?q=80&w=3870&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "https://images.unsplash.com/photo-1733299707389-2f2ec2e372ab?q=80&w=3870&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+    ],
     "colors": standardColors,
     "exclusiveColor": exclusiveColors.Chevrolet
   },

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Car } from '../types';
-import { GaugeCircle, Battery, Shield, Zap } from 'lucide-react';
+import { GaugeCircle, Battery, Shield, Crosshair } from 'lucide-react';
 
 interface CarCardProps {
   car: Car;
@@ -35,8 +35,8 @@ export const CarCard: React.FC<CarCardProps> = ({ car }) => {
             <span>Vitesse: {car.caractéristiques.vitesse_max}</span>
           </div>
           <div className="flex items-center gap-2 text-gray-400">
-            <Zap size={16} className="text-red-500" />
-            <span>Puissance: {car.caractéristiques.puissance}</span>
+            <Crosshair size={16} className="text-red-500" />
+            <span>Armé: {car.caractéristiques.armé}</span>
           </div>
           <div className="flex items-center gap-2 text-gray-400">
             <Shield size={16} className="text-red-500" />

@@ -6,7 +6,7 @@ type Car = {
     vitesse_max: string;
     nombre_de_places: string;
     puissance: string;
-    transmission: string;
+    armé: "Oui" | "Non";
     réduction_des_dégâts: number;
     pv: number;
   };
@@ -17,10 +17,10 @@ type Car = {
     name: string;
     hex: string;
   }[];
-  exclusiveColor?: {
+  exclusiveColors?: {
     name: string;
     hex: string;
-  };
+  }[];
 };
 
 // Définition des couleurs standards
@@ -78,8 +78,8 @@ export const exclusiveColors = {
   ArchMotorcycles: { "name": "Arch Furie du Bitume", "hex": "#4A0000" },
   Dodge: { "name": "Dodge Dragstrip Inferno", "hex": "#FF8200" },
   Chevrolet: { "name": "Chevrolet Lac Elkhart", "hex": "#005BAC" },
-
-  
+  Viper: { "name": "Vipers", "hex": "#60A832" },
+  Corvette: { "name": "Corvettes", "hex": "#714C31" },
 } as const;
 
 export const cars = [
@@ -91,7 +91,7 @@ export const cars = [
       "vitesse_max": "306 km/h",
       "nombre_de_places": "2",
       "puissance": "950 CV",
-      "transmission": "Propulsion arrière (RWD)",
+      "armé": "Non",
       "réduction_des_dégâts": 6,
       "pv": 45
     },
@@ -109,7 +109,7 @@ export const cars = [
       "https://i.imgur.com/40TPf9b.jpeg"
     ],
     "colors": standardColors,
-    "exclusiveColor": exclusiveColors.Rayfield
+    "exclusiveColors": exclusiveColors.Rayfield
   },
   {
     "nom": "Caliburn",
@@ -119,7 +119,7 @@ export const cars = [
       "vitesse_max": "339 km/h",
       "nombre_de_places": "2",
       "puissance": "980 CV",
-      "transmission": "Transmission intégrale (AWD)",
+      "armé": "Non",
       "réduction_des_dégâts": 6,
       "pv": 40
     },
@@ -134,7 +134,7 @@ export const cars = [
       "https://i.imgur.com/tfFiuhe.jpeg"
     ],
     "colors": standardColors,
-    "exclusiveColor": exclusiveColors.Rayfield
+    "exclusiveColors": exclusiveColors.Rayfield
   },
   {
     "nom": "Colby C125",
@@ -144,14 +144,14 @@ export const cars = [
       "vitesse_max": "220 km/h",
       "nombre_de_places": "2?",
       "puissance": "182 CV",
-      "transmission": "Traction avant (FWD)",
+      "armé": "Non",
       "réduction_des_dégâts": 8,
       "pv": 70
     },
     "prix": "24000",
     "image": "https://i.imgur.com/oJ8lSRn.jpeg",
     "colors": standardColors,
-    "exclusiveColor": exclusiveColors.Thorton
+    "exclusiveColors": exclusiveColors.Thorton
   },
   {
     "nom": "Colby CX410 Butte",
@@ -161,14 +161,14 @@ export const cars = [
       "vitesse_max": "220 km/h",
       "nombre_de_places": "4",
       "puissance": "235 CV",
-      "transmission": "Transmission intégrale (AWD)",
+      "armé": "Non",
       "réduction_des_dégâts": 7,
       "pv": 60
     },
     "prix": "21000",
     "image": "https://i.imgur.com/PVcCDr3.jpeg",
     "colors": standardColors,
-    "exclusiveColor": exclusiveColors.Thorton
+    "exclusiveColors": exclusiveColors.Thorton
   },
   {
     "nom": "Quartz EC-L R275",
@@ -178,14 +178,14 @@ export const cars = [
       "vitesse_max": "259 km/h",
       "nombre_de_places": "2",
       "puissance": "161 CV",
-      "transmission": "Propulsion arrière (RWD)",
+      "armé": "Non",
       "réduction_des_dégâts": 6,
       "pv": 54
     },
     "prix": "29000",
     "image": "https://i.imgur.com/KrzXzpi.jpeg",
     "colors": standardColors,
-    "exclusiveColor": exclusiveColors.Archer
+    "exclusiveColors": exclusiveColors.Archer
   },
   {
     "nom": "Galena Rattler",
@@ -195,14 +195,14 @@ export const cars = [
       "vitesse_max": "290 km/h",
       "nombre_de_places": "2?",
       "puissance": "365 CV",
-      "transmission": "Transmission intégrale (AWD)",
+      "armé": "Non",
       "réduction_des_dégâts": 7,
       "pv": 50
     },
     "prix": "30000",
     "image": "https://i.imgur.com/7UbrYPY.jpeg",
     "colors": standardColors,
-    "exclusiveColor": exclusiveColors.Thorton
+    "exclusiveColors": exclusiveColors.Thorton
   },
   {
     "nom": "Alvarado V4F 570 Delegate",
@@ -212,7 +212,7 @@ export const cars = [
       "vitesse_max": "243 km/h",
       "nombre_de_places": "2?",
       "puissance": "407 CV",
-      "transmission": "Traction avant (FWD)",
+      "armé": "Non",
       "réduction_des_dégâts": 8,
       "pv": 60
     },
@@ -227,7 +227,7 @@ export const cars = [
       "https://i.imgur.com/tcDCtO1.jpeg"
     ],
     "colors": standardColors,
-    "exclusiveColor": exclusiveColors.Villefort
+    "exclusiveColors": exclusiveColors.Villefort
   },
   {
     "nom": "Cortes V5000 Valor",
@@ -237,14 +237,14 @@ export const cars = [
       "vitesse_max": "243 km/h",
       "nombre_de_places": "5",
       "puissance": "333 CV",
-      "transmission": "Propulsion arrière (RWD)",
+      "armé": "Non",
       "réduction_des_dégâts": 7,
       "pv": 48
     },
     "prix": "25000",
     "image": "https://i.imgur.com/FuaoLNr.jpeg",
     "colors": standardColors,
-    "exclusiveColor": exclusiveColors.Villefort
+    "exclusiveColors": exclusiveColors.Villefort
   },
   {
     "nom": "Thrax 388 Jefferson",
@@ -254,14 +254,14 @@ export const cars = [
       "vitesse_max": "243 km/h",
       "nombre_de_places": "5",
       "puissance": "388 CV",
-      "transmission": "Propulsion arrière (RWD)",
+      "armé": "Non",
       "réduction_des_dégâts": 4,
       "pv": 52
     },
     "prix": "26000",
     "image": "https://i.imgur.com/j2nI8zy.jpeg",
     "colors": standardColors,
-    "exclusiveColor": exclusiveColors.Chevillon
+    "exclusiveColors": exclusiveColors.Chevillon
   },
   {
     "nom": "Outlaw GTS",
@@ -271,7 +271,7 @@ export const cars = [
       "vitesse_max": "299 km/h",
       "nombre_de_places": "4",
       "puissance": "755 CV",
-      "transmission": "Transmission intégrale (AWD)",
+      "armé": "Non",
       "réduction_des_dégâts": 5,
       "pv": 51
     },
@@ -285,7 +285,7 @@ export const cars = [
       "https://i.imgur.com/miDfSJZ.jpeg"
     ],
     "colors": standardColors,
-    "exclusiveColor": exclusiveColors.Herrera
+    "exclusiveColors": exclusiveColors.Herrera
   },
   {
     "nom": "Shion Coyote",
@@ -295,7 +295,7 @@ export const cars = [
       "vitesse_max": "320 km/h",
       "nombre_de_places": "2",
       "puissance": "570 CV",
-      "transmission": "Transmission intégrale (AWD)",
+      "armé": "Non",
       "réduction_des_dégâts": 12,
       "pv": 75
     },
@@ -310,7 +310,7 @@ export const cars = [
       "https://i.imgur.com/FjCFIvY.jpeg"
     ],
     "colors": standardColors,
-    "exclusiveColor": exclusiveColors.Mizutani
+    "exclusiveColors": exclusiveColors.Mizutani
   },
   {
     "nom": "Apollo",
@@ -320,14 +320,14 @@ export const cars = [
       "vitesse_max": "220 km/h",
       "nombre_de_places": "2",
       "puissance": "94 CV",
-      "transmission": "Propulsion arrière (RWD)",
+      "armé": "Non",
       "réduction_des_dégâts": 0,
       "pv": 20
     },
     "prix": "15000",
     "image": "https://i.imgur.com/0PVsMzR.jpeg",
     "colors": standardColors,
-    "exclusiveColor": exclusiveColors.Brennan
+    "exclusiveColors": exclusiveColors.Brennan
   },
   {
     "nom": "Nazare",
@@ -337,14 +337,14 @@ export const cars = [
       "vitesse_max": "286 km/h",
       "nombre_de_places": "2",
       "puissance": "170 CV",
-      "transmission": "Propulsion arrière (RWD)",
+      "armé": "Non",
       "réduction_des_dégâts": 0,
       "pv": 35
     },
     "prix": "49000",
     "image": "https://images.unsplash.com/photo-1558981359-219d6364c9c8?auto=format&fit=crop&q=80&w=1200",
     "colors": standardColors,
-    "exclusiveColor": exclusiveColors.ArchMotorcycles
+    "exclusiveColors": exclusiveColors.ArchMotorcycles
   },
   {
     "nom": "Viper 1996",
@@ -354,14 +354,17 @@ export const cars = [
       "vitesse_max": "305 km/h",
       "nombre_de_places": "2",
       "puissance": "501 CV",
-      "transmission": "Propulsion arrière (RWD)",
+      "armé": "Non",
       "réduction_des_dégâts": 2,
       "pv": 43
     },
     "prix": "55000",
     "image": "https://www.sportscarmarket.com/wp-content/uploads/2021/05/1996-dodge-viper-gts-coupe-drivers-front.jpg",
     "colors": standardColors,
-    "exclusiveColor": exclusiveColors.Dodge
+    "exclusiveColors": [
+      exclusiveColors.Dodge,
+      exclusiveColors.Viper
+    ]
   },
   {
     "nom": "Corvette C6 2005",
@@ -371,7 +374,7 @@ export const cars = [
       "vitesse_max": "312 km/h",
       "nombre_de_places": "2",
       "puissance": "505 CV",
-      "transmission": "Propulsion arrière (RWD)",
+      "armé": "Non",
       "réduction_des_dégâts": 3,
       "pv": 40
     },
@@ -383,7 +386,10 @@ export const cars = [
       "https://images.unsplash.com/photo-1733299707389-2f2ec2e372ab?q=80&w=3870&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
     ],
     "colors": standardColors,
-    "exclusiveColor": exclusiveColors.Chevrolet
+    "exclusiveColors": [
+      exclusiveColors.Chevrolet,
+      exclusiveColors.Corvette
+    ]
   },
   {
     "nom": "Columbus V340-F Freight",
@@ -393,14 +399,14 @@ export const cars = [
       "vitesse_max": "209 km/h",
       "nombre_de_places": "6",
       "puissance": "210 CV",
-      "transmission": "Propulsion arrière (RWD)",
+      "armé": "Non",
       "réduction_des_dégâts": 10,
       "pv": 80
     },
     "prix": "19000",
     "image": "https://i.imgur.com/PNd8NIR.jpeg",
     "colors": standardColors,
-    "exclusiveColor": exclusiveColors.Villefort
+    "exclusiveColors": exclusiveColors.Villefort
   },
   {
     "nom": "Kusanagi CT-3X",
@@ -410,14 +416,14 @@ export const cars = [
       "vitesse_max": "288 km/h",
       "nombre_de_places": "2",
       "puissance": "183 CV",
-      "transmission": "Propulsion arrière (RWD)",
+      "armé": "Non",
       "réduction_des_dégâts": 0,
       "pv": 27
     },
     "prix": "31000",
     "image": "https://i.imgur.com/4wwua2X.jpeg",
     "colors": standardColors,
-    "exclusiveColor": exclusiveColors.Yaiba
+    "exclusiveColors": exclusiveColors.Yaiba
   },
   {
     "nom": "Turbo-R V-Tech",
@@ -427,14 +433,14 @@ export const cars = [
       "vitesse_max": "301 km/h",
       "nombre_de_places": "2",
       "puissance": "740 CV",
-      "transmission": "Propulsion arrière (RWD)",
+      "armé": "Non",
       "réduction_des_dégâts": 4,
       "pv": 51
     },
     "prix": "75000",
     "image": "https://i.imgur.com/t82ijtv.jpeg",
     "colors": standardColors,
-    "exclusiveColor": exclusiveColors.Quadra
+    "exclusiveColors": exclusiveColors.Quadra
   },
   {
     "nom": "Maimai P126",
@@ -444,14 +450,14 @@ export const cars = [
       "vitesse_max": "191 km/h",
       "nombre_de_places": "2",
       "puissance": "70 CV",
-      "transmission": "Propulsion arrière (RWD)",
+      "armé": "Non",
       "réduction_des_dégâts": 1,
       "pv": 15
     },
     "prix": "14000",
     "image": "https://i.imgur.com/cxj7AM3.jpeg",
     "colors": standardColors,
-    "exclusiveColor": exclusiveColors.Makigai
+    "exclusiveColors": exclusiveColors.Makigai
   }
 ];
 

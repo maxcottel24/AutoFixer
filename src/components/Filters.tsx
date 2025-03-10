@@ -37,7 +37,7 @@ export const Filters: React.FC<FiltersProps> = ({
   };
 
   return (
-    <div className="bg-gray-900 p-6 rounded-lg border border-red-500/20">
+    <div className="sticky top-20 z-40 bg-gray-900 p-6 rounded-lg shadow-lg max-w-xs w-full">
       <div className="flex items-center gap-2 mb-6">
         <SlidersHorizontal className="text-red-500" />
         <h2 className="text-xl font-bold text-white">Filtres</h2>

@@ -4,7 +4,7 @@ import { cars } from '../data/cars';
 import { useCart } from '../hooks/useCart';
 import { 
   GaugeCircle, Battery, Shield, Zap, 
-  Cog, Plus, Users,
+  Crosshair, Plus, Users,
   ChevronLeft, ChevronRight,
   ArrowLeft
 } from 'lucide-react';
@@ -18,6 +18,7 @@ export const CarPage: React.FC = () => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedColor, setSelectedColor] = useState<string>('');
+  const [accentColor, setAccentColor] = useState<string>('#ef4444'); // Default to red-500
   
   const { carName } = useParams();
   const navigate = useNavigate();
@@ -33,6 +34,12 @@ export const CarPage: React.FC = () => {
 
   const previousImage = () => {
     setCurrentImageIndex((prev) => (prev - 1 + allImages.length) % allImages.length);
+  };
+
+  // Function to handle color selection
+  const handleColorSelect = (hex: string) => {
+    setSelectedColor(hex);
+    setAccentColor(hex);
   };
 
   if (!car) {
@@ -101,7 +108,7 @@ export const CarPage: React.FC = () => {
             <div className="flex flex-col sm:flex-row justify-between items-start gap-4 mb-6">
               <div>
                 <h1 className="text-2xl sm:text-3xl font-bold text-white mb-2">{car.nom}</h1>
-                <p className="text-red-500 text-lg sm:text-xl">{car.fabricant}</p>
+                <p className="text-lg sm:text-xl" style={{ color: accentColor }}>{car.fabricant}</p>
                 <p className="text-gray-400">Classe: {car.classe}</p>
               </div>
               <div className="w-full sm:w-auto text-left sm:text-right">
@@ -111,7 +118,8 @@ export const CarPage: React.FC = () => {
                     addToCart(car);
                     navigate('/garage');
                   }}
-                  className="w-full sm:w-auto mt-4 flex items-center justify-center gap-2 bg-red-500 text-white px-6 py-2 rounded hover:bg-red-600 transition-colors"
+                  className="w-full sm:w-auto mt-4 flex items-center justify-center gap-2 text-white px-6 py-2 rounded transition-colors hover:opacity-80"
+                  style={{ backgroundColor: accentColor }}
                 >
                   <Plus size={20} />
                   Ajouter au garage
@@ -121,7 +129,7 @@ export const CarPage: React.FC = () => {
 
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6 mt-8 mb-8">
               <div className="flex items-center gap-3 bg-gray-800/50 p-3 rounded-lg">
-                <GaugeCircle size={24} className="text-red-500 shrink-0" />
+                <GaugeCircle size={24} style={{ color: accentColor }} className="shrink-0" />
                 <div>
                   <p className="text-gray-400 text-sm">Vitesse max</p>
                   <p className="text-white">{car.caractéristiques.vitesse_max}</p>
@@ -129,7 +137,7 @@ export const CarPage: React.FC = () => {
               </div>
 
               <div className="flex items-center gap-3 bg-gray-800/50 p-3 rounded-lg">
-                <Users size={24} className="text-red-500 shrink-0" />
+                <Users size={24} style={{ color: accentColor }} className="shrink-0" />
                 <div>
                   <p className="text-gray-400 text-sm">Nombre de places</p>
                   <p className="text-white">{car.caractéristiques.nombre_de_places}</p>
@@ -137,7 +145,7 @@ export const CarPage: React.FC = () => {
               </div>
 
               <div className="flex items-center gap-3 bg-gray-800/50 p-3 rounded-lg">
-                <Zap size={24} className="text-red-500 shrink-0" />
+                <Zap size={24} style={{ color: accentColor }} className="shrink-0" />
                 <div>
                   <p className="text-gray-400 text-sm">Puissance</p>
                   <p className="text-white">{car.caractéristiques.puissance}</p>
@@ -145,15 +153,15 @@ export const CarPage: React.FC = () => {
               </div>
 
               <div className="flex items-center gap-3 bg-gray-800/50 p-3 rounded-lg">
-                <Cog size={24} className="text-red-500 shrink-0" />
+                <Crosshair size={24} style={{ color: accentColor }} className="shrink-0" />
                 <div>
-                  <p className="text-gray-400 text-sm">Transmission</p>
-                  <p className="text-white">{car.caractéristiques.transmission}</p>
+                  <p className="text-gray-400 text-sm">Armé</p>
+                  <p className="text-white">{car.caractéristiques.armé}</p>
                 </div>
               </div>
 
               <div className="flex items-center gap-3 bg-gray-800/50 p-3 rounded-lg">
-                <Shield size={24} className="text-red-500 shrink-0" />
+                <Shield size={24} style={{ color: accentColor }} className="shrink-0" />
                 <div>
                   <p className="text-gray-400 text-sm">Réduction des dégâts</p>
                   <p className="text-white">{car.caractéristiques.réduction_des_dégâts}</p>
@@ -161,7 +169,7 @@ export const CarPage: React.FC = () => {
               </div>
 
               <div className="flex items-center gap-3 bg-gray-800/50 p-3 rounded-lg">
-                <Battery size={24} className="text-red-500 shrink-0" />
+                <Battery size={24} style={{ color: accentColor }} className="shrink-0" />
                 <div>
                   <p className="text-gray-400 text-sm">PV</p>
                   <p className="text-white">{car.caractéristiques.pv}</p>
@@ -169,26 +177,56 @@ export const CarPage: React.FC = () => {
               </div>
             </div>
 
-            {car.exclusiveColor && (
+            {car.exclusiveColors && (
               <div className="mb-6">
-                <h3 className="text-white text-lg mb-4 text-center">Couleur exclusive {car.fabricant}</h3>
-                <div className="flex justify-center">
-                  <button
-                    onClick={() => setSelectedColor(car.exclusiveColor!.hex)}
-                    className="group relative"
-                  >
-                    <div 
-                      className={`w-11 h-11 rounded-full border-2 transition-all duration-200 ${
-                        selectedColor === car.exclusiveColor.hex 
-                          ? 'border-red-500 scale-110' 
-                          : 'border-transparent hover:border-red-500/50'
-                      }`}
-                      style={{ backgroundColor: car.exclusiveColor.hex }}
-                    />
-                    <div className="absolute top-full left-1/2 -translate-x-1/2 mt-2 bg-gray-900 text-white px-2 py-1 rounded text-sm whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity text-center min-w-[120px]">
-                      {car.exclusiveColor.name}
-                    </div>
-                  </button>
+                <h3 className="text-white text-lg mb-4 text-center">
+                  Couleur{Array.isArray(car.exclusiveColors) && car.exclusiveColors.length > 1 ? 's' : ''} exclusive{Array.isArray(car.exclusiveColors) && car.exclusiveColors.length > 1 ? 's' : ''} {car.fabricant}
+                </h3>
+                <div className="flex flex-wrap gap-x-3 gap-y-8 justify-center">
+                  {Array.isArray(car.exclusiveColors) ? (
+                    car.exclusiveColors.map((color) => (
+                      <button
+                        key={color.hex}
+                        onClick={() => handleColorSelect(color.hex)}
+                        className="group relative"
+                      >
+                        <div 
+                          className={`w-11 h-11 rounded-full border-2 transition-all duration-200 ${
+                            selectedColor === color.hex 
+                              ? 'scale-110' 
+                              : 'hover:opacity-90'
+                          }`}
+                          style={{ 
+                            backgroundColor: color.hex,
+                            borderColor: selectedColor === color.hex ? color.hex : 'transparent'
+                          }}
+                        />
+                        <div className="absolute top-[calc(100%+0.5rem)] left-1/2 -translate-x-1/2 mt-2 bg-gray-900 text-white px-2 py-1 rounded text-sm whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity text-center min-w-[120px] z-10">
+                          {color.name}
+                        </div>
+                      </button>
+                    ))
+                  ) : (
+                    <button
+                      onClick={() => handleColorSelect(car.exclusiveColors.hex)}
+                      className="group relative"
+                    >
+                      <div 
+                        className={`w-11 h-11 rounded-full border-2 transition-all duration-200 ${
+                          selectedColor === car.exclusiveColors.hex 
+                            ? 'scale-110' 
+                            : 'hover:opacity-90'
+                        }`}
+                        style={{ 
+                          backgroundColor: car.exclusiveColors.hex,
+                          borderColor: selectedColor === car.exclusiveColors.hex ? car.exclusiveColors.hex : 'transparent'
+                        }}
+                      />
+                      <div className="absolute top-[calc(100%+0.5rem)] left-1/2 -translate-x-1/2 mt-2 bg-gray-900 text-white px-2 py-1 rounded text-sm whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity text-center min-w-[120px] z-10">
+                        {car.exclusiveColors.name}
+                      </div>
+                    </button>
+                  )}
                 </div>
               </div>
             )}
@@ -200,16 +238,22 @@ export const CarPage: React.FC = () => {
                   {car.colors.map((color) => (
                     <button
                       key={color.hex}
-                      onClick={() => setSelectedColor(color.hex)}
+                      onClick={() => {
+                        setSelectedColor(color.hex);
+                        setAccentColor('#ef4444'); // Reset to red-500
+                      }}
                       className="group relative"
                     >
                       <div 
                         className={`w-11 h-11 rounded-full border-2 transition-all duration-200 ${
                           selectedColor === color.hex 
-                            ? 'border-red-500 scale-110' 
-                            : 'border-transparent hover:border-red-500/50'
+                            ? 'scale-110' 
+                            : 'hover:opacity-90'
                         }`}
-                        style={{ backgroundColor: color.hex }}
+                        style={{ 
+                          backgroundColor: color.hex,
+                          borderColor: selectedColor === color.hex ? accentColor : 'transparent'
+                        }}
                       />
                       <div className="absolute top-[calc(100%+0.5rem)] left-1/2 -translate-x-1/2 mt-2 bg-gray-900 text-white px-2 py-1 rounded text-sm whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity text-center min-w-[120px] z-10">
                         {color.name}

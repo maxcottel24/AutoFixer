@@ -360,6 +360,12 @@ export const cars = [
     },
     "prix": "55000",
     "image": "https://www.sportscarmarket.com/wp-content/uploads/2021/05/1996-dodge-viper-gts-coupe-drivers-front.jpg",
+    "additionalImages": [
+      "https://www.turbo.fr/sites/default/files/styles/slideshow_images/public/slideshow/slides/2024-09/66fa8cd9d0e4d.jpg?itok=qOpKamDb",
+      "https://www.turbo.fr/sites/default/files/styles/slideshow_images/public/slideshow/slides/2024-09/66fa8cd9deabd.jpg?itok=NSCVl90g",
+      "https://www.turbo.fr/sites/default/files/styles/slideshow_images/public/slideshow/slides/2024-09/66fa8cda2ad85.jpg?itok=x_B0Zexo",
+      "https://www.turbo.fr/sites/default/files/styles/slideshow_images/public/slideshow/slides/2024-09/66fa8cda51f5f.jpg?itok=4YboKCjk"
+    ],
     "colors": standardColors,
     "exclusiveColors": [
       exclusiveColors.Dodge,

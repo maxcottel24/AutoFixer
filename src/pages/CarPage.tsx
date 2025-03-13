@@ -14,6 +14,16 @@ const formatPrice = (price: string) => {
   return price.replace(/\B(?=(\d{3})+(?!\d))/g, ',');
 };
 
+const isExclusiveColor = (selectedColor: string, car: any) => {
+  if (!car.exclusiveColors) return false;
+  
+  if (Array.isArray(car.exclusiveColors)) {
+    return car.exclusiveColors.some(color => color.hex === selectedColor);
+  }
+  
+  return car.exclusiveColors.hex === selectedColor;
+};
+
 export const CarPage: React.FC = () => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -111,11 +121,22 @@ export const CarPage: React.FC = () => {
                 <p className="text-lg sm:text-xl" style={{ color: accentColor }}>{car.fabricant}</p>
                 <p className="text-gray-400">Classe: {car.classe}</p>
               </div>
-              <div className="w-full sm:w-auto text-left sm:text-right">
-                <p className="text-2xl sm:text-3xl font-mono text-green-400">{formatPrice(car.prix)} ¥</p>
+              <div className="w-full sm:w-auto text-right">
+                <p className="text-2xl sm:text-3xl font-mono text-green-400">
+                  {selectedColor && isExclusiveColor(selectedColor, car) 
+                    ? `${formatPrice((parseInt(car.prix) + 2500).toString())} ¥`
+                    : `${formatPrice(car.prix)} ¥`
+                  }
+                </p>
                 <button
                   onClick={() => {
-                    addToCart(car);
+                    addToCart({
+                      ...car,
+                      selectedColor: selectedColor,
+                      totalPrice: selectedColor && isExclusiveColor(selectedColor, car) 
+                        ? (parseInt(car.prix) + 2500).toString()
+                        : car.prix
+                    });
                     navigate('/garage');
                   }}
                   className="w-full sm:w-auto mt-4 flex items-center justify-center gap-2 text-white px-6 py-2 rounded transition-colors hover:opacity-80"
@@ -181,6 +202,7 @@ export const CarPage: React.FC = () => {
               <div className="mb-6">
                 <h3 className="text-white text-lg mb-4 text-center">
                   Couleur{Array.isArray(car.exclusiveColors) && car.exclusiveColors.length > 1 ? 's' : ''} exclusive{Array.isArray(car.exclusiveColors) && car.exclusiveColors.length > 1 ? 's' : ''} {car.fabricant}
+                  <span className="block text-sm text-gray-400 mt-1">2,500 ¥ la couleur</span>
                 </h3>
                 <div className="flex flex-wrap gap-x-3 gap-y-8 justify-center">
                   {Array.isArray(car.exclusiveColors) ? (

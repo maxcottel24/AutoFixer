@@ -167,6 +167,13 @@ export const cars = [
     },
     "prix": "21000",
     "image": "https://i.imgur.com/PVcCDr3.jpeg",
+    "additionalImages": [
+      "https://i.imgur.com/6vVxVw4.jpeg",
+      "https://i.imgur.com/lKpmztd.jpeg",
+      "https://i.imgur.com/fMGltjZ.jpeg",
+      "https://i.imgur.com/mVeqrjV.jpeg",
+      "https://i.imgur.com/PUbpe36.jpeg"
+    ],
     "colors": standardColors,
     "exclusiveColors": exclusiveColors.Thorton
   },
@@ -183,7 +190,14 @@ export const cars = [
       "pv": 54
     },
     "prix": "29000",
-    "image": "https://i.imgur.com/KrzXzpi.jpeg",
+    "image": "https://i.imgur.com/KrzXzpi.jpeg", // a virer, angle mauvais
+    "additionalImages": [
+      "https://i.imgur.com/vBEYt37.jpeg",
+      "https://i.imgur.com/Z75Sykz.jpeg",
+      "https://i.imgur.com/G5CEIHo.jpeg",
+      "https://i.imgur.com/0W2NyZ9.jpeg",
+      "https://i.imgur.com/52KnboV.jpeg"
+    ],
     "colors": standardColors,
     "exclusiveColors": exclusiveColors.Archer
   },
@@ -201,6 +215,13 @@ export const cars = [
     },
     "prix": "30000",
     "image": "https://i.imgur.com/7UbrYPY.jpeg",
+    "additionalImages": [
+      "https://i.imgur.com/KLjSZeP.jpeg",
+      "https://i.imgur.com/9heNtHt.jpeg",
+      "https://i.imgur.com/4I0St6Z.jpeg",
+      "https://i.imgur.com/uzDcjhW.jpeg",
+      "https://i.imgur.com/f49uLw7.jpeg"
+    ],
     "colors": standardColors,
     "exclusiveColors": exclusiveColors.Thorton
   },
@@ -210,18 +231,18 @@ export const cars = [
     "classe": "Berline",
     "caractéristiques": {
       "vitesse_max": "243 km/h",
-      "nombre_de_places": "2?",
+      "nombre_de_places": "5",
       "puissance": "407 CV",
       "armé": "Non",
       "réduction_des_dégâts": 8,
       "pv": 60
     },
     "prix": "45000",
-    "image": "https://i.imgur.com/TROhhwz.jpeg", // à changer
+    "image": "https://i.imgur.com/ZKdrmJx.jpeg",
     "additionalImages": [
       "https://i.imgur.com/L84zMR0.jpeg",
-      "https://i.imgur.com/ZKdrmJx.jpeg",
-      // photo de l'arrière du véhicule
+      "https://i.imgur.com/7SpZxe8.jpeg",
+      "https://i.imgur.com/omwH2SO.jpeg",
       "https://i.imgur.com/vfsIUD6.jpeg",
       "https://i.imgur.com/1SK7EPX.jpeg",
       "https://i.imgur.com/tcDCtO1.jpeg"
@@ -260,6 +281,13 @@ export const cars = [
     },
     "prix": "26000",
     "image": "https://i.imgur.com/j2nI8zy.jpeg",
+    "additionalImages": [
+      "https://i.imgur.com/4HzPeie.jpeg",
+      "https://i.imgur.com/9nnFN8B.jpeg", // a virer, angle mauvais
+      "https://i.imgur.com/Wmoss1g.jpeg", // a virer, angle mauvais
+      "https://i.imgur.com/DBcSvvV.jpeg", // a virer, luminosité mauvaise
+      "https://i.imgur.com/4GNqgct.jpeg" // a virer, luminosité mauvaise
+    ],  
     "colors": standardColors,
     "exclusiveColors": exclusiveColors.Chevillon
   },
@@ -342,7 +370,15 @@ export const cars = [
       "pv": 35
     },
     "prix": "49000",
-    "image": "https://images.unsplash.com/photo-1558981359-219d6364c9c8?auto=format&fit=crop&q=80&w=1200",
+    "image": "https://i.imgur.com/96JatvH.jpeg",
+    "additionalImages": [
+      "https://i.imgur.com/cYhEYf7.jpeg",
+      "https://i.imgur.com/kf1uT4H.jpeg",
+      "https://i.imgur.com/BTjy3sE.jpeg",
+      "https://i.imgur.com/ecpXSeC.jpeg",
+      "https://i.imgur.com/fcb1rAa.jpeg",
+      "https://i.imgur.com/ybOdNAe.jpeg"
+    ],
     "colors": standardColors,
     "exclusiveColors": exclusiveColors.ArchMotorcycles
   },
@@ -428,6 +464,14 @@ export const cars = [
     },
     "prix": "31000",
     "image": "https://i.imgur.com/4wwua2X.jpeg",
+    "additionalImages": [
+      "https://i.imgur.com/0uH7cki.jpeg",
+      "https://i.imgur.com/DI9Pr32.jpeg",
+      "https://i.imgur.com/LFYaUSA.jpeg",
+      "https://i.imgur.com/wXKpbjY.jpeg",
+      "https://i.imgur.com/yfcET0Q.jpeg",
+      "https://i.imgur.com/ICESG8C.jpeg"
+    ],
     "colors": standardColors,
     "exclusiveColors": exclusiveColors.Yaiba
   },
@@ -462,6 +506,15 @@ export const cars = [
     },
     "prix": "14000",
     "image": "https://i.imgur.com/cxj7AM3.jpeg",
+    "additionalImages": [
+      "https://i.imgur.com/XxtzxSv.jpeg",
+      "https://i.imgur.com/9iK14Jd.jpeg",
+      "https://i.imgur.com/JcQdeCO.jpeg",
+      "https://i.imgur.com/OWKJ3zg.jpeg",
+      "https://i.imgur.com/TXHWWus.jpeg",
+      "https://i.imgur.com/qEMp7j4.jpeg",
+      "https://i.imgur.com/8uQ3Cr5.jpeg",
+    ],
     "colors": standardColors,
     "exclusiveColors": exclusiveColors.Makigai
   }

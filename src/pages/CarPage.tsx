@@ -27,7 +27,7 @@ const isExclusiveColor = (selectedColor: string, car: any) => {
 export const CarPage: React.FC = () => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [selectedColor, setSelectedColor] = useState<string>('');
+  const [selectedColor, setSelectedColor] = useState<string>('#0A0A0A'); // Nuit d'Obsidienne
   const [accentColor, setAccentColor] = useState<string>('#ef4444'); // Default to red-500
   
   const { carName } = useParams();
@@ -274,7 +274,7 @@ export const CarPage: React.FC = () => {
                         }`}
                         style={{ 
                           backgroundColor: color.hex,
-                          borderColor: selectedColor === color.hex ? accentColor : 'transparent'
+                          borderColor: selectedColor === color.hex ? '#ef4444' : 'transparent'
                         }}
                       />
                       <div className="absolute top-[calc(100%+0.5rem)] left-1/2 -translate-x-1/2 mt-2 bg-gray-900 text-white px-2 py-1 rounded text-sm whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity text-center min-w-[120px] z-10">

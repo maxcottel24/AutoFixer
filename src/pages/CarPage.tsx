@@ -130,13 +130,34 @@ export const CarPage: React.FC = () => {
                 </p>
                 <button
                   onClick={() => {
+                    // Ajouter la voiture
                     addToCart({
-                      ...car,
-                      selectedColor: selectedColor,
-                      totalPrice: selectedColor && isExclusiveColor(selectedColor, car) 
-                        ? (parseInt(car.prix) + 2500).toString()
-                        : car.prix
+                      type: 'car',
+                      nom: car.nom,
+                      fabricant: car.fabricant,
+                      prix: car.prix,
+                      car: car
                     });
+
+                    // Ajouter la couleur sélectionnée
+                    const selectedColorInfo = car.colors.find(c => c.hex === selectedColor) ||
+                      (Array.isArray(car.exclusiveColors) 
+                        ? car.exclusiveColors.find(c => c.hex === selectedColor)
+                        : car.exclusiveColors?.hex === selectedColor 
+                          ? car.exclusiveColors 
+                          : null);
+
+                    if (selectedColorInfo) {
+                      addToCart({
+                        type: 'color',
+                        nom: selectedColorInfo.name,
+                        fabricant: isExclusiveColor(selectedColor, car) ? car.fabricant : "AutoFixer",
+                        prix: isExclusiveColor(selectedColor, car) ? "2500" : "0",
+                        hex: selectedColorInfo.hex,
+                        forCar: car.nom
+                      });
+                    }
+
                     navigate('/garage');
                   }}
                   className="w-full sm:w-auto mt-4 flex items-center justify-center gap-2 text-white px-6 py-2 rounded transition-colors hover:opacity-80"

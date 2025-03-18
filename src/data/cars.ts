@@ -1,30 +1,7 @@
-type Car = {
-  nom: string;
-  fabricant: string;
-  classe: string;
-  caractéristiques: {
-    vitesse_max: string;
-    nombre_de_places: string;
-    puissance: string;
-    armé: "Oui" | "Non";
-    réduction_des_dégâts: number;
-    pv: number;
-  };
-  prix: string;
-  image: string;
-  additionalImages?: string[];
-  colors: {
-    name: string;
-    hex: string;
-  }[];
-  exclusiveColors?: {
-    name: string;
-    hex: string;
-  }[];
-};
+import { Car, ColorInfo } from '../types';
 
 // Définition des couleurs standards
-export const standardColors = [
+export const standardColors: readonly ColorInfo[] = [
   // Neutres
   { "name": "Nuit d'Obsidienne", "hex": "#0A0A0A" },
   { "name": "Tempête de Titane", "hex": "#767676" },
@@ -63,7 +40,7 @@ export const standardColors = [
 ] as const;
 
 // Définition des couleurs exclusives par fabricant
-export const exclusiveColors = {
+export const exclusiveColors: { readonly [key: string]: ColorInfo } = {
   Rayfield: { "name": "Rayfield Gold Digger", "hex": "#FFD300" },
   Mizutani: { "name": "Mizutani Shinkansen Surge", "hex": "#8800FF" },
   Thorton: { "name": "Thorton Trailblazer", "hex": "#C2B280" },
@@ -82,7 +59,7 @@ export const exclusiveColors = {
   Corvette: { "name": "Corvettes", "hex": "#714C31" },
 } as const;
 
-export const cars = [
+export const cars: Car[] = [
   {
     "nom": "Aerondight S9 Guinevere",
     "fabricant": "Rayfield",
@@ -108,7 +85,7 @@ export const cars = [
       "https://i.imgur.com/2F4r9Os.jpeg",
       "https://i.imgur.com/40TPf9b.jpeg"
     ],
-    "colors": standardColors,
+    "colors": [...standardColors],
     "exclusiveColors": exclusiveColors.Rayfield
   },
   {
@@ -133,7 +110,7 @@ export const cars = [
       "https://i.imgur.com/e8N7Jwc.jpeg",
       "https://i.imgur.com/tfFiuhe.jpeg"
     ],
-    "colors": standardColors,
+    "colors": [...standardColors],
     "exclusiveColors": exclusiveColors.Rayfield
   },
   {
@@ -150,7 +127,7 @@ export const cars = [
     },
     "prix": "24000",
     "image": "https://i.imgur.com/oJ8lSRn.jpeg",
-    "colors": standardColors,
+    "colors": [...standardColors],
     "exclusiveColors": exclusiveColors.Thorton
   },
   {
@@ -174,7 +151,7 @@ export const cars = [
       "https://i.imgur.com/mVeqrjV.jpeg",
       "https://i.imgur.com/PUbpe36.jpeg"
     ],
-    "colors": standardColors,
+    "colors": [...standardColors],
     "exclusiveColors": exclusiveColors.Thorton
   },
   {
@@ -198,7 +175,7 @@ export const cars = [
       "https://i.imgur.com/0W2NyZ9.jpeg",
       "https://i.imgur.com/52KnboV.jpeg"
     ],
-    "colors": standardColors,
+    "colors": [...standardColors],
     "exclusiveColors": exclusiveColors.Archer
   },
   {
@@ -222,7 +199,7 @@ export const cars = [
       "https://i.imgur.com/uzDcjhW.jpeg",
       "https://i.imgur.com/f49uLw7.jpeg"
     ],
-    "colors": standardColors,
+    "colors": [...standardColors],
     "exclusiveColors": exclusiveColors.Thorton
   },
   {
@@ -247,7 +224,7 @@ export const cars = [
       "https://i.imgur.com/1SK7EPX.jpeg",
       "https://i.imgur.com/tcDCtO1.jpeg"
     ],
-    "colors": standardColors,
+    "colors": [...standardColors],
     "exclusiveColors": exclusiveColors.Villefort
   },
   {
@@ -264,7 +241,7 @@ export const cars = [
     },
     "prix": "25000",
     "image": "https://i.imgur.com/FuaoLNr.jpeg",
-    "colors": standardColors,
+    "colors": [...standardColors],
     "exclusiveColors": exclusiveColors.Villefort
   },
   {
@@ -288,7 +265,7 @@ export const cars = [
       "https://i.imgur.com/DBcSvvV.jpeg", // a virer, luminosité mauvaise
       "https://i.imgur.com/4GNqgct.jpeg" // a virer, luminosité mauvaise
     ],  
-    "colors": standardColors,
+    "colors": [...standardColors],
     "exclusiveColors": exclusiveColors.Chevillon
   },
   {
@@ -312,7 +289,7 @@ export const cars = [
       "https://i.imgur.com/YYp1LuR.jpeg",
       "https://i.imgur.com/miDfSJZ.jpeg"
     ],
-    "colors": standardColors,
+    "colors": [...standardColors],
     "exclusiveColors": exclusiveColors.Herrera
   },
   {
@@ -337,7 +314,7 @@ export const cars = [
       "https://i.imgur.com/IHXJqE5.jpeg",
       "https://i.imgur.com/FjCFIvY.jpeg"
     ],
-    "colors": standardColors,
+    "colors": [...standardColors],
     "exclusiveColors": exclusiveColors.Mizutani
   },
   {
@@ -354,7 +331,7 @@ export const cars = [
     },
     "prix": "15000",
     "image": "https://i.imgur.com/0PVsMzR.jpeg",
-    "colors": standardColors,
+    "colors": [...standardColors],
     "exclusiveColors": exclusiveColors.Brennan
   },
   {
@@ -379,7 +356,7 @@ export const cars = [
       "https://i.imgur.com/fcb1rAa.jpeg",
       "https://i.imgur.com/ybOdNAe.jpeg"
     ],
-    "colors": standardColors,
+    "colors": [...standardColors],
     "exclusiveColors": exclusiveColors.ArchMotorcycles
   },
   {
@@ -402,7 +379,7 @@ export const cars = [
       "https://www.turbo.fr/sites/default/files/styles/slideshow_images/public/slideshow/slides/2024-09/66fa8cda2ad85.jpg?itok=x_B0Zexo",
       "https://www.turbo.fr/sites/default/files/styles/slideshow_images/public/slideshow/slides/2024-09/66fa8cda51f5f.jpg?itok=4YboKCjk"
     ],
-    "colors": standardColors,
+    "colors": [...standardColors],
     "exclusiveColors": [
       exclusiveColors.Dodge,
       exclusiveColors.Viper
@@ -427,7 +404,7 @@ export const cars = [
       "https://images.unsplash.com/photo-1733299707207-0c94238c3704?q=80&w=3870&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
       "https://images.unsplash.com/photo-1733299707389-2f2ec2e372ab?q=80&w=3870&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
     ],
-    "colors": standardColors,
+    "colors": [...standardColors],
     "exclusiveColors": [
       exclusiveColors.Chevrolet,
       exclusiveColors.Corvette
@@ -447,7 +424,7 @@ export const cars = [
     },
     "prix": "19000",
     "image": "https://i.imgur.com/PNd8NIR.jpeg",
-    "colors": standardColors,
+    "colors": [...standardColors],
     "exclusiveColors": exclusiveColors.Villefort
   },
   {
@@ -472,7 +449,7 @@ export const cars = [
       "https://i.imgur.com/yfcET0Q.jpeg",
       "https://i.imgur.com/ICESG8C.jpeg"
     ],
-    "colors": standardColors,
+    "colors": [...standardColors],
     "exclusiveColors": exclusiveColors.Yaiba
   },
   {
@@ -489,7 +466,7 @@ export const cars = [
     },
     "prix": "75000",
     "image": "https://i.imgur.com/t82ijtv.jpeg",
-    "colors": standardColors,
+    "colors": [...standardColors],
     "exclusiveColors": exclusiveColors.Quadra
   },
   {
@@ -515,11 +492,11 @@ export const cars = [
       "https://i.imgur.com/qEMp7j4.jpeg",
       "https://i.imgur.com/8uQ3Cr5.jpeg",
     ],
-    "colors": standardColors,
+    "colors": [...standardColors],
     "exclusiveColors": exclusiveColors.Makigai
   }
 ];
 
-const sortedCars = cars.sort((a: Car, b: Car) => Number(b.prix) - Number(a.prix));
+export const sortedCars = cars.sort((a, b) => Number(b.prix) - Number(a.prix));
 
 console.log(sortedCars);

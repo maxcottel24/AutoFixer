@@ -136,7 +136,7 @@ export const cars: Car[] = [
     "classe": "Tout terrain",
     "caractéristiques": {
       "vitesse_max": "220 km/h",
-      "nombre_de_places": "4",
+      "nombre_de_places": "2-4",
       "puissance": "235 CV",
       "armé": "Non",
       "réduction_des_dégâts": 7,
@@ -149,6 +149,7 @@ export const cars: Car[] = [
       "https://i.imgur.com/lKpmztd.jpeg",
       "https://i.imgur.com/fMGltjZ.jpeg",
       "https://i.imgur.com/mVeqrjV.jpeg",
+      "https://i.imgur.com/ib95rn4.jpeg",
       "https://i.imgur.com/PUbpe36.jpeg"
     ],
     "colors": [...standardColors],
@@ -260,10 +261,11 @@ export const cars: Car[] = [
     "image": "https://i.imgur.com/j2nI8zy.jpeg",
     "additionalImages": [
       "https://i.imgur.com/4HzPeie.jpeg",
-      "https://i.imgur.com/9nnFN8B.jpeg", // a virer, angle mauvais
-      "https://i.imgur.com/Wmoss1g.jpeg", // a virer, angle mauvais
-      "https://i.imgur.com/DBcSvvV.jpeg", // a virer, luminosité mauvaise
-      "https://i.imgur.com/4GNqgct.jpeg" // a virer, luminosité mauvaise
+      "https://i.imgur.com/KGSFCDp.jpeg",
+      "https://i.imgur.com/dN2dlqS.jpeg",
+      "https://i.imgur.com/ABluD8X.jpeg",
+      "https://i.imgur.com/tFYx3wr.jpeg",
+      "https://i.imgur.com/ycdgWD5.jpeg"
     ],  
     "colors": [...standardColors],
     "exclusiveColors": exclusiveColors.Chevillon
@@ -331,6 +333,11 @@ export const cars: Car[] = [
     },
     "prix": "15000",
     "image": "https://i.imgur.com/0PVsMzR.jpeg",
+    "additionalImages": [
+      "https://i.imgur.com/QYP7CJI.jpeg", //angle mauvais
+      "https://i.imgur.com/jeuxIMS.jpeg", //angle mauvais
+      "https://i.imgur.com/QFZa2EL.jpeg", //angle mauvais
+    ],
     "colors": [...standardColors],
     "exclusiveColors": exclusiveColors.Brennan
   },
@@ -466,6 +473,14 @@ export const cars: Car[] = [
     },
     "prix": "75000",
     "image": "https://i.imgur.com/t82ijtv.jpeg",
+    "additionalImages": [
+      "https://i.imgur.com/fFHFIj7.jpeg",
+      "https://i.imgur.com/USpFdKo.jpeg",
+      "https://i.imgur.com/UAKOEE2.jpeg",
+      "https://i.imgur.com/mSpXS2y.jpeg",
+      "https://i.imgur.com/RktUQnU.jpeg",
+      "https://i.imgur.com/4tZqpnP.jpeg"
+    ],
     "colors": [...standardColors],
     "exclusiveColors": exclusiveColors.Quadra
   },

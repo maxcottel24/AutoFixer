@@ -1,3 +1,34 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+:root {
+  color-scheme: dark;
+}
+
+html {
+  background-color: #1f2937;
+}
+
+body {
+  background-color: #1f2937;
+  color: white;
+  min-height: 100vh;
+}
+
+/* Assure que les images et les éléments interactifs sont visibles en mode sombre */
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Améliore la visibilité des éléments interactifs */
+button, a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Assure que le texte est lisible sur tous les fonds */
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}

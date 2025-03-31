@@ -69,7 +69,7 @@ export const cars: Car[] = [
       "nombre_de_places": "2",
       "puissance": "950 CV",
       "armé": "Non",
-      "réduction_des_dégâts": 6,
+      "réduction_des_dégâts": 3,
       "pv": 45
     },
     "prix": "225000",
@@ -97,7 +97,7 @@ export const cars: Car[] = [
       "nombre_de_places": "2",
       "puissance": "980 CV",
       "armé": "Non",
-      "réduction_des_dégâts": 6,
+      "réduction_des_dégâts": 3,
       "pv": 40
     },
     "prix": "157000",
@@ -122,7 +122,7 @@ export const cars: Car[] = [
       "nombre_de_places": "2?",
       "puissance": "182 CV",
       "armé": "Non",
-      "réduction_des_dégâts": 8,
+      "réduction_des_dégâts": 4,
       "pv": 70
     },
     "prix": "24000",
@@ -139,7 +139,7 @@ export const cars: Car[] = [
       "nombre_de_places": "2-4",
       "puissance": "235 CV",
       "armé": "Non",
-      "réduction_des_dégâts": 7,
+      "réduction_des_dégâts": 4,
       "pv": 60
     },
     "prix": "21000",
@@ -164,11 +164,11 @@ export const cars: Car[] = [
       "nombre_de_places": "2",
       "puissance": "161 CV",
       "armé": "Non",
-      "réduction_des_dégâts": 6,
+      "réduction_des_dégâts": 3,
       "pv": 54
     },
     "prix": "29000",
-    "image": "https://i.imgur.com/KrzXzpi.jpeg", // a virer, angle mauvais
+    "image": "https://i.imgur.com/SzBezJx.jpeg",
     "additionalImages": [
       "https://i.imgur.com/vBEYt37.jpeg",
       "https://i.imgur.com/Z75Sykz.jpeg",
@@ -188,7 +188,7 @@ export const cars: Car[] = [
       "nombre_de_places": "2?",
       "puissance": "365 CV",
       "armé": "Non",
-      "réduction_des_dégâts": 7,
+      "réduction_des_dégâts": 4,
       "pv": 50
     },
     "prix": "30000",
@@ -212,7 +212,7 @@ export const cars: Car[] = [
       "nombre_de_places": "5",
       "puissance": "407 CV",
       "armé": "Non",
-      "réduction_des_dégâts": 8,
+      "réduction_des_dégâts": 4,
       "pv": 60
     },
     "prix": "45000",
@@ -237,7 +237,7 @@ export const cars: Car[] = [
       "nombre_de_places": "5",
       "puissance": "333 CV",
       "armé": "Non",
-      "réduction_des_dégâts": 7,
+      "réduction_des_dégâts": 4,
       "pv": 48
     },
     "prix": "25000",
@@ -254,7 +254,7 @@ export const cars: Car[] = [
       "nombre_de_places": "5",
       "puissance": "388 CV",
       "armé": "Non",
-      "réduction_des_dégâts": 4,
+      "réduction_des_dégâts": 2,
       "pv": 52
     },
     "prix": "26000",
@@ -279,7 +279,7 @@ export const cars: Car[] = [
       "nombre_de_places": "4",
       "puissance": "755 CV",
       "armé": "Non",
-      "réduction_des_dégâts": 5,
+      "réduction_des_dégâts": 3,
       "pv": 51
     },
     "prix": "62000",
@@ -303,7 +303,7 @@ export const cars: Car[] = [
       "nombre_de_places": "2",
       "puissance": "570 CV",
       "armé": "Non",
-      "réduction_des_dégâts": 12,
+      "réduction_des_dégâts": 6,
       "pv": 75
     },
     "prix": "75000",
@@ -334,9 +334,9 @@ export const cars: Car[] = [
     "prix": "15000",
     "image": "https://i.imgur.com/0PVsMzR.jpeg",
     "additionalImages": [
-      "https://i.imgur.com/QYP7CJI.jpeg", //angle mauvais
-      "https://i.imgur.com/jeuxIMS.jpeg", //angle mauvais
-      "https://i.imgur.com/QFZa2EL.jpeg", //angle mauvais
+      "https://i.imgur.com/QYP7CJI.jpeg",
+      "https://i.imgur.com/tSEnSvy.jpeg", 
+      "https://i.imgur.com/p2I35P4.jpeg", 
     ],
     "colors": [...standardColors],
     "exclusiveColors": exclusiveColors.Brennan
@@ -375,7 +375,7 @@ export const cars: Car[] = [
       "nombre_de_places": "2",
       "puissance": "501 CV",
       "armé": "Non",
-      "réduction_des_dégâts": 2,
+      "réduction_des_dégâts": 1,
       "pv": 43
     },
     "prix": "55000",
@@ -401,7 +401,7 @@ export const cars: Car[] = [
       "nombre_de_places": "2",
       "puissance": "505 CV",
       "armé": "Non",
-      "réduction_des_dégâts": 3,
+      "réduction_des_dégâts": 2,
       "pv": 40
     },
     "prix": "55000",
@@ -426,11 +426,20 @@ export const cars: Car[] = [
       "nombre_de_places": "6",
       "puissance": "210 CV",
       "armé": "Non",
-      "réduction_des_dégâts": 10,
+      "réduction_des_dégâts": 5,
       "pv": 80
     },
     "prix": "19000",
     "image": "https://i.imgur.com/PNd8NIR.jpeg",
+    "additionalImages": [
+      "https://i.imgur.com/D0TZkAy.jpeg",
+      "https://i.imgur.com/WnwhEZE.jpeg",
+      "https://i.imgur.com/UTPa6C0.jpeg",
+      "https://i.imgur.com/7YyJAJK.jpeg",
+      "https://i.imgur.com/O4NtQHO.jpeg",
+      "https://i.imgur.com/il2SWjo.jpeg",
+      "https://i.imgur.com/V9IgGl8.jpeg"
+    ],
     "colors": [...standardColors],
     "exclusiveColors": exclusiveColors.Villefort
   },
@@ -468,7 +477,7 @@ export const cars: Car[] = [
       "nombre_de_places": "2",
       "puissance": "740 CV",
       "armé": "Non",
-      "réduction_des_dégâts": 4,
+      "réduction_des_dégâts": 2,
       "pv": 51
     },
     "prix": "75000",

@@ -125,7 +125,7 @@ export const cars: Car[] = [
       "réduction_des_dégâts": 4,
       "pv": 70
     },
-    "prix": "24000",
+    "prix": "21000",
     "image": "https://i.imgur.com/oJ8lSRn.jpeg",
     "colors": [...standardColors],
     "exclusiveColors": exclusiveColors.Thorton
@@ -160,14 +160,14 @@ export const cars: Car[] = [
     "fabricant": "Archer",
     "classe": "Citadine",
     "caractéristiques": {
-      "vitesse_max": "259 km/h",
+      "vitesse_max": "230 km/h",
       "nombre_de_places": "2",
       "puissance": "161 CV",
       "armé": "Non",
       "réduction_des_dégâts": 3,
-      "pv": 54
+      "pv": 40
     },
-    "prix": "29000",
+    "prix": "14000",
     "image": "https://i.imgur.com/SzBezJx.jpeg",
     "additionalImages": [
       "https://i.imgur.com/vBEYt37.jpeg",
@@ -191,7 +191,7 @@ export const cars: Car[] = [
       "réduction_des_dégâts": 4,
       "pv": 50
     },
-    "prix": "30000",
+    "prix": "28000",
     "image": "https://i.imgur.com/7UbrYPY.jpeg",
     "additionalImages": [
       "https://i.imgur.com/KLjSZeP.jpeg",
@@ -215,7 +215,7 @@ export const cars: Car[] = [
       "réduction_des_dégâts": 4,
       "pv": 60
     },
-    "prix": "45000",
+    "prix": "36000",
     "image": "https://i.imgur.com/ZKdrmJx.jpeg",
     "additionalImages": [
       "https://i.imgur.com/L84zMR0.jpeg",
@@ -282,7 +282,7 @@ export const cars: Car[] = [
       "réduction_des_dégâts": 3,
       "pv": 51
     },
-    "prix": "62000",
+    "prix": "57000",
     "image": "https://i.imgur.com/gPtKbUQ.jpeg",
     "additionalImages": [
       "https://i.imgur.com/HRcKwAs.jpeg",
@@ -306,7 +306,7 @@ export const cars: Car[] = [
       "réduction_des_dégâts": 6,
       "pv": 75
     },
-    "prix": "75000",
+    "prix": "67500",
     "image": "https://i.imgur.com/yBEcMxK.jpeg",
     "additionalImages": [
       "https://i.imgur.com/2bmflFG.jpeg",
@@ -331,7 +331,7 @@ export const cars: Car[] = [
       "réduction_des_dégâts": 0,
       "pv": 20
     },
-    "prix": "15000",
+    "prix": "9000",
     "image": "https://i.imgur.com/0PVsMzR.jpeg",
     "additionalImages": [
       "https://i.imgur.com/QYP7CJI.jpeg",
@@ -353,7 +353,7 @@ export const cars: Car[] = [
       "réduction_des_dégâts": 0,
       "pv": 35
     },
-    "prix": "49000",
+    "prix": "35000",
     "image": "https://i.imgur.com/96JatvH.jpeg",
     "additionalImages": [
       "https://i.imgur.com/cYhEYf7.jpeg",
@@ -429,7 +429,7 @@ export const cars: Car[] = [
       "réduction_des_dégâts": 5,
       "pv": 80
     },
-    "prix": "19000",
+    "prix": "27000",
     "image": "https://i.imgur.com/PNd8NIR.jpeg",
     "additionalImages": [
       "https://i.imgur.com/D0TZkAy.jpeg",
@@ -480,7 +480,7 @@ export const cars: Car[] = [
       "réduction_des_dégâts": 2,
       "pv": 51
     },
-    "prix": "75000",
+    "prix": "60000",
     "image": "https://i.imgur.com/t82ijtv.jpeg",
     "additionalImages": [
       "https://i.imgur.com/fFHFIj7.jpeg",
@@ -505,7 +505,7 @@ export const cars: Car[] = [
       "réduction_des_dégâts": 1,
       "pv": 15
     },
-    "prix": "14000",
+    "prix": "7000",
     "image": "https://i.imgur.com/cxj7AM3.jpeg",
     "additionalImages": [
       "https://i.imgur.com/XxtzxSv.jpeg",

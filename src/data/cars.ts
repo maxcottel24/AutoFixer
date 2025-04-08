@@ -116,10 +116,10 @@ export const cars: Car[] = [
   {
     "nom": "Colby C125",
     "fabricant": "Thorton",
-    "classe": "Utilitaire",
+    "classe": "Berline",
     "caractéristiques": {
       "vitesse_max": "220 km/h",
-      "nombre_de_places": "2?",
+      "nombre_de_places": "5",
       "puissance": "182 CV",
       "armé": "Non",
       "réduction_des_dégâts": 4,
@@ -127,6 +127,16 @@ export const cars: Car[] = [
     },
     "prix": "21000",
     "image": "https://i.imgur.com/oJ8lSRn.jpeg",
+    "additionalImages": [
+      "https://i.imgur.com/TInTZmZ.jpeg",
+      "https://i.imgur.com/YqwtRR9.jpeg",
+      "https://i.imgur.com/OeIcqcd.jpeg",
+      "https://i.imgur.com/mS9agDj.jpeg",
+      "https://i.imgur.com/QkOc645.jpeg",
+      "https://i.imgur.com/2IFKLVE.jpeg",
+      "https://i.imgur.com/dNXNOYd.jpeg",
+      "https://i.imgur.com/e1qexWW.jpeg"
+    ],
     "colors": [...standardColors],
     "exclusiveColors": exclusiveColors.Thorton
   },
@@ -241,7 +251,14 @@ export const cars: Car[] = [
       "pv": 48
     },
     "prix": "25000",
-    "image": "https://i.imgur.com/FuaoLNr.jpeg",
+    "image": "https://i.imgur.com/jidyAC8.jpeg",
+    "additionalImages": [
+      "https://i.imgur.com/qEb5TTP.jpeg",
+      "https://i.imgur.com/Eh2LwAF.jpeg",
+      "https://i.imgur.com/MruUl6y.jpeg",
+      "https://i.imgur.com/h6U57Ul.jpeg",
+      "https://i.imgur.com/iUP9I1Z.jpeg",
+    ],
     "colors": [...standardColors],
     "exclusiveColors": exclusiveColors.Villefort
   },
@@ -518,6 +535,31 @@ export const cars: Car[] = [
     ],
     "colors": [...standardColors],
     "exclusiveColors": exclusiveColors.Makigai
+  },
+  {
+    "nom": "Emperor 620 Ragnar",
+    "fabricant": "Chevillon",
+    "classe": "SUV",
+    "caractéristiques": {
+      "vitesse_max": "220 km/h",
+      "nombre_de_places": "5",
+      "puissance": "529 CV",
+      "armé": "Non",
+      "réduction_des_dégâts": 7,
+      "pv": 75
+    },
+    "prix": "42000",
+    "image": "https://i.imgur.com/Ynhu93N.jpeg",
+    "additionalImages": [
+      "https://i.imgur.com/xFmU1fI.jpeg",
+      "https://i.imgur.com/Rn287a8.jpeg",
+      "https://i.imgur.com/zyisNHP.jpeg",
+      "https://i.imgur.com/k5iFGFo.jpeg",
+      "https://i.imgur.com/7yKJ35J.jpeg",
+      "https://i.imgur.com/4wtxrWR.jpeg",
+    ],
+    "colors": [...standardColors],
+    "exclusiveColors": exclusiveColors.Chevillon
   }
 ];
 

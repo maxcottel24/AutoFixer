@@ -38,9 +38,6 @@ export const standardColors: readonly ColorInfo[] = [
   // Rose
   { "name": "Éclosion de Rosée", "hex": "#FF69B4" },
 
-  //verte
-  {"name": "vomis", "hex": "#41a519a1" }
-
 ] as const;
 
 // Définition des couleurs exclusives par fabricant
@@ -61,7 +58,6 @@ export const exclusiveColors: { readonly [key: string]: ColorInfo } = {
   Chevrolet: { "name": "Chevrolet Lac Elkhart", "hex": "#005BAC" },
   Viper: { "name": "Vipers", "hex": "#60A832" },
   Corvette: { "name": "Corvettes", "hex": "#714C31" },
-  MegaSlip: { "name" : "trace de pneu", "hex": "#1f1006f7" },
 } as const;
 
 export const cars: Car[] = [
@@ -439,29 +435,6 @@ export const cars: Car[] = [
       exclusiveColors.Corvette
     ]
   },
-  { "nom": "SARKO MOBILE",
-    "fabricant": "MegaSlip",
-    "classe": "Sale",
-    "caractéristiques": {
-      "vitesse_max": "999 km/h",
-      "nombre_de_places": "1",
-      "puissance": "0 CV",
-      "armé": "Oui",
-      "réduction_des_dégâts": 0,
-      "pv": 1
-    },
-    "prix": "27000",
-    "image": "https://cdn.discordapp.com/attachments/581153884647587870/1399483894025293824/image.png?ex=68892a71&is=6887d8f1&hm=41eaf785de5daf3e738e8c73b496bdba7c3d2c9a7a1926a2dcd3ae77f277f540&",
-    "additionalImages": [
-      "https://cdn.discordapp.com/attachments/581153884647587870/1399483894025293824/image.png?ex=68892a71&is=6887d8f1&hm=41eaf785de5daf3e738e8c73b496bdba7c3d2c9a7a1926a2dcd3ae77f277f540&",
-      "https://cdn.discordapp.com/attachments/581153884647587870/1399483894025293824/image.png?ex=68892a71&is=6887d8f1&hm=41eaf785de5daf3e738e8c73b496bdba7c3d2c9a7a1926a2dcd3ae77f277f540&",
-    "https://cdn.discordapp.com/attachments/581153884647587870/1399483894025293824/image.png?ex=68892a71&is=6887d8f1&hm=41eaf785de5daf3e738e8c73b496bdba7c3d2c9a7a1926a2dcd3ae77f277f540&",
-      "https://cdn.discordapp.com/attachments/581153884647587870/1399483894025293824/image.png?ex=68892a71&is=6887d8f1&hm=41eaf785de5daf3e738e8c73b496bdba7c3d2c9a7a1926a2dcd3ae77f277f540&",  
-    "https://cdn.discordapp.com/attachments/581153884647587870/1399483894025293824/image.png?ex=68892a71&is=6887d8f1&hm=41eaf785de5daf3e738e8c73b496bdba7c3d2c9a7a1926a2dcd3ae77f277f540&",
-      "https://cdn.discordapp.com/attachments/581153884647587870/1399483894025293824/image.png?ex=68892a71&is=6887d8f1&hm=41eaf785de5daf3e738e8c73b496bdba7c3d2c9a7a1926a2dcd3ae77f277f540&"
-    ],
-    "colors": [...standardColors],
-    "exclusiveColors": exclusiveColors.MegaSlip},
   {
     "nom": "Columbus V340-F Freight",
     "fabricant": "Villefort",

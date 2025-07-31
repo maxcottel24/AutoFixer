@@ -10,6 +10,7 @@ export const CarGrid: React.FC = () => {
   const [priceRange, setPriceRange] = useState<[number, number]>([minPrice, maxPrice]);
   const [selectedClasses, setSelectedClasses] = useState<string[]>([]);
   const [selectedBrand, setSelectedBrand] = useState<string[]>([]);
+  const [showArmedOnly, setShowArmedOnly] = useState<boolean>(false);
   const availableBrands = Array.from(new Set(cars.map(car => car.fabricant))).sort();
 
   const filteredCars = useMemo(() => {
@@ -18,9 +19,10 @@ export const CarGrid: React.FC = () => {
       const matchesPrice = price >= priceRange[0] && price <= priceRange[1];
       const matchesClass = selectedClasses.length === 0 || selectedClasses.includes(car.classe);
       const matchesBrand = selectedBrand.length === 0 || selectedBrand.includes(car.fabricant);
-      return matchesPrice && matchesClass && matchesBrand;
+      const matchesArmed = !showArmedOnly || car.caractéristiques.armé === "Oui";
+      return matchesPrice && matchesClass && matchesBrand && matchesArmed;
     }).sort((a,b) => Number(b.prix) - Number(a.prix));
-  }, [priceRange, selectedClasses, selectedBrand]);
+  }, [priceRange, selectedClasses, selectedBrand, showArmedOnly]);
 
   return (
     <div className="flex flex-col lg:flex-row gap-4 p-2 lg:p-3">
@@ -36,6 +38,8 @@ export const CarGrid: React.FC = () => {
             setSelectedBrand={setSelectedBrand}
             availableBrands={availableBrands}
             maxPrice={maxPrice}
+            showArmedOnly={showArmedOnly}
+            setShowArmedOnly={setShowArmedOnly}
           />
         </div>
       </div>

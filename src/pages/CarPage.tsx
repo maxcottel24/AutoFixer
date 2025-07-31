@@ -2,11 +2,13 @@ import React, { useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { cars } from '../data/cars';
 import { useCart } from '../hooks/useCart';
+import { Car, ColorInfo } from '../types';
 import { 
   GaugeCircle, Battery, Shield, Zap, 
   Crosshair, Plus, Users,
   ChevronLeft, ChevronRight,
-  ArrowLeft
+  ArrowLeft, Target, Swords,
+  Flame, Ruler
 } from 'lucide-react';
 import { ImageModal } from '../components/ImageModal';
 
@@ -14,11 +16,11 @@ const formatPrice = (price: string) => {
   return price.replace(/\B(?=(\d{3})+(?!\d))/g, ',');
 };
 
-const isExclusiveColor = (selectedColor: string, car: any) => {
+const isExclusiveColor = (selectedColor: string, car: Car) => {
   if (!car.exclusiveColors) return false;
   
   if (Array.isArray(car.exclusiveColors)) {
-    return car.exclusiveColors.some(color => color.hex === selectedColor);
+    return car.exclusiveColors.some((color: ColorInfo) => color.hex === selectedColor);
   }
   
   return car.exclusiveColors.hex === selectedColor;
@@ -219,6 +221,56 @@ export const CarPage: React.FC = () => {
               </div>
             </div>
 
+            {/* Section des armes pour les véhicules armés */}
+            {car.caractéristiques.armé === "Oui" && car.caractéristiques.armes && car.caractéristiques.armes.length > 0 && (
+              <div className="mt-8 mb-8">
+                <h3 className="text-white text-xl font-bold mb-6 text-center flex items-center justify-center gap-2">
+                  <Swords size={24} style={{ color: accentColor }} />
+                  Système d'Armement
+                </h3>
+                
+                <div className={`grid gap-6 ${
+                  car.caractéristiques.armes.length === 1 
+                    ? 'grid-cols-1' 
+                    : 'grid-cols-1 md:grid-cols-2'
+                }`}>
+                  {car.caractéristiques.armes.map((arme, index) => (
+                    <div key={index} className={`bg-gray-800/50 rounded-lg p-6 border border-gray-700 ${
+                      car.caractéristiques.armes && car.caractéristiques.armes.length === 3 && index === 2 
+                        ? 'md:col-span-2' 
+                        : ''
+                    }`}>
+                      <div className="flex items-center gap-3 mb-4">
+                        <Target size={24} style={{ color: accentColor }} className="shrink-0" />
+                        <div>
+                          <h4 className="text-white font-semibold text-lg">{arme.nom}</h4>
+                          <p className="text-gray-400 text-sm">{arme.type}</p>
+                        </div>
+                      </div>
+                      
+                      <div className="grid grid-cols-2 gap-4">
+                        <div className="flex items-center gap-2">
+                          <Flame size={16} style={{ color: accentColor }} />
+                          <div>
+                            <p className="text-gray-400 text-xs">Dégâts</p>
+                            <p className="text-white font-medium">{arme.dégâts}</p>
+                          </div>
+                        </div>
+                        
+                        <div className="flex items-center gap-2">
+                          <Ruler size={16} style={{ color: accentColor }} />
+                          <div>
+                            <p className="text-gray-400 text-xs">Portée</p>
+                            <p className="text-white font-medium">{arme.portée}</p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
+
             {car.exclusiveColors && (
               <div className="mb-6">
                 <h3 className="text-white text-lg mb-4 text-center">
@@ -251,22 +303,22 @@ export const CarPage: React.FC = () => {
                     ))
                   ) : (
                     <button
-                      onClick={() => handleColorSelect(car.exclusiveColors.hex)}
+                      onClick={() => handleColorSelect((car.exclusiveColors as ColorInfo).hex)}
                       className="group relative"
                     >
                       <div 
                         className={`w-11 h-11 rounded-full border-2 transition-all duration-200 ${
-                          selectedColor === car.exclusiveColors.hex 
+                          selectedColor === (car.exclusiveColors as ColorInfo).hex 
                             ? 'scale-110' 
                             : 'hover:opacity-90'
                         }`}
                         style={{ 
-                          backgroundColor: car.exclusiveColors.hex,
-                          borderColor: selectedColor === car.exclusiveColors.hex ? car.exclusiveColors.hex : 'transparent'
+                          backgroundColor: (car.exclusiveColors as ColorInfo).hex,
+                          borderColor: selectedColor === (car.exclusiveColors as ColorInfo).hex ? (car.exclusiveColors as ColorInfo).hex : 'transparent'
                         }}
                       />
                       <div className="absolute top-[calc(100%+0.5rem)] left-1/2 -translate-x-1/2 mt-2 bg-gray-900 text-white px-2 py-1 rounded text-sm whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity text-center min-w-[120px] z-10">
-                        {car.exclusiveColors.name}
+                        {(car.exclusiveColors as ColorInfo).name}
                       </div>
                     </button>
                   )}

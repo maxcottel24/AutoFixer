@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Car } from '../types';
-import { GaugeCircle, Battery, Shield, Crosshair } from 'lucide-react';
+import { GaugeCircle, Battery, Shield, Crosshair, Swords } from 'lucide-react';
 
 interface CarCardProps {
   car: Car;
@@ -13,7 +13,15 @@ const formatPrice = (price: string) => {
 
 export const CarCard: React.FC<CarCardProps> = ({ car }) => {
   return (
-    <div className="h-full min-h-[450px] flex flex-col bg-gray-900 rounded-lg overflow-hidden border border-red-500/20 hover:border-red-500/50 transition-all">
+    <div className="h-full min-h-[450px] flex flex-col bg-gray-900 rounded-lg overflow-hidden border border-red-500/20 hover:border-red-500/50 transition-all relative">
+      {/* Badge pour véhicules armés */}
+      {car.caractéristiques.armé === "Oui" && (
+        <div className="absolute top-2 right-2 bg-red-600 text-white px-2 py-1 rounded-full text-xs font-bold flex items-center gap-1 z-10">
+          <Swords size={12} />
+          ARMÉ
+        </div>
+      )}
+      
       <img 
         src={car.image} 
         alt={car.nom}

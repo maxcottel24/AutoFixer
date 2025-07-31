@@ -1,5 +1,5 @@
 import React from 'react';
-import { SlidersHorizontal } from 'lucide-react';
+import { SlidersHorizontal, Swords } from 'lucide-react';
 
 interface FiltersProps {
   priceRange: [number, number];
@@ -11,6 +11,8 @@ interface FiltersProps {
   setSelectedBrand: (brands: string[]) => void;
   availableBrands: string[];
   maxPrice: number;
+  showArmedOnly: boolean;
+  setShowArmedOnly: (show: boolean) => void;
 }
 
 export const Filters: React.FC<FiltersProps> = ({
@@ -23,6 +25,8 @@ export const Filters: React.FC<FiltersProps> = ({
   setSelectedBrand,
   availableBrands,
   maxPrice,
+  showArmedOnly,
+  setShowArmedOnly,
 }) => {
   const handleClassToggle = (classe: string) => {
     if (selectedClasses.includes(classe)) {
@@ -44,7 +48,23 @@ export const Filters: React.FC<FiltersProps> = ({
       </div>
 
       <div className="space-y-6">
-        {/* Type de véhicule (Premier élément) */}
+        {/* Filtre véhicules armés (Premier élément) */}
+        <div>
+          <h3 className="text-white mb-3">État du véhicule</h3>
+          <button
+            onClick={() => setShowArmedOnly(!showArmedOnly)}
+            className={`w-full px-3 py-2 rounded text-sm flex items-center justify-center gap-2 ${
+              showArmedOnly
+                ? 'bg-red-500 text-white'
+                : 'bg-gray-800 text-gray-400 hover:bg-gray-700'
+            }`}
+          >
+            <Swords size={16} />
+            Véhicules armés uniquement
+          </button>
+        </div>
+
+        {/* Type de véhicule (Deuxième élément) */}
         <div>
           <h3 className="text-white mb-3">Type de véhicule</h3>
           <div className="grid grid-cols-2 gap-2">
@@ -63,7 +83,7 @@ export const Filters: React.FC<FiltersProps> = ({
           </div>
         </div>
 
-        {/* Fourchette de prix (Deuxième élément) */}
+        {/* Fourchette de prix (Troisième élément) */}
         <div>
           <h3 className="text-white mb-3">Fourchette de prix (¥)</h3>
           <div className="flex items-center gap-4">

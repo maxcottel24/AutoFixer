@@ -1,3 +1,10 @@
+export interface WeaponStats {
+  nom: string;
+  type: "Mitrailleuse" | "Canon" | "Lance-missiles";
+  dégâts: string;
+  portée: string;
+}
+
 export interface CarStats {
   vitesse_max: string;
   nombre_de_places: string;
@@ -8,6 +15,7 @@ export interface CarStats {
   accélération_0_100_kmh?: string;
   accélération_0_60_kmh?: string;
   transmission?: string;
+  armes?: WeaponStats[];
 }
 
 export interface ColorInfo {

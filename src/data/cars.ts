@@ -1,64 +1,6 @@
-import { Car, ColorInfo } from '../types';
-
-// Définition des couleurs standards
-export const standardColors: readonly ColorInfo[] = [
-  // Neutres
-  { "name": "Nuit d'Obsidienne", "hex": "#0A0A0A" },
-  { "name": "Tempête de Titane", "hex": "#767676" },
-  { "name": "Perle Lustreuse", "hex": "#FFFFFF" },
-  
-  // Rouges
-  { "name": "Ardeur Écarlate", "hex": "#AD0000" },
-  { "name": "Furie de Pourpre", "hex": "#FF0000" },
-  
-  // Oranges
-  { "name": "Brûlure d'Ambre", "hex": "#FF6700" },
-  { "name": "Lueur de Braise", "hex": "#FF7F50" },
-  
-  // Jaunes/Dorés
-  { "name": "Soleil Glissant", "hex": "#FFF300" },
-  
-  // Verts
-  { "name": "Splendeur d'Émeraude", "hex": "#50C878" },
-  { "name": "Reflet d'Aigue-Marine", "hex": "#1abc9c" },
-  
-  // Bleus (du plus clair au plus foncé)
-  { "name": "Marée de Néon", "hex": "#00FFFF" },
-  { "name": "Brise d'Azur", "hex": "#87CEEB" },
-  { "name": "Vague de Saphir", "hex": "#0047AB" },
-  { "name": "Foudre Marine", "hex": "#191970" },
-  
-  // Violets
-  { "name": "Prune Impériale", "hex": "#7851A9" },
-  { "name": "Brume d'Améthyste", "hex": "#4B0082" },
-  
-  // Bruns
-  { "name": "Crépuscule Châtaigne", "hex": "#8B4513" },
-  
-  // Rose
-  { "name": "Éclosion de Rosée", "hex": "#FF69B4" },
-
-] as const;
-
-// Définition des couleurs exclusives par fabricant
-export const exclusiveColors: { readonly [key: string]: ColorInfo } = {
-  Rayfield: { "name": "Rayfield Gold Digger", "hex": "#FFD300" },
-  Mizutani: { "name": "Mizutani Shinkansen Surge", "hex": "#8800FF" },
-  Thorton: { "name": "Thorton Trailblazer", "hex": "#C2B280" },
-  Yaiba: { "name": "Yaiba Cyber Wave", "hex": "#FF1493" },
-  Quadra: { "name": "Quadra Retro Flash", "hex": "#FFCC00" },
-  Brennan: { "name": "Brennan Hyperion Mauve", "hex": "#532881" },
-  Villefort: { "name": "Villefort Sceptre d'Airain", "hex": "#8C6239" },
-  Herrera: { "name": "Herrera Real Burdeos", "hex": "#800020" },
-  Archer: { "name": "Archer Flèche de Glace", "hex": "#72CDEE" },
-  Chevillon: { "name": "Chevillon Dreadnought", "hex": "#C0C0C0" },
-  Makigai: { "name": "Makigai Nano Wasabi", "hex": "#7EC850" },
-  ArchMotorcycles: { "name": "Arch Furie du Bitume", "hex": "#4A0000" },
-  Dodge: { "name": "Dodge Dragstrip Inferno", "hex": "#FF8200" },
-  Chevrolet: { "name": "Chevrolet Lac Elkhart", "hex": "#005BAC" },
-  Viper: { "name": "Vipers", "hex": "#60A832" },
-  Corvette: { "name": "Corvettes", "hex": "#714C31" },
-} as const;
+import { Car } from '../types';
+import { weapons } from './weapons';
+import { standardColors, exclusiveColors } from './colors';
 
 export const cars: Car[] = [
   {
@@ -190,13 +132,38 @@ export const cars: Car[] = [
     "colors": [...standardColors],
     "exclusiveColors": exclusiveColors.Archer
   },
+    {
+      "nom": "Galena Rattler Gecko",
+      "fabricant": "Thorton",
+      "classe": "Citadine",
+      "caractéristiques": {
+        "vitesse_max": "290 km/h",
+        "nombre_de_places": "4",
+        "puissance": "365 CV",
+        "armé": "Oui",
+        "réduction_des_dégâts": 4,
+        "pv": 50,
+        "armes": [weapons["Mitrailleuse lourde"]]
+      },
+      "prix": "33000",
+      "image": "https://i.imgur.com/7UbrYPY.jpeg",
+      "additionalImages": [
+        "https://i.imgur.com/KLjSZeP.jpeg",
+        "https://i.imgur.com/9heNtHt.jpeg",
+        "https://i.imgur.com/4I0St6Z.jpeg",
+        "https://i.imgur.com/uzDcjhW.jpeg",
+        "https://i.imgur.com/f49uLw7.jpeg"
+      ],
+      "colors": [...standardColors],
+      "exclusiveColors": exclusiveColors.Thorton
+    },
   {
     "nom": "Galena Rattler",
     "fabricant": "Thorton",
     "classe": "Citadine",
     "caractéristiques": {
       "vitesse_max": "290 km/h",
-      "nombre_de_places": "2?",
+      "nombre_de_places": "4",
       "puissance": "365 CV",
       "armé": "Non",
       "réduction_des_dégâts": 4,

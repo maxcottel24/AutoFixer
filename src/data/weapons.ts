@@ -14,6 +14,12 @@ export const weapons: { [key: string]: WeaponStats } = {
     dégâts: "3d6",
     portée: "150m"
   },
+  "Missile lourd": {
+    nom: "Missile lourd",
+    type: "Lance-missiles",
+    dégâts: "3d6",
+    portée: "800m"
+  },
   "Lance-missiles guidés": {
     nom: "Lance-missiles guidés",
     type: "Lance-missiles",

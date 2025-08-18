@@ -93,7 +93,7 @@ export const cars: Car[] = [
       "puissance": "235 CV",
       "armé": "Non",
       "réduction_des_dégâts": 4,
-      "pv": 60
+      "pv": 50
     },
     "prix": "21000",
     "image": "https://i.imgur.com/PVcCDr3.jpeg",
@@ -107,6 +107,56 @@ export const cars: Car[] = [
     ],
     "colors": [...standardColors],
     "exclusiveColors": exclusiveColors.Thorton
+  },
+  {
+  "nom": "Colby Little Mule",
+  "fabricant": "Thorton",
+  "classe": "Tout terrain",
+  "caractéristiques": {
+    "vitesse_max": "245 km/h",
+    "nombre_de_places": "2",
+    "puissance": "300 CV",
+    "armé": "Oui",
+    "réduction_des_dégâts": 5,
+    "pv": 55,
+    "armes": [weapons["Mitrailleuse lourde"]]
+  },
+  "prix": "32000",
+  "image": "https://i.imgur.com/22sRZzK.jpeg",
+  "additionalImages": [
+    "https://i.imgur.com/2kIc8tI.jpeg",
+    "https://i.imgur.com/4X0mmdI.jpeg",
+    "https://i.imgur.com/i43Hbf6.jpeg",
+    "https://i.imgur.com/uDTuEXr.jpeg"
+  ],
+  "colors": [...standardColors],
+  "exclusiveColors": exclusiveColors.Thorton
+},
+  {
+    "nom": "Quartz Specter",
+    "fabricant": "Archer",
+    "classe": "Citadine",
+    "caractéristiques": {
+      "vitesse_max": "255 km/h",
+      "nombre_de_places": "2",
+      "puissance": "302 CV",
+      "armé": "Oui",
+      "réduction_des_dégâts": 5,
+      "pv": 50,
+      "armes": [weapons["Mitrailleuse lourde"]]
+    },
+    "prix": "28000",
+    "image": "https://i.imgur.com/CwUQwXa.jpeg",
+    "additionalImages": [
+      "https://i.imgur.com/r7M1LkS.jpeg",
+      "https://i.imgur.com/11lWILb.jpeg",
+      "https://i.imgur.com/DO8b9GN.jpeg",
+      "https://i.imgur.com/tKWPYb7.jpeg",
+      "https://i.imgur.com/xiYOKER.jpeg",
+      "https://i.imgur.com/N0wg9LZ.jpeg"
+    ],
+    "colors": [...standardColors],
+    "exclusiveColors": exclusiveColors.Archer
   },
   {
     "nom": "Quartz EC-L R275",
@@ -133,26 +183,26 @@ export const cars: Car[] = [
     "exclusiveColors": exclusiveColors.Archer
   },
     {
-      "nom": "Galena Rattler Gecko",
+      "nom": "Galena Gecko",
       "fabricant": "Thorton",
       "classe": "Citadine",
       "caractéristiques": {
         "vitesse_max": "290 km/h",
-        "nombre_de_places": "4",
+        "nombre_de_places": "2",
         "puissance": "365 CV",
         "armé": "Oui",
-        "réduction_des_dégâts": 4,
+        "réduction_des_dégâts": 5,
         "pv": 50,
-        "armes": [weapons["Mitrailleuse lourde"]]
+        "armes": [weapons["Mitrailleuse lourde"], weapons["Missile lourd"]]
       },
       "prix": "33000",
-      "image": "https://i.imgur.com/7UbrYPY.jpeg",
+      "image": "https://i.imgur.com/xOYRko9.jpeg",
       "additionalImages": [
-        "https://i.imgur.com/KLjSZeP.jpeg",
-        "https://i.imgur.com/9heNtHt.jpeg",
-        "https://i.imgur.com/4I0St6Z.jpeg",
-        "https://i.imgur.com/uzDcjhW.jpeg",
-        "https://i.imgur.com/f49uLw7.jpeg"
+        "https://i.imgur.com/CYyg2V9.jpeg",
+        "https://i.imgur.com/HplM0tV.jpeg",
+        "https://i.imgur.com/OfpnUCd.jpeg",
+        "https://i.imgur.com/j5Iwj2o.jpeg",
+        "https://i.imgur.com/ZZpHm8T.jpeg"
       ],
       "colors": [...standardColors],
       "exclusiveColors": exclusiveColors.Thorton
@@ -231,6 +281,30 @@ export const cars: Car[] = [
     "exclusiveColors": exclusiveColors.Villefort
   },
   {
+    "nom": "Deleon Vindicator",
+    "fabricant": "Villefort",
+    "classe": "Berline",
+    "caractéristiques": {
+      "vitesse_max": "220 km/h",
+      "nombre_de_places": "5",
+      "puissance": "240 CV",
+      "armé": "Non",
+      "réduction_des_dégâts": 3,
+      "pv": 45
+    },
+    "prix": "23000",
+    "image": "https://i.imgur.com/di3ve0g.jpeg",
+    "additionalImages": [
+      "https://i.imgur.com/9CLClFa.jpeg",
+      "https://i.imgur.com/rGZ1yTd.jpeg",
+      "https://i.imgur.com/BRQR0Zq.jpeg",
+      "https://i.imgur.com/tlQYfzs.jpeg",
+      "https://i.imgur.com/ZeTk8CE.jpeg",
+    ],
+    "colors": [...standardColors],
+    "exclusiveColors": exclusiveColors.Villefort
+  },
+  {
     "nom": "Thrax 388 Jefferson",
     "fabricant": "Chevillon",
     "classe": "Berline",
@@ -251,6 +325,29 @@ export const cars: Car[] = [
       "https://i.imgur.com/ABluD8X.jpeg",
       "https://i.imgur.com/tFYx3wr.jpeg",
       "https://i.imgur.com/ycdgWD5.jpeg"
+    ],  
+    "colors": [...standardColors],
+    "exclusiveColors": exclusiveColors.Chevillon
+  },
+  {
+    "nom": "Legatus 450 Aquila",
+    "fabricant": "Chevillon",
+    "classe": "Utilitaire",
+    "caractéristiques": {
+      "vitesse_max": "186 km/h",
+      "nombre_de_places": "5",
+      "puissance": "400 CV",
+      "armé": "Non",
+      "réduction_des_dégâts": 6,
+      "pv": 60
+    },
+    "prix": "22500",
+    "image": "https://i.imgur.com/kvTfaIO.jpeg",
+    "additionalImages": [
+      "https://i.imgur.com/AKTucbB.jpeg",
+      "https://i.imgur.com/UyCp6P5.jpeg",
+      "https://i.imgur.com/ppotR44.jpeg",
+      "https://i.imgur.com/RAwoEwW.jpeg"
     ],  
     "colors": [...standardColors],
     "exclusiveColors": exclusiveColors.Chevillon
@@ -300,6 +397,30 @@ export const cars: Car[] = [
       "https://i.imgur.com/fxVP9gY.jpeg",
       "https://i.imgur.com/IHXJqE5.jpeg",
       "https://i.imgur.com/FjCFIvY.jpeg"
+    ],
+    "colors": [...standardColors],
+    "exclusiveColors": exclusiveColors.Mizutani
+  },
+  {
+    "nom": "Shion Samum",
+    "fabricant": "Mizutani",
+    "classe": "Sport",
+    "caractéristiques": {
+      "vitesse_max": "320 km/h",
+      "nombre_de_places": "2",
+      "puissance": "570 CV",
+      "armé": "Oui",
+      "réduction_des_dégâts": 8,
+      "pv": 80,
+      "armes": [weapons["Mitrailleuse lourde"], weapons["Missile lourd"]]
+    },
+    "prix": "100000",
+    "image": "https://i.imgur.com/MGx3GZO.jpeg",
+    "additionalImages": [
+      "https://i.imgur.com/PWme3eD.jpeg",
+      "https://i.imgur.com/LEkIwpY.jpeg",
+      "https://i.imgur.com/DWtU0VP.jpeg",
+      "https://i.imgur.com/hEs8jHu.jpeg",
     ],
     "colors": [...standardColors],
     "exclusiveColors": exclusiveColors.Mizutani
@@ -412,7 +533,7 @@ export const cars: Car[] = [
       "puissance": "210 CV",
       "armé": "Non",
       "réduction_des_dégâts": 5,
-      "pv": 80
+      "pv": 62
     },
     "prix": "27000",
     "image": "https://i.imgur.com/PNd8NIR.jpeg",
@@ -427,6 +548,31 @@ export const cars: Car[] = [
     ],
     "colors": [...standardColors],
     "exclusiveColors": exclusiveColors.Villefort
+  },
+  {
+    "nom": "Supron FS3",
+    "fabricant": "Mahir",
+    "classe": "Utilitaire",
+    "caractéristiques": {
+      "vitesse_max": "185 km/h",
+      "nombre_de_places": "5",
+      "puissance": "189 CV",
+      "armé": "Non",
+      "réduction_des_dégâts": 4,
+      "pv": 48
+    },
+    "prix": "16000",
+    "image": "https://i.imgur.com/shFLLnI.jpeg", //joli phare pété
+    "additionalImages": [
+      "https://i.imgur.com/Dza30yK.jpeg",
+      "https://i.imgur.com/zzAeWU8.jpeg",
+      "https://i.imgur.com/q2Gv3tT.jpeg",
+      "https://i.imgur.com/ukYE1Q7.jpeg",
+      "https://i.imgur.com/JhfJurB.jpeg",
+      "https://i.imgur.com/NLEmoma.jpeg"
+    ],
+    "colors": [...standardColors],
+    "exclusiveColors": exclusiveColors.Mahir
   },
   {
     "nom": "Kusanagi CT-3X",
@@ -477,6 +623,155 @@ export const cars: Car[] = [
     ],
     "colors": [...standardColors],
     "exclusiveColors": exclusiveColors.Quadra
+  },
+  {
+    "nom": "Sport R-7 Sterling",
+    "fabricant": "Quadra",
+    "classe": "Sport",
+    "caractéristiques": {
+      "vitesse_max": "312 km/h",
+      "nombre_de_places": "4",
+      "puissance": "620 CV",
+      "armé": "Non",
+      "réduction_des_dégâts": 2,
+      "pv": 44
+    },
+    "prix": "49500",
+    "image": "https://i.imgur.com/iLqgZQF.jpeg",
+    "additionalImages": [
+      "https://i.imgur.com/ECUVcze.jpeg",
+      "https://i.imgur.com/jrK2sBR.jpeg",
+      "https://i.imgur.com/dtuMKon.jpeg",
+      "https://i.imgur.com/RM43xDh.jpeg",
+      "https://i.imgur.com/pxW2sTf.jpeg" // NICE JOKE PIC, needs to be changed
+    ],
+    "colors": [...standardColors],
+    "exclusiveColors": exclusiveColors.Quadra
+  },
+  {
+    "nom": "Sport R-7 Charon",
+    "fabricant": "Quadra",
+    "classe": "Sport",
+    "caractéristiques": {
+      "vitesse_max": "325 km/h",
+      "nombre_de_places": "4",
+      "puissance": "699 CV",
+      "armé": "Non",
+      "réduction_des_dégâts": 2,
+      "pv": 45
+    },
+    "prix": "61000",
+    "image": "https://i.imgur.com/uZHhijU.jpeg",
+    "additionalImages": [
+      "https://i.imgur.com/3NDBiLY.jpeg",
+      "https://i.imgur.com/7XCjpDw.jpeg",
+      "https://i.imgur.com/Xu1kuYs.jpeg",
+      "https://i.imgur.com/hkCW8yk.jpeg",
+      "https://i.imgur.com/YZzAYuJ.jpeg",
+      "https://i.imgur.com/hot9gqc.jpeg",
+      "https://i.imgur.com/qupFFyH.jpeg",
+      "https://i.imgur.com/ODXRUNM.jpeg",
+      "https://i.imgur.com/9fXM5XF.jpeg"
+    ],
+    "colors": [...standardColors],
+    "exclusiveColors": exclusiveColors.Quadra
+  },
+  {
+    "nom": "Type-66 'Javelina'",
+    "fabricant": "Quadra",
+    "classe": "Sport",
+    "caractéristiques": {
+      "vitesse_max": "301 km/h",
+      "nombre_de_places": "2",
+      "puissance": "684 CV",
+      "armé": "Oui",
+      "réduction_des_dégâts": 5,
+      "pv": 52,
+      "armes": [weapons["Mitrailleuse lourde"]]
+    },
+    "prix": "84000",
+    "image": "https://i.imgur.com/4UBjYTg.jpeg",
+    "additionalImages": [
+      "https://i.imgur.com/qDfsP0L.jpeg",
+      "https://i.imgur.com/iIXDjMl.jpeg",
+      "https://i.imgur.com/lnnpWMT.jpeg",
+      "https://i.imgur.com/uZhyYDY.jpeg",
+    ],
+    "colors": [...standardColors],
+    "exclusiveColors": exclusiveColors.Quadra
+  },
+  {
+    "nom": "Type-66 'Avenger'",
+    "fabricant": "Quadra",
+    "classe": "Sport",
+    "caractéristiques": {
+      "vitesse_max": "310 km/h",
+      "nombre_de_places": "2",
+      "puissance": "750 CV",
+      "armé": "Non",
+      "réduction_des_dégâts": 2,
+      "pv": 46,
+    },
+    "prix": "58000",
+    "image": "https://i.imgur.com/BawgonB.jpeg",
+    "additionalImages": [
+      "https://i.imgur.com/e17plLa.jpeg",
+      "https://i.imgur.com/41cdwct.jpeg",
+      "https://i.imgur.com/cCAJc3P.jpeg",
+      "https://i.imgur.com/RIosI4l.jpeg",
+    ],
+    "colors": [...standardColors],
+    "exclusiveColors": exclusiveColors.Quadra
+  },
+  {
+    "nom": "Type-66 'Jen Rowley'",
+    "fabricant": "Quadra",
+    "classe": "Sport",
+    "caractéristiques": {
+      "vitesse_max": "301 km/h",
+      "nombre_de_places": "2",
+      "puissance": "684 CV",
+      "armé": "Non",
+      "réduction_des_dégâts": 3,
+      "pv": 45,
+    },
+    "prix": "55000",
+    "image": "https://i.imgur.com/caxHSas.jpeg",
+    "additionalImages": [
+      "https://i.imgur.com/eX3Wmti.jpeg",
+      "https://i.imgur.com/GUnhQrw.jpeg",
+      "https://i.imgur.com/7Mqgh2R.jpeg",
+      "https://i.imgur.com/PIoF8mn.jpeg",
+      "https://i.imgur.com/xyErNzJ.jpeg",
+      "https://i.imgur.com/KlaW4CZ.jpeg"
+    ],
+    "colors": [...standardColors],
+    "exclusiveColors": exclusiveColors.Quadra
+  },
+  {
+    "nom": "Hellhound",
+    "fabricant": "Militech",
+    "classe": "Tout terrain",
+    "caractéristiques": {
+      "vitesse_max": "220 km/h",
+      "nombre_de_places": "6",
+      "puissance": "500 CV",
+      "armé": "Oui",
+      "réduction_des_dégâts": 10,
+      "pv": 100,
+      "armes": [weapons["Mitrailleuse lourde"], weapons["Missile lourd"], weapons["Canon automatique 30mm"], weapons["Lance-missiles guidés"]]
+    },
+    "prix": "115000",
+    "image": "https://i.imgur.com/8iSXWne.jpeg",
+    "additionalImages": [
+      "https://i.imgur.com/M6GOThV.jpeg",
+      "https://i.imgur.com/xHQhKop.jpeg",
+      "https://i.imgur.com/TY5zS7O.jpeg",
+      "https://i.imgur.com/7jD0iFC.jpeg",
+      "https://i.imgur.com/WIRMorW.jpeg"
+    ],
+    "colors": [...standardColors],
+    "exclusiveColors": exclusiveColors.Militech
   },
   {
     "nom": "Maimai P126",

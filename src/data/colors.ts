@@ -57,4 +57,6 @@ export const standardColors: readonly ColorInfo[] = [
     Chevrolet: { "name": "Chevrolet Lac Elkhart", "hex": "#005BAC" },
     Viper: { "name": "Vipers", "hex": "#60A832" },
     Corvette: { "name": "Corvettes", "hex": "#714C31" },
+    Militech: { "name": "Militech Man O'War", "hex": "#4548AB" },
+    Mahir: { "name": "Mahir Aston Green", "hex": "#0F665E" },
   } as const;

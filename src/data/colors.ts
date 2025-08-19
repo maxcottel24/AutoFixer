@@ -59,4 +59,7 @@ export const standardColors: readonly ColorInfo[] = [
     Corvette: { "name": "Corvettes", "hex": "#714C31" },
     Militech: { "name": "Militech Man O'War", "hex": "#4548AB" },
     Mahir: { "name": "Mahir Aston Green", "hex": "#0F665E" },
+    Zetatech: { "name": "Zetatech Gris de Neige", "hex": "#CCCCCC" },
+    TraumaTeam: { "name": "Trauma Team Soins d'Urgence", "hex": "#1DA09D" },
+    ChevroletF1: { "name": "Chevrolet F1", "hex": "#00ffff" },
   } as const;

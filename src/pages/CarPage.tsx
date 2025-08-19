@@ -4,11 +4,11 @@ import { cars } from '../data/cars';
 import { useCart } from '../hooks/useCart';
 import { Car, ColorInfo } from '../types';
 import { 
-  GaugeCircle, Battery, Shield, Zap, 
+  GaugeCircle, Battery, Shield, Plane, 
   Crosshair, Plus, Users,
   ChevronLeft, ChevronRight,
   ArrowLeft, Target, Swords,
-  Flame, Ruler
+  Flame, Ruler, Zap
 } from 'lucide-react';
 import { ImageModal } from '../components/ImageModal';
 
@@ -39,6 +39,8 @@ export const CarPage: React.FC = () => {
   const car = cars.find(c => c.nom === carName);
   
   const allImages = car ? [car.image, ...(car.additionalImages || [])] : [];
+  
+  const isFlyingVehicle = car ? (car.classe === "Hélicoptère" || car.classe === "Navi") : false;
   
   const nextImage = () => {
     setCurrentImageIndex((prev) => (prev + 1) % allImages.length);
@@ -77,6 +79,25 @@ export const CarPage: React.FC = () => {
               className="w-full h-48 sm:h-72 md:h-96 object-cover cursor-zoom-in"
               onClick={() => setIsModalOpen(true)}
             />
+            
+            {/* Badges pour véhicules volants et armés */}
+            <div className="absolute top-4 right-4 flex flex-col gap-2 z-10">
+              {/* Badge pour véhicules volants */}
+              {isFlyingVehicle && (
+                <div className="bg-blue-600 text-white px-3 py-1 rounded-full text-sm font-bold flex items-center gap-2">
+                  <Plane size={16} />
+                  VOLANT
+                </div>
+              )}
+              
+              {/* Badge pour véhicules armés */}
+              {car.caractéristiques.armé === "Oui" && (
+                <div className="bg-red-600 text-white px-3 py-1 rounded-full text-sm font-bold flex items-center gap-2">
+                  <Swords size={16} />
+                  ARMÉ
+                </div>
+              )}
+            </div>
             {allImages.length > 1 && (
               <>
                 <button 
@@ -189,7 +210,7 @@ export const CarPage: React.FC = () => {
               </div>
 
               <div className="flex items-center gap-3 bg-gray-800/50 p-3 rounded-lg">
-                <Zap size={24} style={{ color: accentColor }} className="shrink-0" />
+                <GaugeCircle size={24} style={{ color: accentColor }} className="shrink-0" />
                 <div>
                   <p className="text-gray-400 text-sm">Puissance</p>
                   <p className="text-white">{car.caractéristiques.puissance}</p>

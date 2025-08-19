@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Car } from '../types';
-import { GaugeCircle, Battery, Shield, Crosshair, Swords } from 'lucide-react';
+import { GaugeCircle, Battery, Shield, Crosshair, Swords, Plane } from 'lucide-react';
 
 interface CarCardProps {
   car: Car;
@@ -12,15 +12,29 @@ const formatPrice = (price: string) => {
 };
 
 export const CarCard: React.FC<CarCardProps> = ({ car }) => {
+  const isFlyingVehicle = car.classe === "Hélicoptère" || car.classe === "Navi";
+  const isArmed = car.caractéristiques.armé === "Oui";
+  
   return (
     <div className="h-full min-h-[450px] flex flex-col bg-gray-900 rounded-lg overflow-hidden border border-red-500/20 hover:border-red-500/50 transition-all relative">
-      {/* Badge pour véhicules armés */}
-      {car.caractéristiques.armé === "Oui" && (
-        <div className="absolute top-2 right-2 bg-red-600 text-white px-2 py-1 rounded-full text-xs font-bold flex items-center gap-1 z-10">
-          <Swords size={12} />
-          ARMÉ
-        </div>
-      )}
+      {/* Badges pour véhicules volants et armés */}
+      <div className="absolute top-2 right-2 flex flex-col gap-1 z-10">
+        {/* Badge pour véhicules volants */}
+        {isFlyingVehicle && (
+          <div className="bg-blue-600 text-white px-2 py-1 rounded-full text-xs font-bold flex items-center gap-1">
+            <Plane size={12} />
+            VOLANT
+          </div>
+        )}
+        
+        {/* Badge pour véhicules armés */}
+        {isArmed && (
+          <div className="bg-red-600 text-white px-2 py-1 rounded-full text-xs font-bold flex items-center gap-1">
+            <Swords size={12} />
+            ARMÉ
+          </div>
+        )}
+      </div>
       
       <img 
         src={car.image} 

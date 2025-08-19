@@ -1,5 +1,5 @@
 import React from 'react';
-import { SlidersHorizontal, Swords } from 'lucide-react';
+import { SlidersHorizontal, Swords, Plane } from 'lucide-react';
 
 interface FiltersProps {
   priceRange: [number, number];
@@ -13,6 +13,8 @@ interface FiltersProps {
   maxPrice: number;
   showArmedOnly: boolean;
   setShowArmedOnly: (show: boolean) => void;
+  showFlyingOnly: boolean;
+  setShowFlyingOnly: (show: boolean) => void;
 }
 
 export const Filters: React.FC<FiltersProps> = ({
@@ -27,6 +29,8 @@ export const Filters: React.FC<FiltersProps> = ({
   maxPrice,
   showArmedOnly,
   setShowArmedOnly,
+  showFlyingOnly,
+  setShowFlyingOnly,
 }) => {
   const handleClassToggle = (classe: string) => {
     if (selectedClasses.includes(classe)) {
@@ -48,20 +52,34 @@ export const Filters: React.FC<FiltersProps> = ({
       </div>
 
       <div className="space-y-6">
-        {/* Filtre véhicules armés (Premier élément) */}
+        {/* Filtre véhicules armés et volants (Premier élément) */}
         <div>
           <h3 className="text-white mb-3">État du véhicule</h3>
-          <button
-            onClick={() => setShowArmedOnly(!showArmedOnly)}
-            className={`w-full px-3 py-2 rounded text-sm flex items-center justify-center gap-2 ${
-              showArmedOnly
-                ? 'bg-red-500 text-white'
-                : 'bg-gray-800 text-gray-400 hover:bg-gray-700'
-            }`}
-          >
-            <Swords size={16} />
-            Véhicules armés uniquement
-          </button>
+          <div className="space-y-2">
+            <button
+              onClick={() => setShowArmedOnly(!showArmedOnly)}
+              className={`w-full px-3 py-2 rounded text-sm flex items-center justify-center gap-2 ${
+                showArmedOnly
+                  ? 'bg-red-500 text-white'
+                  : 'bg-gray-800 text-gray-400 hover:bg-gray-700'
+              }`}
+            >
+              <Swords size={16} />
+              Véhicules armés uniquement
+            </button>
+            
+            <button
+              onClick={() => setShowFlyingOnly(!showFlyingOnly)}
+              className={`w-full px-3 py-2 rounded text-sm flex items-center justify-center gap-2 ${
+                showFlyingOnly
+                  ? 'bg-red-500 text-white'
+                  : 'bg-gray-800 text-gray-400 hover:bg-gray-700'
+              }`}
+            >
+              <Plane size={16} />
+              Véhicules volants uniquement
+            </button>
+          </div>
         </div>
 
         {/* Type de véhicule (Deuxième élément) */}

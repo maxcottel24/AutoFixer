@@ -562,7 +562,7 @@ export const cars: Car[] = [
       "pv": 48
     },
     "prix": "16000",
-    "image": "https://i.imgur.com/shFLLnI.jpeg", //joli phare pété
+    "image": "https://i.imgur.com/shFLLnI.jpeg", // joli phare pété
     "additionalImages": [
       "https://i.imgur.com/Dza30yK.jpeg",
       "https://i.imgur.com/zzAeWU8.jpeg",
@@ -823,6 +823,91 @@ export const cars: Car[] = [
     ],
     "colors": [...standardColors],
     "exclusiveColors": exclusiveColors.Chevillon
+  },
+  // VÉHICULES VOLANTS - HÉLICOPTÈRES
+  {
+    "nom": "MI 45 Apache",
+    "fabricant": "Militech",
+    "classe": "Hélicoptère",
+    "caractéristiques": {
+      "vitesse_max": "420 km/h",
+      "nombre_de_places": "12",
+      "puissance": "2600 CV",
+      "armé": "Oui",
+      "réduction_des_dégâts": 8,
+      "pv": 106,
+      "armes": [weapons["Canon automatique 30mm"], weapons["Lance-missiles guidés"], weapons["Missile lourd"]]
+    },
+    "prix": "240000",
+    "image": "https://i.imgur.com/4J0TGPH.jpeg",
+    "additionalImages": [
+      "https://i.imgur.com/edqu1Ve.jpeg",
+      "https://i.imgur.com/ZKNqWL6.jpeg",
+      "https://i.imgur.com/wa4lRi0.jpeg"
+    ],
+    "colors": [...standardColors],
+    "exclusiveColors": exclusiveColors.Militech
+  },
+  {
+    "nom": "TT-MR7 Valkyrie",
+    "fabricant": "Trauma Team",
+    "classe": "Navi",
+    "caractéristiques": {
+      "vitesse_max": "509 km/h",
+      "nombre_de_places": "5",
+      "puissance": "1800 CV",
+      "armé": "Non",
+      "réduction_des_dégâts": 5,
+      "pv": 92,
+    },
+    "prix": "200000",
+    "image": "https://i.imgur.com/FEhWq9d.jpeg",
+    "additionalImages": [
+    ],
+    "colors": [...standardColors],
+    "exclusiveColors": exclusiveColors.TraumaTeam
+  },
+  {
+    "nom": "Veliora LX",
+    "fabricant": "Zetatech",
+    "classe": "Navi",
+    "caractéristiques": {
+      "vitesse_max": "420 km/h",
+      "nombre_de_places": "4",
+      "puissance": "1200 CV",
+      "armé": "Non",
+      "réduction_des_dégâts": 6,
+      "pv": 75
+    },
+    "prix": "185000",
+    "image": "https://i.imgur.com/Nj2apXK.jpeg",
+    "additionalImages": [
+      "https://i.imgur.com/LN01L7X.jpeg",
+      "https://i.imgur.com/5NMgOgO.jpeg",
+            "https://i.imgur.com/mrKrBlE.jpeg"
+    ],
+    "colors": [...standardColors],
+    "exclusiveColors": exclusiveColors.Zetatech
+  },
+  {
+    "nom": "Corvette X-1",
+    "fabricant": "Chevrolet",
+    "classe": "Hypercar",
+    "caractéristiques": {
+      "vitesse_max": "580 km/h",
+      "nombre_de_places": "1",
+      "puissance": "2500 CV",
+      "armé": "Non",
+      "réduction_des_dégâts": 0,
+      "pv": 15,
+    },
+    "prix": "5000000 ",
+    "image": "https://i.imgur.com/54uSyNy.png",
+    "additionalImages": [
+      "https://i.imgur.com/QKAIm02.png"
+    ],
+    "colors": [...standardColors],
+    "exclusiveColors": exclusiveColors.ChevroletF1
   }
 ];
 

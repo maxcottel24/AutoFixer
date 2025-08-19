@@ -210,7 +210,7 @@ export const CarPage: React.FC = () => {
               </div>
 
               <div className="flex items-center gap-3 bg-gray-800/50 p-3 rounded-lg">
-                <GaugeCircle size={24} style={{ color: accentColor }} className="shrink-0" />
+                <Zap size={24} style={{ color: accentColor }} className="shrink-0" />
                 <div>
                   <p className="text-gray-400 text-sm">Puissance</p>
                   <p className="text-white">{car.caractéristiques.puissance}</p>

@@ -562,7 +562,7 @@ export const cars: Car[] = [
       "pv": 48
     },
     "prix": "16000",
-    "image": "https://i.imgur.com/shFLLnI.jpeg", // joli phare pété
+    "image": "https://i.imgur.com/shFLLnI.jpeg",
     "additionalImages": [
       "https://i.imgur.com/Dza30yK.jpeg",
       "https://i.imgur.com/zzAeWU8.jpeg",
@@ -643,7 +643,7 @@ export const cars: Car[] = [
       "https://i.imgur.com/jrK2sBR.jpeg",
       "https://i.imgur.com/dtuMKon.jpeg",
       "https://i.imgur.com/RM43xDh.jpeg",
-      "https://i.imgur.com/pxW2sTf.jpeg" // NICE JOKE PIC, needs to be changed
+      "https://i.imgur.com/ENoD5S8.jpeg" 
     ],
     "colors": [...standardColors],
     "exclusiveColors": exclusiveColors.Quadra
@@ -863,6 +863,9 @@ export const cars: Car[] = [
     "prix": "200000",
     "image": "https://i.imgur.com/FEhWq9d.jpeg",
     "additionalImages": [
+      "https://i.imgur.com/TQtpdH8.jpeg",
+      "https://i.imgur.com/ONy4o0Q.jpeg",
+      "https://i.imgur.com/sLD0RUX.jpeg"
     ],
     "colors": [...standardColors],
     "exclusiveColors": exclusiveColors.TraumaTeam
@@ -884,7 +887,12 @@ export const cars: Car[] = [
     "additionalImages": [
       "https://i.imgur.com/LN01L7X.jpeg",
       "https://i.imgur.com/5NMgOgO.jpeg",
-            "https://i.imgur.com/mrKrBlE.jpeg"
+      "https://i.imgur.com/mrKrBlE.jpeg",
+      "https://i.imgur.com/h4gBJGh.jpeg",
+      "https://i.imgur.com/u7NSxXV.jpeg",
+      "https://i.imgur.com/1vT2tYE.jpeg",
+      "https://i.imgur.com/eaIM6S1.jpeg",
+      "https://i.imgur.com/7iLKVL6.jpeg"
     ],
     "colors": [...standardColors],
     "exclusiveColors": exclusiveColors.Zetatech

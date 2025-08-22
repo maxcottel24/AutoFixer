@@ -41,20 +41,21 @@ export const Filters: React.FC<FiltersProps> = ({
   };
 
   const formatPrice = (price: number) => {
-    return price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+    const formatted = price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+    return formatted.replace(/^0+/, '') || '0';
   };
 
   return (
-    <div className="sticky top-20 z-40 bg-gray-900 p-6 rounded-lg shadow-lg max-w-xs w-full">
-      <div className="flex items-center gap-2 mb-6">
+    <div className="sticky top-20 z-40 bg-gray-900 p-4 rounded-lg shadow-lg max-w-xs w-full max-h-[calc(100vh-120px)] overflow-y-auto">
+      <div className="flex items-center gap-2 mb-4">
         <SlidersHorizontal className="text-red-500" />
         <h2 className="text-xl font-bold text-white">Filtres</h2>
       </div>
 
-      <div className="space-y-6">
+      <div className="space-y-4">
         {/* Filtre véhicules armés et volants (Premier élément) */}
         <div>
-          <h3 className="text-white mb-3">État du véhicule</h3>
+          <h3 className="text-white mb-2">État du véhicule</h3>
           <div className="space-y-2">
             <button
               onClick={() => setShowArmedOnly(!showArmedOnly)}
@@ -84,7 +85,7 @@ export const Filters: React.FC<FiltersProps> = ({
 
         {/* Type de véhicule (Deuxième élément) */}
         <div>
-          <h3 className="text-white mb-3">Type de véhicule</h3>
+          <h3 className="text-white mb-2">Type de véhicule</h3>
           <div className="grid grid-cols-2 gap-2">
             {availableClasses.map((classe) => (
               <button
@@ -103,8 +104,34 @@ export const Filters: React.FC<FiltersProps> = ({
 
         {/* Fourchette de prix (Troisième élément) */}
         <div>
-          <h3 className="text-white mb-3">Fourchette de prix (¥)</h3>
-          <div className="flex items-center gap-4">
+          <h3 className="text-white mb-2">Fourchette de prix (¥)</h3>
+          
+          {/* Saisie manuelle */}
+          <div className="flex gap-2 mb-2">
+            <input
+              type="number"
+              value={priceRange[0] === 0 ? '' : priceRange[0].toString().replace(/^0+/, '')}
+              onChange={(e) => {
+                const newMin = parseInt(e.target.value) || 0;
+                setPriceRange([newMin, priceRange[1]]);
+              }}
+              className="w-20 px-2 py-1 text-xs bg-gray-700 text-white rounded border border-gray-600"
+              placeholder="Min"
+            />
+            <input
+              type="number"
+              value={priceRange[1] === 0 ? '' : priceRange[1].toString().replace(/^0+/, '')}
+              onChange={(e) => {
+                const newMax = parseInt(e.target.value) || 0;
+                setPriceRange([priceRange[0], newMax]);
+              }}
+              className="w-24 px-2 py-1 text-xs bg-gray-700 text-white rounded border border-gray-600"
+              placeholder="Max"
+            />
+          </div>
+          
+          {/* Sliders */}
+          <div className="flex items-center gap-2">
             <input
               type="range"
               min="0"
@@ -112,16 +139,15 @@ export const Filters: React.FC<FiltersProps> = ({
               value={priceRange[0]}
               onChange={(e) => {
                 const newMin = parseInt(e.target.value);
-                // Ensure minimum doesn't exceed maximum
                 setPriceRange([Math.min(newMin, priceRange[1]), priceRange[1]]);
               }}
               className="w-full h-2 bg-gray-700 rounded-lg appearance-none cursor-pointer accent-red-500"
             />
-            <span className="text-green-400 font-mono whitespace-nowrap">
+            <span className="text-green-400 font-mono whitespace-nowrap text-xs">
               {formatPrice(priceRange[0])}¥
             </span>
           </div>
-          <div className="flex items-center gap-4 mt-2">
+          <div className="flex items-center gap-2 mt-1">
             <input
               type="range"
               min="0"
@@ -129,12 +155,11 @@ export const Filters: React.FC<FiltersProps> = ({
               value={priceRange[1]}
               onChange={(e) => {
                 const newMax = parseInt(e.target.value);
-                // Ensure maximum doesn't go below minimum
                 setPriceRange([priceRange[0], Math.max(newMax, priceRange[0])]);
               }}
               className="w-full h-2 bg-gray-700 rounded-lg appearance-none cursor-pointer accent-red-500"
             />
-            <span className="text-green-400 font-mono whitespace-nowrap">
+            <span className="text-green-400 font-mono whitespace-nowrap text-xs">
               {formatPrice(priceRange[1])}¥
             </span>
           </div>
@@ -142,8 +167,8 @@ export const Filters: React.FC<FiltersProps> = ({
 
         {/* Filtrer par marque (Dernier élément) */}
         <div>
-          <h3 className="text-gray-400 mb-2">Filtrer par marque :</h3>
-          <div className="flex flex-wrap gap-2">
+          <h3 className="text-gray-400 mb-2 text-sm">Filtrer par marque :</h3>
+          <div className="flex flex-wrap gap-1">
             {availableBrands.map((brand) => (
               <button
                 key={brand}
@@ -158,7 +183,7 @@ export const Filters: React.FC<FiltersProps> = ({
                     return updatedSelection;
                   });
                 }}
-                className={`px-3 py-1 rounded-md border ${
+                className={`px-2 py-1 rounded-md border text-xs ${
                   selectedBrand.includes(brand)
                     ? "bg-red-500 text-white border-red-500/20"
                     : "bg-gray-800 text-gray-400 hover:bg-gray-700 border-gray-600"

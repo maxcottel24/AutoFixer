@@ -901,7 +901,7 @@ export const cars: Car[] = [
       "réduction_des_dégâts": 0,
       "pv": 15,
     },
-    "prix": "5000000 ",
+    "prix": "1000000 ",
     "image": "https://i.imgur.com/54uSyNy.png",
     "additionalImages": [
       "https://i.imgur.com/QKAIm02.png"

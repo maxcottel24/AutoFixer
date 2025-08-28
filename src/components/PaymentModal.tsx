@@ -1,79 +1,94 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { X, Check } from 'lucide-react';
-import { QRCodeSVG } from 'qrcode.react';
 
 interface PaymentModalProps {
   isOpen: boolean;
   onClose: () => void;
   onSuccess: () => void;
-  amount: number;
 }
 
-export const PaymentModal: React.FC<PaymentModalProps> = ({ isOpen, onClose, onSuccess, amount }) => {
-  const [status, setStatus] = useState<'pending' | 'confirmed'>('pending');
+export const PaymentModal: React.FC<PaymentModalProps> = ({ isOpen, onClose, onSuccess }) => {
+  const [status, setStatus] = useState<'loading' | 'confirmed'>('loading');
+  const [progress, setProgress] = useState(0);
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    if (isOpen) {
+      setIsVisible(true);
+    } else {
+      setIsVisible(false);
+    }
+  }, [isOpen]);
+
+  useEffect(() => {
+    if (status === 'loading') {
+      const interval = setInterval(() => {
+        setProgress(prev => {
+          if (prev >= 100) {
+            clearInterval(interval);
+            setStatus('confirmed');
+            setTimeout(() => {
+              onSuccess();
+              onClose();
+              setStatus('loading');
+              setProgress(0);
+            }, 2000);
+            return 100;
+          }
+          const newProgress = prev + Math.random() * 8 + 2;
+          return Math.min(newProgress, 100); // S'assurer qu'on ne dépasse jamais 100%
+        });
+      }, 400);
+
+      return () => clearInterval(interval);
+    }
+  }, [status, onSuccess, onClose]);
 
   if (!isOpen) return null;
 
-  const handleSimulateScan = () => {
-    setStatus('confirmed');
-    setTimeout(() => {
-      onSuccess();
-      onClose();
-      setStatus('pending');
-    }, 2000);
-  };
-
   return (
-    <div className="fixed inset-0 bg-black/80 flex items-center justify-center p-4 z-50">
-      <div className="bg-gray-900 rounded-lg p-6 max-w-sm w-full relative">
+    <div className={`fixed inset-0 bg-black/20 backdrop-blur-md flex items-center justify-center p-2 sm:p-4 z-50 transition-opacity duration-300 ${
+      isVisible ? 'opacity-100' : 'opacity-0'
+    }`}>
+      <div className={`bg-gray-900 rounded-lg p-4 sm:p-6 w-full max-w-sm mx-2 relative transition-all duration-300 transform ${
+        isVisible ? 'scale-100 opacity-100' : 'scale-95 opacity-0'
+      }`}>
         <button
           onClick={onClose}
-          className="absolute top-4 right-4 text-gray-400 hover:text-white transition-colors"
+          className="absolute top-2 right-2 sm:top-4 sm:right-4 text-gray-400 hover:text-white transition-colors"
         >
-          <X size={24} />
+          <X size={20} className="sm:w-6 sm:h-6" />
         </button>
 
-        <div className="flex flex-col items-center gap-6">
-          {status === 'pending' ? (
-            <>
-              <h2 className="text-xl font-bold text-white text-center">
-                Scannez pour payer
-                <span className="block text-green-400 mt-1">
-                  {amount.toLocaleString()} ¥
-                </span>
-              </h2>
+        <div className="flex flex-col items-center gap-4 sm:gap-6">
+          {status === 'loading' ? (
+            <div className="py-6 sm:py-8 flex flex-col items-center gap-4 sm:gap-6 w-full">
+              <h3 className="text-white font-bold text-base sm:text-lg text-center px-2">
+                Transfert des fonds pour l'achat
+              </h3>
               
-              <div className="bg-white p-4 rounded-lg">
-                <QRCodeSVG
-                  value={`AutoFixer Payment Request: ${amount} ¥`}
-                  size={200}
-                  level="H"
-                  includeMargin
+              <div className="w-full bg-gray-700 rounded-full h-2 sm:h-3">
+                <div 
+                  className="bg-green-500 h-2 sm:h-3 rounded-full transition-all duration-200 ease-out"
+                  style={{ width: `${progress}%` }}
                 />
               </div>
               
-              <p className="text-gray-400 text-center text-sm mb-4">
-                Veuillez scanner le QR code avec votre application bancaire
+              <p className="text-gray-400 text-center text-xs sm:text-sm">
+                {Math.round(progress)}% terminé
               </p>
-
-              <button
-                onClick={handleSimulateScan}
-                className="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded transition-colors text-sm"
-              >
-                Simuler le scan du QR code
-              </button>
-            </>
+            </div>
           ) : (
-            <div className="py-8 flex flex-col items-center gap-4">
-              <div className="w-16 h-16 bg-green-500 rounded-full flex items-center justify-center">
-                <Check size={32} className="text-white" />
+            <div className="py-6 sm:py-8 flex flex-col items-center gap-3 sm:gap-4">
+              <div className="w-12 h-12 sm:w-16 sm:h-16 bg-green-500 rounded-full flex items-center justify-center">
+                <Check size={24} className="sm:w-8 sm:h-8 text-white" />
               </div>
-              <div className="text-center">
-                <p className="text-white font-bold text-xl mb-2">
-                  Identité confirmée
+              <div className="text-center px-2">
+                <p className="text-white font-bold text-lg sm:text-xl mb-1 sm:mb-2">
+                  Paiement confirmé
                 </p>
-                <p className="text-green-400">
-                  Fonds en cours de transfert
+                <p className="text-green-400 text-sm sm:text-base">
+                  Transaction terminée avec succès
                 </p>
               </div>
             </div>

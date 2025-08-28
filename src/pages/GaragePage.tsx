@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useCart } from '../hooks/useCart';
 import { Link } from 'react-router-dom';
 import { Trash2, ArrowLeft, CreditCard } from 'lucide-react';
 import { CarCartItem, ColorCartItem } from '../types';
+import { PaymentModal } from '../components/PaymentModal';
 
 const formatPrice = (price: string) => {
   return price.replace(/\B(?=(\d{3})+(?!\d))/g, ',');
@@ -14,6 +15,7 @@ const isColorItem = (item: CarCartItem | ColorCartItem): item is ColorCartItem =
 
 export const GaragePage: React.FC = () => {
   const { cart, removePackage, clearCart } = useCart();
+  const [showPaymentModal, setShowPaymentModal] = useState(false);
 
   // Trouver toutes les voitures dans le panier
   const carItems = cart.filter(item => !isColorItem(item)) as CarCartItem[];
@@ -41,7 +43,10 @@ export const GaragePage: React.FC = () => {
   });
 
   const handlePayment = () => {
-    alert('Paiement effectué avec succès !');
+    setShowPaymentModal(true);
+  };
+
+  const handlePaymentSuccess = () => {
     clearCart();
   };
 
@@ -87,7 +92,7 @@ export const GaragePage: React.FC = () => {
                     />
                   )}
                   <div className="flex-1">
-                    <div className="flex justify-between items-start">
+                    <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start gap-2 sm:gap-0">
                       <div>
                         <h2 className="text-xl font-bold text-white">{car.nom}</h2>
                         <p className="text-red-500">{car.fabricant}</p>
@@ -95,13 +100,13 @@ export const GaragePage: React.FC = () => {
                           <p className="text-gray-400">Couleur: {color.nom}</p>
                         )}
                       </div>
-                      <div className="text-right">
+                      <div className="flex justify-between items-center sm:flex-col sm:items-end sm:gap-2">
                         <p className="text-xl font-mono text-green-400">
                           {formatPrice((parseInt(car.prix) + (color ? parseInt(color.prix) : 0)).toString())} ¥
                         </p>
                         <button
                           onClick={() => removePackage(car.nom)}
-                          className="mt-2 text-red-500 hover:text-red-400 transition-colors"
+                          className="text-red-500 hover:text-red-400 transition-colors"
                         >
                           <Trash2 size={20} />
                         </button>
@@ -135,6 +140,12 @@ export const GaragePage: React.FC = () => {
           </div>
         )}
       </div>
+
+      <PaymentModal
+        isOpen={showPaymentModal}
+        onClose={() => setShowPaymentModal(false)}
+        onSuccess={handlePaymentSuccess}
+      />
     </div>
   );
 };

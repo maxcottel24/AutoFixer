@@ -220,7 +220,7 @@ export const CarPage: React.FC = () => {
             {car.nom === "Apollo" && (
               <div className="mt-6 mb-6 p-4 bg-gradient-to-r from-gray-800/50 to-gray-700/50 rounded-lg border border-gray-600/30">
                 <p className="text-gray-300 text-center italic leading-relaxed">
-                  Une moto pour ceux qui veulent sentir chaque nid-de-poule comme une bénédiction divine.
+                  Tiens tiens, mais personne n'a commandé de Pizza pourtant ?
                 </p>
               </div>
             )}

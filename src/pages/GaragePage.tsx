@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import { Trash2, ArrowLeft, CreditCard } from 'lucide-react';
 import { CarCartItem, ColorCartItem } from '../types';
 import { PaymentModal } from '../components/PaymentModal';
+import { useTranslation } from 'react-i18next';
 
 const formatPrice = (price: string) => {
   return price.replace(/\B(?=(\d{3})+(?!\d))/g, ',');
@@ -16,6 +17,7 @@ const isColorItem = (item: CarCartItem | ColorCartItem): item is ColorCartItem =
 export const GaragePage: React.FC = () => {
   const { cart, removePackage, clearCart } = useCart();
   const [showPaymentModal, setShowPaymentModal] = useState(false);
+  const { t } = useTranslation();
 
   // Trouver toutes les voitures dans le panier
   const carItems = cart.filter(item => !isColorItem(item)) as CarCartItem[];
@@ -63,17 +65,11 @@ export const GaragePage: React.FC = () => {
           <span>Retour au catalogue</span>
         </Link>
 
-        <h1 className="text-3xl font-bold text-white mb-8">Mon garage</h1>
+        <h1 className="text-3xl font-bold text-white mb-8">{t('garage.title')}</h1>
 
         {packages.length === 0 ? (
           <div className="text-center py-12">
-            <p className="text-gray-400">Votre garage est vide</p>
-            <Link
-              to="/"
-              className="inline-block mt-4 px-6 py-2 bg-red-500 text-white rounded hover:bg-red-600 transition-colors"
-            >
-              Parcourir le catalogue
-            </Link>
+            <p className="text-gray-400">{t('garage.empty')}</p>
           </div>
         ) : (
           <div className="space-y-6">

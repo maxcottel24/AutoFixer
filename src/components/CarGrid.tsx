@@ -2,8 +2,10 @@ import React, { useState, useMemo } from 'react';
 import { CarCard } from './CarCard';
 import { Filters } from './Filters';
 import { cars } from '../data/cars';
+import { useTranslation } from 'react-i18next';
 
 export const CarGrid: React.FC = () => {
+  const { t } = useTranslation();
   const minPrice = Math.min(...cars.map(car => parseInt(car.prix)));
   const maxPrice = Math.max(...cars.map(car => parseInt(car.prix)));
   const availableClasses = Array.from(new Set(cars.map(car => car.classe))).sort(); 
@@ -59,7 +61,7 @@ export const CarGrid: React.FC = () => {
         
         {filteredCars.length === 0 && (
           <div className="text-center py-12">
-            <p className="text-gray-400">Aucun véhicule ne correspond à vos filtres</p>
+            <p className="text-gray-400">{t('CarGrid.noResults')}</p>
           </div>
         )}
       </div>

@@ -11,6 +11,7 @@ import {
   Flame, Ruler, Zap
 } from 'lucide-react';
 import { ImageModal } from '../components/ImageModal';
+import { useTranslation } from 'react-i18next';
 
 const formatPrice = (price: string) => {
   return price.replace(/\B(?=(\d{3})+(?!\d))/g, ',');
@@ -26,6 +27,53 @@ const isExclusiveColor = (selectedColor: string, car: Car) => {
   return car.exclusiveColors.hex === selectedColor;
 };
 
+// Fonction pour obtenir la clé de traduction d'une couleur
+const getColorTranslationKey = (colorName: string): string => {
+  const colorMap: { [key: string]: string } = {
+    "Nuit d'Obsidienne": "obsidianNight",
+    "Tempête de Titane": "titanStorm",
+    "Perle Lustreuse": "lustrousPearl",
+    "Ardeur Écarlate": "scarletArdour",
+    "Furie de Pourpre": "crimsonFury",
+    "Brûlure d'Ambre": "amberBurn",
+    "Lueur de Braise": "emberGlow",
+    "Soleil Glissant": "goldenGlint",
+    "Splendeur d'Émeraude": "emeraldSplendor",
+    "Reflet d'Aigue-Marine": "reflectionOfAquamarine",
+    "Marée de Néon": "neonSea",
+    "Brise d'Azur": "azureBreeze",
+    "Vague de Saphir": "sapphireWave",
+    "Foudre Marine": "lightningMarine",
+    "Prune Impériale": "imperialPlum",
+    "Brume d'Améthyste": "amethystMist",
+    "Crépuscule Châtaigne": "twilightChestnut",
+    "Éclosion de Rosée": "roseBloom",
+    "Rayfield Gold Digger": "rayfieldGoldDigger",
+    "Mizutani Shinkansen Surge": "mizutaniShinkansenSurge",
+    "Thorton Trailblazer": "thortonTrailblazer",
+    "Yaiba Cyber Wave": "yaibaCyberWave",
+    "Quadra Retro Flash": "quadraRetroFlash",
+    "Brennan Hyperion Mauve": "brennanHyperionMauve",
+    "Villefort Sceptre d'Airain": "villefortSceptreD'Airain",
+    "Herrera Real Burdeos": "herreraRealBurdeos",
+    "Archer Flèche de Glace": "archerFlecheDeGlace",
+    "Chevillon Dreadnought": "chevillonDreadnought",
+    "Makigai Nano Wasabi": "makigaiNanoWasabi",
+    "Arch Furie du Bitume": "archFurieDuBitume",
+    "Dodge Dragstrip Inferno": "dodgeDragstripInferno",
+    "Chevrolet Lac Elkhart": "chevroletLacElkhart",
+    "Vipers": "vipers",
+    "Corvettes": "corvettes",
+    "Militech Man O'War": "militechManOWar",
+    "Mahir Aston Green": "mahirAstonGreen",
+    "Zetatech Gris de Neige": "zetatechGrisDeNeige",
+    "Trauma Team Soins d'Urgence": "traumaTeamSoinsD'Urgence",
+    "Chevrolet F1": "chevroletF1"
+  };
+  
+  return colorMap[colorName] || colorName;
+};
+
 export const CarPage: React.FC = () => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -35,6 +83,7 @@ export const CarPage: React.FC = () => {
   const { carName } = useParams();
   const navigate = useNavigate();
   const { addToCart } = useCart();
+  const { t } = useTranslation();
   
   const car = cars.find(c => c.nom === carName);
   
@@ -68,7 +117,7 @@ export const CarPage: React.FC = () => {
           className="mb-4 flex items-center gap-2 text-white hover:text-gray-300 transition-colors"
         >
           <ArrowLeft size={24} />
-          <span>Retour</span>
+          <span>{t('carPage.return')}</span>
         </button>
 
         <div className="bg-gray-900 rounded-lg overflow-hidden">
@@ -86,7 +135,7 @@ export const CarPage: React.FC = () => {
               {isFlyingVehicle && (
                 <div className="bg-blue-600 text-white px-3 py-1 rounded-full text-sm font-bold flex items-center gap-2">
                   <Plane size={16} />
-                  VOLANT
+                  {t('carPage.flyingPatch')}
                 </div>
               )}
               
@@ -94,7 +143,7 @@ export const CarPage: React.FC = () => {
               {car.caractéristiques.armé === "Oui" && (
                 <div className="bg-red-600 text-white px-3 py-1 rounded-full text-sm font-bold flex items-center gap-2">
                   <Swords size={16} />
-                  ARMÉ
+                  {t('carPage.armedPatch')}
                 </div>
               )}
             </div>
@@ -142,7 +191,7 @@ export const CarPage: React.FC = () => {
               <div>
                 <h1 className="text-2xl sm:text-3xl font-bold text-white mb-2">{car.nom}</h1>
                 <p className="text-lg sm:text-xl" style={{ color: accentColor }}>{car.fabricant}</p>
-                <p className="text-gray-400">Classe: {car.classe}</p>
+                <p className="text-gray-400">{t('carPage.class')}: {t(`vehicleClasses.${car.classe}`)}</p>
               </div>
               <div className="w-full sm:w-auto text-right">
                 <p className="text-2xl sm:text-3xl font-mono text-green-400">
@@ -187,7 +236,7 @@ export const CarPage: React.FC = () => {
                   style={{ backgroundColor: accentColor }}
                 >
                   <Plus size={20} />
-                  Ajouter au garage
+                  {t('carPage.addToGarage')}
                 </button>
               </div>
             </div>
@@ -493,7 +542,7 @@ export const CarPage: React.FC = () => {
               <div className="flex items-center gap-3 bg-gray-800/50 p-3 rounded-lg">
                 <GaugeCircle size={24} style={{ color: accentColor }} className="shrink-0" />
                 <div>
-                  <p className="text-gray-400 text-sm">Vitesse max</p>
+                  <p className="text-gray-400 text-sm">{t('carPage.maxSpeed')}</p>
                   <p className="text-white">{car.caractéristiques.vitesse_max}</p>
                 </div>
               </div>
@@ -501,7 +550,7 @@ export const CarPage: React.FC = () => {
               <div className="flex items-center gap-3 bg-gray-800/50 p-3 rounded-lg">
                 <Users size={24} style={{ color: accentColor }} className="shrink-0" />
                 <div>
-                  <p className="text-gray-400 text-sm">Nombre de places</p>
+                  <p className="text-gray-400 text-sm">{t('carPage.numberOfPlaces')}</p>
                   <p className="text-white">{car.caractéristiques.nombre_de_places}</p>
                 </div>
               </div>
@@ -509,7 +558,7 @@ export const CarPage: React.FC = () => {
               <div className="flex items-center gap-3 bg-gray-800/50 p-3 rounded-lg">
                 <Zap size={24} style={{ color: accentColor }} className="shrink-0" />
                 <div>
-                  <p className="text-gray-400 text-sm">Puissance</p>
+                  <p className="text-gray-400 text-sm">{t('carPage.power')}</p>
                   <p className="text-white">{car.caractéristiques.puissance}</p>
                 </div>
               </div>
@@ -517,7 +566,7 @@ export const CarPage: React.FC = () => {
               <div className="flex items-center gap-3 bg-gray-800/50 p-3 rounded-lg">
                 <Crosshair size={24} style={{ color: accentColor }} className="shrink-0" />
                 <div>
-                  <p className="text-gray-400 text-sm">Armé</p>
+                  <p className="text-gray-400 text-sm">{t('carPage.armed')}</p>
                   <p className="text-white">{car.caractéristiques.armé}</p>
                 </div>
               </div>
@@ -525,7 +574,7 @@ export const CarPage: React.FC = () => {
               <div className="flex items-center gap-3 bg-gray-800/50 p-3 rounded-lg">
                 <Shield size={24} style={{ color: accentColor }} className="shrink-0" />
                 <div>
-                  <p className="text-gray-400 text-sm">Réduction des dégâts</p>
+                  <p className="text-gray-400 text-sm">{t('carPage.damageReduction')}</p>
                   <p className="text-white">{car.caractéristiques.réduction_des_dégâts}</p>
                 </div>
               </div>
@@ -533,7 +582,7 @@ export const CarPage: React.FC = () => {
               <div className="flex items-center gap-3 bg-gray-800/50 p-3 rounded-lg">
                 <Battery size={24} style={{ color: accentColor }} className="shrink-0" />
                 <div>
-                  <p className="text-gray-400 text-sm">PV</p>
+                  <p className="text-gray-400 text-sm">{t('carPage.hp')}</p>
                   <p className="text-white">{car.caractéristiques.pv}</p>
                 </div>
               </div>
@@ -544,7 +593,7 @@ export const CarPage: React.FC = () => {
               <div className="mt-8 mb-8">
                 <h3 className="text-white text-xl font-bold mb-6 text-center flex items-center justify-center gap-2">
                   <Swords size={24} style={{ color: accentColor }} />
-                  Système d'Armement
+                  {t('carPage.weaponSystem')}
                 </h3>
                 
                 <div className={`grid gap-6 ${
@@ -570,7 +619,7 @@ export const CarPage: React.FC = () => {
                         <div className="flex items-center gap-2">
                           <Flame size={16} style={{ color: accentColor }} />
                           <div>
-                            <p className="text-gray-400 text-xs">Dégâts</p>
+                            <p className="text-gray-400 text-xs">{t('carPage.damage')}</p>
                             <p className="text-white font-medium">{arme.dégâts}</p>
                           </div>
                         </div>
@@ -578,7 +627,7 @@ export const CarPage: React.FC = () => {
                         <div className="flex items-center gap-2">
                           <Ruler size={16} style={{ color: accentColor }} />
                           <div>
-                            <p className="text-gray-400 text-xs">Portée</p>
+                            <p className="text-gray-400 text-xs">{t('carPage.range')}</p>
                             <p className="text-white font-medium">{arme.portée}</p>
                           </div>
                         </div>
@@ -593,7 +642,7 @@ export const CarPage: React.FC = () => {
               <div className="mb-6">
                 <h3 className="text-white text-lg mb-4 text-center">
                   Couleur{Array.isArray(car.exclusiveColors) && car.exclusiveColors.length > 1 ? 's' : ''} exclusive{Array.isArray(car.exclusiveColors) && car.exclusiveColors.length > 1 ? 's' : ''} {car.fabricant}
-                  <span className="block text-sm text-gray-400 mt-1">2,500 ¥ la couleur</span>
+                  <span className="block text-sm text-gray-400 mt-1">{t('carPage.exclusiveColorPrice')}</span>
                 </h3>
                 <div className="flex flex-wrap gap-x-3 gap-y-8 justify-center">
                   {Array.isArray(car.exclusiveColors) ? (
@@ -615,7 +664,7 @@ export const CarPage: React.FC = () => {
                           }}
                         />
                         <div className="absolute top-[calc(100%+0.5rem)] left-1/2 -translate-x-1/2 mt-2 bg-gray-900 text-white px-2 py-1 rounded text-sm whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity text-center min-w-[120px] z-10">
-                          {color.name}
+                          {t(`colors.${getColorTranslationKey(color.name)}`)}
                         </div>
                       </button>
                     ))
@@ -636,7 +685,7 @@ export const CarPage: React.FC = () => {
                         }}
                       />
                       <div className="absolute top-[calc(100%+0.5rem)] left-1/2 -translate-x-1/2 mt-2 bg-gray-900 text-white px-2 py-1 rounded text-sm whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity text-center min-w-[120px] z-10">
-                        {(car.exclusiveColors as ColorInfo).name}
+                        {t(`colors.${getColorTranslationKey((car.exclusiveColors as ColorInfo).name)}`)}
                       </div>
                     </button>
                   )}
@@ -669,7 +718,7 @@ export const CarPage: React.FC = () => {
                         }}
                       />
                       <div className="absolute top-[calc(100%+0.5rem)] left-1/2 -translate-x-1/2 mt-2 bg-gray-900 text-white px-2 py-1 rounded text-sm whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity text-center min-w-[120px] z-10">
-                        {color.name}
+                        {t(`colors.${getColorTranslationKey(color.name)}`)}
                       </div>
                     </button>
                   ))}

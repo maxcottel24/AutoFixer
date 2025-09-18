@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { Car } from '../types';
 import { GaugeCircle, Battery, Shield, Crosshair, Swords, Plane } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 
 interface CarCardProps {
   car: Car;
@@ -12,6 +13,7 @@ const formatPrice = (price: string) => {
 };
 
 export const CarCard: React.FC<CarCardProps> = ({ car }) => {
+  const { t } = useTranslation();
   const isFlyingVehicle = car.classe === "Hélicoptère" || car.classe === "Navi";
   const isArmed = car.caractéristiques.armé === "Oui";
   
@@ -23,7 +25,7 @@ export const CarCard: React.FC<CarCardProps> = ({ car }) => {
         {isFlyingVehicle && (
           <div className="bg-blue-600 text-white px-2 py-1 rounded-full text-xs font-bold flex items-center gap-1">
             <Plane size={12} />
-            VOLANT
+            {t('CarGrid.flying')}
           </div>
         )}
         
@@ -31,7 +33,7 @@ export const CarCard: React.FC<CarCardProps> = ({ car }) => {
         {isArmed && (
           <div className="bg-red-600 text-white px-2 py-1 rounded-full text-xs font-bold flex items-center gap-1">
             <Swords size={12} />
-            ARMÉ
+            {t('CarGrid.armed')}
           </div>
         )}
       </div>
@@ -76,7 +78,7 @@ export const CarCard: React.FC<CarCardProps> = ({ car }) => {
           to={`/car/${car.nom}`}
           className="mt-4 block w-full text-center bg-red-500 text-white py-2 rounded hover:bg-red-600 transition-color"
         >
-          Voir les détails
+          {t('car.viewDetails')}
         </Link>
       </div>
     </div>

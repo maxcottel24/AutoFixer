@@ -16,7 +16,7 @@ function App() {
             <Route path="/" element={<HomePage />} />
             <Route path="/car/:carName" element={<CarPage />} />
             <Route path="/garage" element={<GaragePage />} />
-            {/* <Route path="/design" element={<DesignPage />} /> */}
+            <Route path="/design" element={<DesignPage />} />
           </Routes>
         </div>
       </CartProvider>

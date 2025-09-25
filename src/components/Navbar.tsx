@@ -4,6 +4,7 @@ import { Car, ShoppingCart } from 'lucide-react';
 import { useCart } from '../hooks/useCart';
 import { useTranslation } from 'react-i18next';
 import LanguageSelector from './LanguageSelector';
+import { Text } from './Text';
 
 export const Navbar: React.FC = () => {
   const { cart } = useCart();
@@ -15,7 +16,7 @@ export const Navbar: React.FC = () => {
         <div className="flex justify-between items-center h-16">
           <Link to="/" className="flex items-center space-x-2">
             <Car className="h-8 w-8 text-red-500" />
-            <span className="text-white text-xl font-bold">AutoFixer</span>
+            <Text variant="h4" className="text-white">AutoFixer</Text>
           </Link>
           
           <div className="flex items-center space-x-4">
@@ -25,7 +26,7 @@ export const Navbar: React.FC = () => {
               className="flex items-center space-x-2 text-white hover:text-red-500 transition-colors relative"
             >
               <ShoppingCart className="h-6 w-6" />
-              <span>{t('navigation.garage')}</span>
+              <Text variant="p1">{t('navigation.garage')}</Text>
               {cart.length > 0 && (
                 <div className="absolute -top-1 -right-4 bg-red-500 text-white text-xs font-bold rounded-full w-5 h-5 flex items-center justify-center">
                   {cart.length}

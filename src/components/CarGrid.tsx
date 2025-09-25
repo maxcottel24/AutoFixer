@@ -3,6 +3,7 @@ import { CarCard } from './CarCard';
 import { Filters } from './Filters';
 import { cars } from '../data/cars';
 import { useTranslation } from 'react-i18next';
+import { Text } from './Text';
 
 export const CarGrid: React.FC = () => {
   const { t } = useTranslation();
@@ -61,7 +62,7 @@ export const CarGrid: React.FC = () => {
         
         {filteredCars.length === 0 && (
           <div className="text-center py-12">
-            <p className="text-gray-400">{t('CarGrid.noResults')}</p>
+            <Text variant="p1" className="text-gray-400">{t('CarGrid.noResults')}</Text>
           </div>
         )}
       </div>

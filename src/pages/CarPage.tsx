@@ -12,6 +12,7 @@ import {
 } from 'lucide-react';
 import { ImageModal } from '../components/ImageModal';
 import { useTranslation } from 'react-i18next';
+import { Text } from '../components/Text';
 
 const formatPrice = (price: string) => {
   return price.replace(/\B(?=(\d{3})+(?!\d))/g, ',');
@@ -189,17 +190,17 @@ export const CarPage: React.FC = () => {
           <div className="p-4 sm:p-6 md:p-8">
             <div className="flex flex-col sm:flex-row justify-between items-start gap-4 mb-6">
               <div>
-                <h1 className="text-2xl sm:text-3xl font-bold text-white mb-2">{car.nom}</h1>
-                <p className="text-lg sm:text-xl" style={{ color: accentColor }}>{car.fabricant}</p>
-                <p className="text-gray-400">{t('carPage.class')}: {t(`vehicleClasses.${car.classe}`)}</p>
+                <Text variant="carPageName">{car.nom}</Text>
+                <Text variant="carPageBrand" style={{ color: accentColor }}>{car.fabricant}</Text>
+                <Text variant="carPageClass">{t('carPage.class')}: {t(`vehicleClasses.${car.classe}`)}</Text>
               </div>
               <div className="w-full sm:w-auto text-right">
-                <p className="text-2xl sm:text-3xl font-mono text-green-400">
+                <Text variant="price">
                   {selectedColor && isExclusiveColor(selectedColor, car) 
                     ? `${formatPrice((parseInt(car.prix) + 2500).toString())} ¥`
                     : `${formatPrice(car.prix)} ¥`
                   }
-                </p>
+                </Text>
                 <button
                   onClick={() => {
                     // Ajouter la voiture
@@ -244,297 +245,297 @@ export const CarPage: React.FC = () => {
             {/* Descriptions spéciales pour certains véhicules */}
             {car.nom === "Aerondight S9 Guinevere" && (
               <div className="mt-6 mb-6 p-4 bg-gradient-to-r from-gray-800/50 to-gray-700/50 rounded-lg border border-gray-600/30">
-                <p className="text-gray-300 text-center italic leading-relaxed">
+                <Text variant="carPageDescription">
                   L'ultime incarnation du luxe et de la vitesse : 950 chevaux d'ingénierie parfaite, une silhouette sculptée pour 306 km/h, et une aura qui transforme chaque rue en podium.
-                </p>
+                </Text>
               </div>
             )}
 
             {car.nom === "Nazare" && (
               <div className="mt-6 mb-6 p-4 bg-gradient-to-r from-gray-800/50 to-gray-700/50 rounded-lg border border-gray-600/30">
-                <p className="text-gray-300 text-center italic leading-relaxed">
+                <Text variant="carPageDescription">
                   Une moto qui crie "je vis vite" et "je meurs jeune" en même temps.
-                </p>
+                </Text>
               </div>
             )}
 
             {car.nom === "Kusanagi CT-3X" && (
               <div className="mt-6 mb-6 p-4 bg-gradient-to-r from-gray-800/50 to-gray-700/50 rounded-lg border border-gray-600/30">
-                <p className="text-gray-300 text-center italic leading-relaxed">
+                <Text variant="carPageDescription">
                   Deux roues, zéro excuses. Vous allez perdre vos dents, mais avec style.
-                </p>
+                </Text>
               </div>
             )}
 
             {car.nom === "Apollo" && (
               <div className="mt-6 mb-6 p-4 bg-gradient-to-r from-gray-800/50 to-gray-700/50 rounded-lg border border-gray-600/30">
-                <p className="text-gray-300 text-center italic leading-relaxed">
+                <Text variant="carPageDescription">
                   Tiens tiens, mais personne n'a commandé de Pizza pourtant ?
-                </p>
+                </Text>
               </div>
             )}
 
             {car.nom === "MI 45 Apache" && (
               <div className="mt-6 mb-6 p-4 bg-gradient-to-r from-gray-800/50 to-gray-700/50 rounded-lg border border-gray-600/30">
-                <p className="text-gray-300 text-center italic leading-relaxed">
+                <Text variant="carPageDescription">
                   Besoin de compenser ? Douze sièges, des missiles et un bruit qui rend sourd : la discrétion, c'est pour les pauvres.
-                </p>
+                </Text>
               </div>
             )}
 
             {car.nom === "TT-MR7 Valkyrie" && (
               <div className="mt-6 mb-6 p-4 bg-gradient-to-r from-gray-800/50 to-gray-700/50 rounded-lg border border-gray-600/30">
-                <p className="text-gray-300 text-center italic leading-relaxed">
+                <Text variant="carPageDescription">
                   Quand vos clients saignent à mort, mieux vaut arriver stylé. Trauma Team l'a compris avant vous.
-                </p>
+                </Text>
               </div>
             )}
 
             {car.nom === "Veliora LX" && (
               <div className="mt-6 mb-6 p-4 bg-gradient-to-r from-gray-800/50 to-gray-700/50 rounded-lg border border-gray-600/30">
-                <p className="text-gray-300 text-center italic leading-relaxed">
+                <Text variant="carPageDescription">
                   Vous aimez l'idée d'un penthouse volant ? Zetatech vous en vend un, avec ceintures en bonus.
-                </p>
+                </Text>
               </div>
             )}
 
             {car.nom === "Maimai P126" && (
               <div className="mt-6 mb-6 p-4 bg-gradient-to-r from-gray-800/50 to-gray-700/50 rounded-lg border border-gray-600/30">
-                <p className="text-gray-300 text-center italic leading-relaxed">
+                <Text variant="carPageDescription">
                   Une boîte à chaussures motorisée. Mais une boîte à chaussures qui peut se garer partout.
-                </p>
+                </Text>
               </div>
             )}
 
             {car.nom === "Sport R-7 Sterling" && (
               <div className="mt-6 mb-6 p-4 bg-gradient-to-r from-gray-800/50 to-gray-700/50 rounded-lg border border-gray-600/30">
-                <p className="text-gray-300 text-center italic leading-relaxed">
+                <Text variant="carPageDescription">
                   Une berline sportive pour familles riches qui n'aiment pas ralentir devant les écoles.
-                </p>
+                </Text>
               </div>
             )}
 
             {car.nom === "Caliburn" && (
               <div className="mt-6 mb-6 p-4 bg-gradient-to-r from-gray-800/50 to-gray-700/50 rounded-lg border border-gray-600/30">
-                <p className="text-gray-300 text-center italic leading-relaxed">
+                <Text variant="carPageDescription">
                   Tellement basse qu'elle racle les dos-d'âne. Mais si vous avez les moyens d'en acheter une, vous ne conduisez pas en banlieue.
-                </p>
+                </Text>
               </div>
             )}
 
             {car.nom === "Shion Samum" && (
               <div className="mt-6 mb-6 p-4 bg-gradient-to-r from-gray-800/50 to-gray-700/50 rounded-lg border border-gray-600/30">
-                <p className="text-gray-300 text-center italic leading-relaxed">
+                <Text variant="carPageDescription">
                   La voiture parfaite pour ceux qui pensent que "voiture de sport" rime avec "voiture de guerre".
-                </p>
+                </Text>
               </div>
             )}
 
             {car.nom === "Turbo-R V-Tech" && (
               <div className="mt-6 mb-6 p-4 bg-gradient-to-r from-gray-800/50 to-gray-700/50 rounded-lg border border-gray-600/30">
-                <p className="text-gray-300 text-center italic leading-relaxed">
+                <Text variant="carPageDescription">
                   Parce que parfois, hurler plus fort que vos voisins est la seule raison valable d'acheter une voiture.
-                </p>
+                </Text>
               </div>
             )}
 
             {car.nom === "Corvette X-1" && (
               <div className="mt-6 mb-6 p-4 bg-gradient-to-r from-gray-800/50 to-gray-700/50 rounded-lg border border-gray-600/30">
-                <p className="text-gray-300 text-center italic leading-relaxed">
+                <Text variant="carPageDescription">
                   Un million de ¥ pour une fusée roulante, achetée uniquement pour que vos voisins sachent que vous avez trop d'argent.
-                </p>
+                </Text>
               </div>
             )}
 
             {car.nom === "Type-66 'Avenger'" && (
               <div className="mt-6 mb-6 p-4 bg-gradient-to-r from-gray-800/50 to-gray-700/50 rounded-lg border border-gray-600/30">
-                <p className="text-gray-300 text-center italic leading-relaxed">
+                <Text variant="carPageDescription">
                   Le nom dit tout : ce n'est pas une voiture, c'est un règlement de comptes sur roues.
-                </p>
+                </Text>
               </div>
             )}
 
             {car.nom === "Type-66 'Javelina'" && (
               <div className="mt-6 mb-6 p-4 bg-gradient-to-r from-gray-800/50 to-gray-700/50 rounded-lg border border-gray-600/30">
-                <p className="text-gray-300 text-center italic leading-relaxed">
+                <Text variant="carPageDescription">
                   Un muscle car qui crache des flammes… et pas qu'avec son moteur. Armé jusqu'aux dents, c'est le seul moyen légal de transformer la route en zone de guerre.
-                </p>
+                </Text>
               </div>
             )}
 
             {car.nom === "Sport R-7 Charon" && (
               <div className="mt-6 mb-6 p-4 bg-gradient-to-r from-gray-800/50 to-gray-700/50 rounded-lg border border-gray-600/30">
-                <p className="text-gray-300 text-center italic leading-relaxed">
+                <Text variant="carPageDescription">
                   La berline qui arrive aux enterrements avec des flammes holographiques sur le capot. Parce que la discrétion, c'est pour les morts.
-                </p>
+                </Text>
               </div>
             )}
 
             {car.nom === "Shion Coyote" && (
               <div className="mt-6 mb-6 p-4 bg-gradient-to-r from-gray-800/50 to-gray-700/50 rounded-lg border border-gray-600/30">
-                <p className="text-gray-300 text-center italic leading-relaxed">
+                <Text variant="carPageDescription">
                   Pas besoin de missiles quand votre simple allure fait comprendre aux autres qu'ils doivent se pousser.
-                </p>
+                </Text>
               </div>
             )}
 
             {car.nom === "Viper 1996" && (
               <div className="mt-6 mb-6 p-4 bg-gradient-to-r from-gray-800/50 to-gray-700/50 rounded-lg border border-gray-600/30">
-                <p className="text-gray-300 text-center italic leading-relaxed">
+                <Text variant="carPageDescription">
                   Un serpent vieux de cent ans qui mord toujours plus fort que la moitié des voitures neuves.
-                </p>
+                </Text>
               </div>
             )}
 
             {car.nom === "Corvette C6 2005" && (
               <div className="mt-6 mb-6 p-4 bg-gradient-to-r from-gray-800/50 to-gray-700/50 rounded-lg border border-gray-600/30">
-                <p className="text-gray-300 text-center italic leading-relaxed">
+                <Text variant="carPageDescription">
                   Une ancienne gloire qui refuse de vieillir, coincée entre la vitrine d'un musée et le parking du supermarché.
-                </p>
+                </Text>
               </div>
             )}
 
             {car.nom === "Type-66 'Jen Rowley'" && (
               <div className="mt-6 mb-6 p-4 bg-gradient-to-r from-gray-800/50 to-gray-700/50 rounded-lg border border-gray-600/30">
-                <p className="text-gray-300 text-center italic leading-relaxed">
+                <Text variant="carPageDescription">
                   Un gros ricain bodybuildé, qui consomme plus de carburant qu'un porte-avions et en est fier.
-                </p>
+                </Text>
               </div>
             )}
 
             {car.nom === "Emperor 620 Ragnar" && (
               <div className="mt-6 mb-6 p-4 bg-gradient-to-r from-gray-800/50 to-gray-700/50 rounded-lg border border-gray-600/30">
-                <p className="text-gray-300 text-center italic leading-relaxed">
+                <Text variant="carPageDescription">
                   Le SUV idéal pour rappeler à vos voisins qu'ils sont pauvres. Même garé, il leur marche dessus.
-                </p>
+                </Text>
               </div>
             )}
 
             {car.nom === "Galena Gecko" && (
               <div className="mt-6 mb-6 p-4 bg-gradient-to-r from-gray-800/50 to-gray-700/50 rounded-lg border border-gray-600/30">
-                <p className="text-gray-300 text-center italic leading-relaxed">
+                <Text variant="carPageDescription">
                   La voiture d'occasion qui refuse de mourir. Ajoutez un missile dessus et voilà votre nouveau hobby.
-                </p>
+                </Text>
               </div>
             )}
 
             {car.nom === "Alvarado V4F 570 Delegate" && (
               <div className="mt-6 mb-6 p-4 bg-gradient-to-r from-gray-800/50 to-gray-700/50 rounded-lg border border-gray-600/30">
-                <p className="text-gray-300 text-center italic leading-relaxed">
+                <Text variant="carPageDescription">
                   Une berline américaine pleine de chrome et de prétention, parfaite pour rouler lentement tout en bloquant deux files.
-                </p>
+                </Text>
               </div>
             )}
 
             {car.nom === "Galena Rattler" && (
               <div className="mt-6 mb-6 p-4 bg-gradient-to-r from-gray-800/50 to-gray-700/50 rounded-lg border border-gray-600/30">
-                <p className="text-gray-300 text-center italic leading-relaxed">
+                <Text variant="carPageDescription">
                   Une épave roulante. Achetez-la pour prouver que vous détestez vos passagers.
-                </p>
+                </Text>
               </div>
             )}
 
             {car.nom === "Colby Little Mule" && (
               <div className="mt-6 mb-6 p-4 bg-gradient-to-r from-gray-800/50 to-gray-700/50 rounded-lg border border-gray-600/30">
-                <p className="text-gray-300 text-center italic leading-relaxed">
+                <Text variant="carPageDescription">
                   Un pick-up qui transpire la sueur et la rouille, maintenant équipé d'une mitrailleuse pour compenser son absence de personnalité.
-                </p>
+                </Text>
               </div>
             )}
 
             {car.nom === "Quartz Specter" && (
               <div className="mt-6 mb-6 p-4 bg-gradient-to-r from-gray-800/50 to-gray-700/50 rounded-lg border border-gray-600/30">
-                <p className="text-gray-300 text-center italic leading-relaxed">
+                <Text variant="carPageDescription">
                   Une compacte avec des flammes peintes dans l'ego : petite, nerveuse, et persuadée d'être une supercar.
-                </p>
+                </Text>
               </div>
             )}
 
             {car.nom === "Columbus V340-F Freight" && (
               <div className="mt-6 mb-6 p-4 bg-gradient-to-r from-gray-800/50 to-gray-700/50 rounded-lg border border-gray-600/30">
-                <p className="text-gray-300 text-center italic leading-relaxed">
+                <Text variant="carPageDescription">
                   Un fourgon. Rien de sexy. Mais qui a besoin de sexy quand on peut transporter un cadavre ET son cercueil ?
-                </p>
+                </Text>
               </div>
             )}
 
             {car.nom === "Thrax 388 Jefferson" && (
               <div className="mt-6 mb-6 p-4 bg-gradient-to-r from-gray-800/50 to-gray-700/50 rounded-lg border border-gray-600/30">
-                <p className="text-gray-300 text-center italic leading-relaxed">
+                <Text variant="carPageDescription">
                   Une berline corpo tellement blindée qu'elle pourrait survivre à votre mariage.
-                </p>
+                </Text>
               </div>
             )}
 
             {car.nom === "Cortes V5000 Valor" && (
               <div className="mt-6 mb-6 p-4 bg-gradient-to-r from-gray-800/50 to-gray-700/50 rounded-lg border border-gray-600/30">
-                <p className="text-gray-300 text-center italic leading-relaxed">
+                <Text variant="carPageDescription">
                   Une voiture si prétentieuse qu'on dirait qu'elle a été dessinée par un architecte frustré. Même garée, elle veut faire un discours.
-                </p>
+                </Text>
               </div>
             )}
 
             {car.nom === "Legatus 450 Aquila" && (
               <div className="mt-6 mb-6 p-4 bg-gradient-to-r from-gray-800/50 to-gray-700/50 rounded-lg border border-gray-600/30">
-                <p className="text-gray-300 text-center italic leading-relaxed">
+                <Text variant="carPageDescription">
                   Un utilitaire carré, parfait pour transporter vos courses… ou vos ennemis. À vous de choisir.
-                </p>
+                </Text>
               </div>
             )}
 
             {car.nom === "Deleon Vindicator" && (
               <div className="mt-6 mb-6 p-4 bg-gradient-to-r from-gray-800/50 to-gray-700/50 rounded-lg border border-gray-600/30">
-                <p className="text-gray-300 text-center italic leading-relaxed">
+                <Text variant="carPageDescription">
                   Un nom qui promet la vengeance… et une carrosserie qui promet juste des factures de garagiste. L'illusion a un prix.
-                </p>
+                </Text>
               </div>
             )}
 
             {car.nom === "Colby C125" && (
               <div className="mt-6 mb-6 p-4 bg-gradient-to-r from-gray-800/50 to-gray-700/50 rounded-lg border border-gray-600/30">
-                <p className="text-gray-300 text-center italic leading-relaxed">
+                <Text variant="carPageDescription">
                   Un bloc d'acier sans charme, né pour caler des bières dans le coffre et bloquer la circulation devant le stade.
-                </p>
+                </Text>
               </div>
             )}
 
             {car.nom === "Colby CX410 Butte" && (
               <div className="mt-6 mb-6 p-4 bg-gradient-to-r from-gray-800/50 to-gray-700/50 rounded-lg border border-gray-600/30">
-                <p className="text-gray-300 text-center italic leading-relaxed">
+                <Text variant="carPageDescription">
                   Le SUV de banlieue par excellence. Si votre rêve, c'est d'aller chercher vos gosses avec un tank, c'est pour vous.
-                </p>
+                </Text>
               </div>
             )}
 
             {car.nom === "Quartz EC-L R275" && (
               <div className="mt-6 mb-6 p-4 bg-gradient-to-r from-gray-800/50 to-gray-700/50 rounded-lg border border-gray-600/30">
-                <p className="text-gray-300 text-center italic leading-relaxed">
+                <Text variant="carPageDescription">
                   Une compacte mignonne… idéale pour les gens qui veulent mourir discrètement dans un accident.
-                </p>
+                </Text>
               </div>
             )}
 
             {car.nom === "Supron FS3" && (
               <div className="mt-6 mb-6 p-4 bg-gradient-to-r from-gray-800/50 to-gray-700/50 rounded-lg border border-gray-600/30">
-                <p className="text-gray-300 text-center italic leading-relaxed">
+                <Text variant="carPageDescription">
                   Un van utilitaire aussi excitant qu'une photocopieuse… mais assez pratique pour entasser vos gosses et vos courses.
-                </p>
+                </Text>
               </div>
             )}
 
             {car.nom === "Hellhound" && (
               <div className="mt-6 mb-6 p-4 bg-gradient-to-r from-gray-800/50 to-gray-700/50 rounded-lg border border-gray-600/30">
-                <p className="text-gray-300 text-center italic leading-relaxed">
+                <Text variant="carPageDescription">
                   Parce qu'il y a des problèmes que seule une mitrailleuse de toit et une suspension de tank peuvent régler.
-                </p>
+                </Text>
               </div>
             )}
 
             {car.nom === "Outlaw GTS" && (
               <div className="mt-6 mb-6 p-4 bg-gradient-to-r from-gray-800/50 to-gray-700/50 rounded-lg border border-gray-600/30">
-                <p className="text-gray-300 text-center italic leading-relaxed">
+                <Text variant="carPageDescription">
                   Une hypercar qui fait du bruit pour compenser son complexe d'infériorité face aux vraies légendes. Mais au moins, elle est rapide.
-                </p>
+                </Text>
               </div>
             )}
 
@@ -542,48 +543,48 @@ export const CarPage: React.FC = () => {
               <div className="flex items-center gap-3 bg-gray-800/50 p-3 rounded-lg">
                 <GaugeCircle size={24} style={{ color: accentColor }} className="shrink-0" />
                 <div>
-                  <p className="text-gray-400 text-sm">{t('carPage.maxSpeed')}</p>
-                  <p className="text-white">{car.caractéristiques.vitesse_max}</p>
+                  <Text variant="carPageTitleStats">{t('carPage.maxSpeed')}</Text>
+                  <Text variant="carPageStats">{car.caractéristiques.vitesse_max}</Text>
                 </div>
               </div>
 
               <div className="flex items-center gap-3 bg-gray-800/50 p-3 rounded-lg">
                 <Users size={24} style={{ color: accentColor }} className="shrink-0" />
                 <div>
-                  <p className="text-gray-400 text-sm">{t('carPage.numberOfPlaces')}</p>
-                  <p className="text-white">{car.caractéristiques.nombre_de_places}</p>
+                  <Text variant="carPageTitleStats">{t('carPage.numberOfPlaces')}</Text>
+                  <Text variant="carPageStats">{car.caractéristiques.nombre_de_places}</Text>
                 </div>
               </div>
 
               <div className="flex items-center gap-3 bg-gray-800/50 p-3 rounded-lg">
                 <Zap size={24} style={{ color: accentColor }} className="shrink-0" />
                 <div>
-                  <p className="text-gray-400 text-sm">{t('carPage.power')}</p>
-                  <p className="text-white">{car.caractéristiques.puissance}</p>
+                  <Text variant="carPageTitleStats">{t('carPage.power')}</Text>
+                  <Text variant="carPageStats">{car.caractéristiques.puissance}</Text>
                 </div>
               </div>
 
               <div className="flex items-center gap-3 bg-gray-800/50 p-3 rounded-lg">
                 <Crosshair size={24} style={{ color: accentColor }} className="shrink-0" />
                 <div>
-                  <p className="text-gray-400 text-sm">{t('carPage.armed')}</p>
-                  <p className="text-white">{car.caractéristiques.armé}</p>
+                  <Text variant="carPageTitleStats">{t('carPage.armed')}</Text>
+                  <Text variant="carPageStats">{car.caractéristiques.armé}</Text>
                 </div>
               </div>
 
               <div className="flex items-center gap-3 bg-gray-800/50 p-3 rounded-lg">
                 <Shield size={24} style={{ color: accentColor }} className="shrink-0" />
                 <div>
-                  <p className="text-gray-400 text-sm">{t('carPage.damageReduction')}</p>
-                  <p className="text-white">{car.caractéristiques.réduction_des_dégâts}</p>
+                  <Text variant="carPageTitleStats">{t('carPage.damageReduction')}</Text>
+                  <Text variant="carPageStats">{car.caractéristiques.réduction_des_dégâts}</Text>
                 </div>
               </div>
 
               <div className="flex items-center gap-3 bg-gray-800/50 p-3 rounded-lg">
                 <Battery size={24} style={{ color: accentColor }} className="shrink-0" />
                 <div>
-                  <p className="text-gray-400 text-sm">{t('carPage.hp')}</p>
-                  <p className="text-white">{car.caractéristiques.pv}</p>
+                  <Text variant="carPageTitleStats">{t('carPage.hp')}</Text>
+                  <Text variant="carPageStats">{car.caractéristiques.pv}</Text>
                 </div>
               </div>
             </div>
@@ -591,10 +592,10 @@ export const CarPage: React.FC = () => {
             {/* Section des armes pour les véhicules armés */}
             {car.caractéristiques.armé === "Oui" && car.caractéristiques.armes && car.caractéristiques.armes.length > 0 && (
               <div className="mt-8 mb-8">
-                <h3 className="text-white text-xl font-bold mb-6 text-center flex items-center justify-center gap-2">
+                <Text variant="weaponSystemTitle">
                   <Swords size={24} style={{ color: accentColor }} />
                   {t('carPage.weaponSystem')}
-                </h3>
+                </Text>
                 
                 <div className={`grid gap-6 ${
                   car.caractéristiques.armes.length === 1 
@@ -610,8 +611,8 @@ export const CarPage: React.FC = () => {
                       <div className="flex items-center gap-3 mb-4">
                         <Target size={24} style={{ color: accentColor }} className="shrink-0" />
                         <div>
-                          <h4 className="text-white font-semibold text-lg">{arme.nom}</h4>
-                          <p className="text-gray-400 text-sm">{arme.type}</p>
+                          <Text variant="weaponSystemSubtitle">{arme.nom}</Text>
+                          <Text variant="carPageTitleStats">{arme.type}</Text>
                         </div>
                       </div>
                       
@@ -619,16 +620,16 @@ export const CarPage: React.FC = () => {
                         <div className="flex items-center gap-2">
                           <Flame size={16} style={{ color: accentColor }} />
                           <div>
-                            <p className="text-gray-400 text-xs">{t('carPage.damage')}</p>
-                            <p className="text-white font-medium">{arme.dégâts}</p>
+                            <Text variant="weaponSystemTitleStats">{t('carPage.damage')}</Text>
+                            <Text variant="carPageStats">{arme.dégâts}</Text>
                           </div>
                         </div>
                         
                         <div className="flex items-center gap-2">
                           <Ruler size={16} style={{ color: accentColor }} />
                           <div>
-                            <p className="text-gray-400 text-xs">{t('carPage.range')}</p>
-                            <p className="text-white font-medium">{arme.portée}</p>
+                            <Text variant="weaponSystemTitleStats">{t('carPage.range')}</Text>
+                            <Text variant="carPageStats">{arme.portée}</Text>
                           </div>
                         </div>
                       </div>
@@ -640,10 +641,10 @@ export const CarPage: React.FC = () => {
 
             {car.exclusiveColors && (
               <div className="mb-6">
-                <h3 className="text-white text-lg mb-4 text-center">
+                <Text variant="colorTitle">
                   Couleur{Array.isArray(car.exclusiveColors) && car.exclusiveColors.length > 1 ? 's' : ''} exclusive{Array.isArray(car.exclusiveColors) && car.exclusiveColors.length > 1 ? 's' : ''} {car.fabricant}
-                  <span className="block text-sm text-gray-400 mt-1">{t('carPage.exclusiveColorPrice')}</span>
-                </h3>
+                  <Text variant="carPageTitleStats" className="block mt-1">{t('carPage.exclusiveColorPrice')}</Text>
+                </Text>
                 <div className="flex flex-wrap gap-x-3 gap-y-8 justify-center">
                   {Array.isArray(car.exclusiveColors) ? (
                     car.exclusiveColors.map((color) => (
@@ -695,7 +696,7 @@ export const CarPage: React.FC = () => {
 
             {car.colors && car.colors.length > 0 && (
               <div className="mb-8">
-                <h3 className="text-white text-lg mb-4 text-center">Couleurs AutoFixer</h3>
+                <Text variant="colorTitle">Couleurs AutoFixer</Text>
                 <div className="flex flex-wrap gap-x-3 gap-y-8 justify-center">
                   {car.colors.map((color) => (
                     <button

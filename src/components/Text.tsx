@@ -82,6 +82,65 @@ export const TextVariants = cva(['text-pretty'], {
         'lg:text-base',
         'xl:text-lg',
       ],
+      price: [
+        'text-2xl',
+        'sm:text-3xl',
+        'font-mono',
+        'text-green-400',
+      ],
+      carPageName: [
+        'text-2xl',
+        'sm:text-3xl',
+        'font-bold',
+        'text-white',
+        'mb-2',
+      ],
+      carPageBrand: [
+        'text-lg',
+        'sm:text-xl',
+      ],
+      carPageClass: [
+        'text-gray-400',
+      ],
+      carPageTitleStats: [
+        'text-gray-400',
+        'text-sm'
+      ],
+      carPageStats: [
+        'text-white'
+      ],
+      colorTitle: [
+        'text-white',
+        'text-lg',
+        'mb-4',
+        'text-center'
+      ],
+      carPageDescription: [
+        'text-gray-300',
+        'text-center',
+        'italic',
+        'leading-relaxed'
+      ],
+      weaponSystemTitle: [
+        'text-white',
+        'text-xl',
+        'font-bold',
+        'mb-6',
+        'text-center',
+        'flex',
+        'items-center',
+        'justify-center',
+        'gap-2'
+      ],
+      weaponSystemTitleStats: [
+        'text-gray-400',
+        'text-xs',
+      ],
+      weaponSystemSubtitle: [
+        'text-white',
+        'font-semibold',
+        'text-lg',
+      ],
     },
   },
 });
@@ -102,6 +161,17 @@ export interface TextProps
     | 'p2'
     | 'c1'
     | 'c2'
+    | 'price'
+    | 'carPageName'
+    | 'carPageBrand'
+    | 'carPageClass'
+    | 'carPageTitleStats'
+    | 'carPageStats'
+    | 'colorTitle'
+    | 'carPageDescription'  
+    | 'weaponSystemTitle'
+    | 'weaponSystemTitleStats'
+    | 'weaponSystemSubtitle'
     | undefined;
 }
 

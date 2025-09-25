@@ -1,5 +1,6 @@
 import { useTranslation } from 'react-i18next';
 import { Globe } from 'lucide-react';
+import { Text } from './Text';
 
 const LanguageSelector = () => {
   const { i18n } = useTranslation();
@@ -17,9 +18,9 @@ const LanguageSelector = () => {
     <div className="relative group">
       <button className="flex items-center space-x-2 px-3 py-2 rounded-lg bg-gray-100 hover:bg-gray-200 transition-colors">
         <Globe className="w-4 h-4" />
-        <span className="text-sm font-medium">
+<Text variant="c1" className="font-medium">
           {languages.find(lang => lang.code === i18n.language)?.flag}
-        </span>
+        </Text>
       </button>
       
       <div className="absolute right-0 mt-2 w-40 bg-white rounded-lg shadow-lg border border-gray-200 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
@@ -31,8 +32,8 @@ const LanguageSelector = () => {
               i18n.language === language.code ? 'bg-blue-50 text-blue-600' : 'text-gray-700'
             }`}
           >
-            <span className="text-lg">{language.flag}</span>
-            <span className="text-sm font-medium">{language.name}</span>
+<Text variant="p1" className="text-lg">{language.flag}</Text>
+<Text variant="c1" className="font-medium">{language.name}</Text>
           </button>
         ))}
       </div>

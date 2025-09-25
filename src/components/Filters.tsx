@@ -1,6 +1,7 @@
 import React from 'react';
 import { SlidersHorizontal, Swords, Plane } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
+import { Text } from './Text';
 
 interface FiltersProps {
   priceRange: [number, number];
@@ -51,13 +52,13 @@ export const Filters: React.FC<FiltersProps> = ({
     <div className="sticky top-20 z-40 bg-gray-900 p-4 rounded-lg shadow-lg max-w-xs w-full max-h-[calc(100vh-120px)] overflow-y-auto">
       <div className="flex items-center gap-2 mb-4">
         <SlidersHorizontal className="text-red-500" />
-        <h2 className="text-xl font-bold text-white">{t('Filter.filter')}</h2>
+        <Text variant="h3">{t('Filter.filter')}</Text>
       </div>
 
       <div className="space-y-4">
         {/* Filtre véhicules armés et volants (Premier élément) */}
         <div>
-          <h3 className="text-white mb-2">{t('Filter.vehicleOptions')}</h3>
+          <Text variant="h4" className="mb-2">{t('Filter.vehicleOptions')}</Text>
           <div className="space-y-2">
             <button
               onClick={() => setShowArmedOnly(!showArmedOnly)}
@@ -87,7 +88,7 @@ export const Filters: React.FC<FiltersProps> = ({
 
         {/* Type de véhicule (Deuxième élément) */}
         <div>
-          <h3 className="text-white mb-2">{t('Filter.vehicleType')}</h3>
+          <Text variant="h4" className="mb-2">{t('Filter.vehicleType')}</Text>
           <div className="grid grid-cols-2 gap-2">
             {availableClasses.map((classe) => (
               <button
@@ -106,7 +107,7 @@ export const Filters: React.FC<FiltersProps> = ({
 
         {/* Fourchette de prix (Troisième élément) */}
         <div>
-          <h3 className="text-white mb-2">{t('Filter.priceRange')}</h3>
+          <Text variant="h4" className="mb-2">{t('Filter.priceRange')}</Text>
           
           {/* Saisie manuelle */}
           <div className="flex gap-2 mb-2">
@@ -145,9 +146,9 @@ export const Filters: React.FC<FiltersProps> = ({
               }}
               className="w-full h-2 bg-gray-700 rounded-lg appearance-none cursor-pointer accent-red-500"
             />
-            <span className="text-green-400 font-mono whitespace-nowrap text-xs">
+            <Text variant="c2" className="text-green-400 font-mono whitespace-nowrap">
               {formatPrice(priceRange[0])}¥
-            </span>
+            </Text>
           </div>
           <div className="flex items-center gap-2 mt-1">
             <input
@@ -161,15 +162,15 @@ export const Filters: React.FC<FiltersProps> = ({
               }}
               className="w-full h-2 bg-gray-700 rounded-lg appearance-none cursor-pointer accent-red-500"
             />
-            <span className="text-green-400 font-mono whitespace-nowrap text-xs">
+            <Text variant="c2" className="text-green-400 font-mono whitespace-nowrap">
               {formatPrice(priceRange[1])}¥
-            </span>
+            </Text>
           </div>
         </div>
 
         {/* Filtrer par marque (Dernier élément) */}
         <div>
-          <h3 className="text-gray-400 mb-2 text-sm">{t('Filter.filterByBrand')}</h3>
+          <Text variant="c1" className="text-gray-400 mb-2">{t('Filter.filterByBrand')}</Text>
           <div className="flex flex-wrap gap-1">
             {availableBrands.map((brand) => (
               <button

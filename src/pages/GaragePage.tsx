@@ -5,6 +5,7 @@ import { Trash2, ArrowLeft, CreditCard } from 'lucide-react';
 import { CarCartItem, ColorCartItem } from '../types';
 import { PaymentModal } from '../components/PaymentModal';
 import { useTranslation } from 'react-i18next';
+import { Text } from '../components/Text';
 
 const formatPrice = (price: string) => {
   return price.replace(/\B(?=(\d{3})+(?!\d))/g, ',');
@@ -62,14 +63,14 @@ export const GaragePage: React.FC = () => {
           className="mb-6 flex items-center gap-2 text-white hover:text-gray-300 transition-colors"
         >
           <ArrowLeft size={24} />
-          <span>Retour au catalogue</span>
+<Text variant="p1">Retour au catalogue</Text>
         </Link>
 
-        <h1 className="text-3xl font-bold text-white mb-8">{t('garage.title')}</h1>
+        <Text variant="h2" className="mb-8">{t('garage.title')}</Text>
 
         {packages.length === 0 ? (
           <div className="text-center py-12">
-            <p className="text-gray-400">{t('garage.empty')}</p>
+            <Text variant="p1" className="text-gray-400">{t('garage.empty')}</Text>
           </div>
         ) : (
           <div className="space-y-6">
@@ -90,16 +91,16 @@ export const GaragePage: React.FC = () => {
                   <div className="flex-1">
                     <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start gap-2 sm:gap-0">
                       <div>
-                        <h2 className="text-xl font-bold text-white">{car.nom}</h2>
-                        <p className="text-red-500">{car.fabricant}</p>
+                        <Text variant="h3">{car.nom}</Text>
+                        <Text variant="p1" className="text-red-500">{car.fabricant}</Text>
                         {color && (
-                          <p className="text-gray-400">Couleur: {color.nom}</p>
+                          <Text variant="p2" className="text-gray-400">Couleur: {color.nom}</Text>
                         )}
                       </div>
                       <div className="flex justify-between items-center sm:flex-col sm:items-end sm:gap-2">
-                        <p className="text-xl font-mono text-green-400">
+                        <Text variant="h4" className="font-mono text-green-400">
                           {formatPrice((parseInt(car.prix) + (color ? parseInt(color.prix) : 0)).toString())} ¥
-                        </p>
+                        </Text>
                         <button
                           onClick={() => removePackage(car.nom)}
                           className="text-red-500 hover:text-red-400 transition-colors"
@@ -109,7 +110,7 @@ export const GaragePage: React.FC = () => {
                       </div>
                     </div>
                     <div className="mt-2 text-gray-400">
-                      <p>Classe: {car.car.classe}</p>
+                      <Text variant="p2" className="text-gray-400">Classe: {car.car.classe}</Text>
                     </div>
                   </div>
                 </div>
@@ -119,10 +120,10 @@ export const GaragePage: React.FC = () => {
             <div className="mt-8 bg-gray-900 rounded-lg p-6">
               <div className="flex flex-col sm:flex-row justify-between items-center gap-4">
                 <div className="flex items-baseline gap-2">
-                  <p className="text-xl text-white">Total</p>
-                  <p className="text-2xl font-mono text-green-400">
+                  <Text variant="h4">Total</Text>
+                  <Text variant="h3" className="font-mono text-green-400">
                     {formatPrice(total.toString())} ¥
-                  </p>
+                  </Text>
                 </div>
                 <button
                   onClick={handlePayment}

@@ -1,6 +1,6 @@
 {
   "Filter": {
-    "filter": "Filtrer",
+    "filter": "Filtres",
     "vehicleOptions": "Options du véhicule",
     "weaponizedVehicles": "Véhicules armés uniquement",
     "flyingVehicles": "Véhicules volants uniquement",
@@ -23,14 +23,21 @@
   "navigation": {
     "garage": "Garage"
   },
-  "car": {
-    "viewDetails": "Voir les détails"
+  "carCard": {
+    "viewDetails": "Voir les détails",
+    "speed": "Vitesse",
+    "armed": "Armé",
+    "armor": "Armure",
+    "hp": "PV",
+    "yes": "Oui",
+    "no": "Non"
   },
   "garage": {
     "title": "Mon garage",
     "empty": "Votre garage est vide"
   },
   "homepage": {
+    "title": "Bienvenue chez",
     "subtitle": "Votre concessionnaire premium à Melnéo"
   },
   "CarGrid": {

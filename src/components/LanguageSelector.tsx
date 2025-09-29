@@ -16,7 +16,7 @@ const LanguageSelector = () => {
 
   return (
     <div className="relative group">
-      <button className="flex items-center space-x-2 px-3 py-2 rounded-lg bg-gray-100 hover:bg-gray-200 transition-colors">
+      <button className="flex items-center space-x-2 px-3 py-2 rounded-lg bg-gray-500 hover:bg-gray-500 transition-colors">
         <Globe className="w-4 h-4" />
 <Text variant="c1" className="font-medium">
           {languages.find(lang => lang.code === i18n.language)?.flag}

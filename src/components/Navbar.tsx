@@ -16,7 +16,7 @@ export const Navbar: React.FC = () => {
         <div className="flex justify-between items-center h-16">
           <Link to="/" className="flex items-center space-x-2">
             <Car className="h-8 w-8 text-red-500" />
-            <Text variant="h4" className="text-white">AutoFixer</Text>
+            <Text variant="filterTitleAndCarGridModel" className="text-white">AutoFixer</Text>
           </Link>
           
           <div className="flex items-center space-x-4">

@@ -141,6 +141,35 @@ export const TextVariants = cva(['text-pretty'], {
         'font-semibold',
         'text-lg',
       ],
+      filterTitleAndCarGridModel: [
+        'text-xl',
+        'font-bold',
+        'text-white'
+      ],
+      filterSubtitle: [
+        'text-white',
+        'mb-2'
+      ],
+      filterByPrice: [
+        'text-green-400',
+        'font-mono',
+        'whitespace-nowrap',
+        'text-xs'
+      ],
+      carCardPrice: [
+        'text-green-400',
+        'font-mono',
+        'whitespace-nowrap',
+      ],
+      carCardBrand: [
+        'text-red-500',
+      ],
+      carCardStat: [
+        'flex',
+        'items-center',
+        'gap-2',
+        'text-gray-400', //investigate of why on some cars it goes a line under the text.
+      ],
     },
   },
 });
@@ -172,6 +201,12 @@ export interface TextProps
     | 'weaponSystemTitle'
     | 'weaponSystemTitleStats'
     | 'weaponSystemSubtitle'
+    | 'filterTitleAndCarGridModel'
+    | 'filterSubtitle'  
+    | 'filterByPrice'
+    | 'carCardPrice'
+    | 'carCardBrand'
+    | 'carCardStat'
     | undefined;
 }
 

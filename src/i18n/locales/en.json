@@ -1,6 +1,6 @@
 {
   "Filter": {
-    "filter": "Filter",
+    "filter": "Filters",
     "vehicleOptions": "Vehicle Options",
     "weaponizedVehicles": "Only armed vehicles",
     "flyingVehicles": "Only flying vehicles",
@@ -23,14 +23,21 @@
   "navigation": {
     "garage": "Garage"
   },
-  "car": {
-    "viewDetails": "View Details"
+  "carCard": {
+    "viewDetails": "View Details",
+    "speed": "Speed",
+    "armed": "Armed",
+    "armor": "Armor",
+    "hp": "HP",
+    "yes": "Yes",
+    "no": "No"
   },
   "garage": {
     "title": "My Garage",
     "empty": "Your garage is empty"
   },
   "homepage": {
+    "title": "Welcome to",
     "subtitle": "Your premium car dealership in Melnéo"
   },
   "CarGrid": {

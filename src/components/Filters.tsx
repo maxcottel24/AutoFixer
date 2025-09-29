@@ -52,13 +52,13 @@ export const Filters: React.FC<FiltersProps> = ({
     <div className="sticky top-20 z-40 bg-gray-900 p-4 rounded-lg shadow-lg max-w-xs w-full max-h-[calc(100vh-120px)] overflow-y-auto">
       <div className="flex items-center gap-2 mb-4">
         <SlidersHorizontal className="text-red-500" />
-        <Text variant="h3">{t('Filter.filter')}</Text>
+        <Text variant="filterTitleAndCarGridModel">{t('Filter.filter')}</Text>
       </div>
 
       <div className="space-y-4">
         {/* Filtre véhicules armés et volants (Premier élément) */}
         <div>
-          <Text variant="h4" className="mb-2">{t('Filter.vehicleOptions')}</Text>
+          <Text variant="filterSubtitle" className="mb-2">{t('Filter.vehicleOptions')}</Text>
           <div className="space-y-2">
             <button
               onClick={() => setShowArmedOnly(!showArmedOnly)}
@@ -88,7 +88,7 @@ export const Filters: React.FC<FiltersProps> = ({
 
         {/* Type de véhicule (Deuxième élément) */}
         <div>
-          <Text variant="h4" className="mb-2">{t('Filter.vehicleType')}</Text>
+          <Text variant="filterSubtitle" className="mb-2">{t('Filter.vehicleType')}</Text>
           <div className="grid grid-cols-2 gap-2">
             {availableClasses.map((classe) => (
               <button
@@ -107,7 +107,7 @@ export const Filters: React.FC<FiltersProps> = ({
 
         {/* Fourchette de prix (Troisième élément) */}
         <div>
-          <Text variant="h4" className="mb-2">{t('Filter.priceRange')}</Text>
+          <Text variant="filterSubtitle" className="mb-2">{t('Filter.priceRange')}</Text>
           
           {/* Saisie manuelle */}
           <div className="flex gap-2 mb-2">
@@ -146,7 +146,7 @@ export const Filters: React.FC<FiltersProps> = ({
               }}
               className="w-full h-2 bg-gray-700 rounded-lg appearance-none cursor-pointer accent-red-500"
             />
-            <Text variant="c2" className="text-green-400 font-mono whitespace-nowrap">
+            <Text variant="filterByPrice" className="text-green-400 font-mono whitespace-nowrap">
               {formatPrice(priceRange[0])}¥
             </Text>
           </div>
@@ -162,7 +162,7 @@ export const Filters: React.FC<FiltersProps> = ({
               }}
               className="w-full h-2 bg-gray-700 rounded-lg appearance-none cursor-pointer accent-red-500"
             />
-            <Text variant="c2" className="text-green-400 font-mono whitespace-nowrap">
+            <Text variant="filterByPrice" className="text-green-400 font-mono whitespace-nowrap">
               {formatPrice(priceRange[1])}¥
             </Text>
           </div>
@@ -170,7 +170,7 @@ export const Filters: React.FC<FiltersProps> = ({
 
         {/* Filtrer par marque (Dernier élément) */}
         <div>
-          <Text variant="c1" className="text-gray-400 mb-2">{t('Filter.filterByBrand')}</Text>
+          <Text variant="filterSubtitle" className="text-gray-400 mb-2">{t('Filter.filterByBrand')}</Text>
           <div className="flex flex-wrap gap-1">
             {availableBrands.map((brand) => (
               <button

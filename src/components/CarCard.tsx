@@ -48,28 +48,28 @@ export const CarCard: React.FC<CarCardProps> = ({ car }) => {
       <div className="p-4 flex-col flex flex-grow">
         <div className="flex justify-between items-start min-h-[4.9rem]">
           <div>
-            <Text variant="h3">{car.nom}</Text>
-            <Text variant="p1" className="text-red-500">{car.fabricant}</Text>
+            <Text variant="filterTitleAndCarGridModel">{car.nom}</Text>
+            <Text variant="carCardBrand" className="text-red-500">{car.fabricant}</Text>
           </div>
-          <Text variant="h4" className="text-green-400 font-mono whitespace-nowrap">{formatPrice(car.prix)} ¥</Text>
+          <Text variant="carCardPrice" className="text-green-400 font-mono whitespace-nowrap">{formatPrice(car.prix)} ¥</Text>
         </div>
         
         <div className="grid grid-cols-2 gap-2 mt-4 text-sm whitespace-nowrap min-h-[4rem]">
           <div className="flex items-center gap-2 text-gray-400">
             <GaugeCircle size={16} className="text-red-500" />
-            <Text variant="c1">Vitesse: {car.caractéristiques.vitesse_max}</Text>
+            <Text variant="carCardStat">{t('carCard.speed')}: {car.caractéristiques.vitesse_max}</Text>
           </div>
           <div className="flex items-center gap-2 text-gray-400">
             <Crosshair size={16} className="text-red-500" />
-            <Text variant="c1">Armé: {car.caractéristiques.armé}</Text>
+            <Text variant="carCardStat">{t('carCard.armed')}: {car.caractéristiques.armé}</Text>
           </div>
           <div className="flex items-center gap-2 text-gray-400">
             <Shield size={16} className="text-red-500" />
-            <Text variant="c1">Armure: {car.caractéristiques.réduction_des_dégâts}</Text>
+            <Text variant="carCardStat">{t('carCard.armor')}: {car.caractéristiques.réduction_des_dégâts}</Text>
           </div>
           <div className="flex items-center gap-2 text-gray-400">
             <Battery size={16} className="text-red-500" />
-            <Text variant="c1">PV: {car.caractéristiques.pv}</Text>
+            <Text variant="carCardStat">{t('carCard.hp')}: {car.caractéristiques.pv}</Text>
           </div>
         </div>
         
@@ -79,7 +79,7 @@ export const CarCard: React.FC<CarCardProps> = ({ car }) => {
           to={`/car/${car.nom}`}
           className="mt-4 block w-full text-center bg-red-500 text-white py-2 rounded hover:bg-red-600 transition-color"
         >
-          {t('car.viewDetails')}
+          {t('carCard.viewDetails')}
         </Link>
       </div>
     </div>

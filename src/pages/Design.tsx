@@ -35,6 +35,16 @@ export const DesignPage = () => {
 
 
       <div className="gap-4 ">
+        <Text variant="h1">SEO</Text>
+        <Text variant="h1" as="h1">This is an H1 Heading</Text>
+        <Text variant="h1" as="h2">This is an H2 Heading</Text>
+        <Text variant="h1" as="h3">This is an H3 Heading</Text>
+        <Text variant="h1" as="p">This is an H1 Heading</Text>
+        <Text variant="h1" as="p">This is an H2 Heading</Text>
+        <Text variant="h1" as="p">This is an H3 Heading</Text>
+      </div>
+
+      <div className="gap-4 ">
         <Text variant="h1">i18n</Text>
         <Text tx="carPage:addToGarage" />
         <Text tx="CarGrid" />

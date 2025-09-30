@@ -1,5 +1,8 @@
 import React from 'react';
 import { cva, type VariantProps } from 'class-variance-authority';
+import { TxKeyPath } from '../i18n/i18n';
+import { TOptions } from "i18next";
+import { translate } from '../i18n/translate';
 
 export const TextVariants = cva(['text-pretty'], {
   defaultVariants: {
@@ -178,7 +181,17 @@ export interface TextProps
   extends React.HTMLAttributes<HTMLDivElement>,
     VariantProps<typeof TextVariants> {
   as?: React.ElementType;
-  children: React.ReactNode;
+  children?: React.ReactNode;
+  /**
+   * Text which is looked up via i18n.
+   */
+  tx?: TxKeyPath;
+  /**
+   * Optional options to pass to i18n. Useful for interpolation
+   * as well as explicitly setting locale or translation fallbacks.
+   */
+  txOptions?: TOptions;
+  className?: string;
   variant?:
     | 'h1'
     | 'h2'
@@ -210,16 +223,22 @@ export interface TextProps
     | undefined;
 }
 
-export const Text: React.FC<TextProps> = ({
-  as: Element = 'p',
-  children,
-  className,
-  variant = 'p1',
-  ...rest
-}) => {
+export function Text(props: TextProps) {
+  const {
+    tx,
+    txOptions,
+    children,
+    variant = "p1",
+    className,
+    ...rest
+  } = props;
+
+  const i18nText = tx && translate(tx, txOptions);
+  const content = i18nText || children;  
+
   return (
     <Element className={TextVariants({ className, variant })} {...rest}>
-      {children}
+      {content}
     </Element>
   );
 };

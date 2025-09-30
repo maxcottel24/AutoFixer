@@ -9,7 +9,7 @@ export interface CarStats {
   vitesse_max: string;
   nombre_de_places: string;
   puissance: string;
-  armé: "Oui" | "Non";
+  armé: boolean;
   réduction_des_dégâts: number;
   pv: number;
   accélération_0_100_kmh?: string;

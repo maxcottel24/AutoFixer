@@ -23,7 +23,7 @@ export const CarGrid: React.FC = () => {
       const matchesPrice = price >= priceRange[0] && price <= priceRange[1];
       const matchesClass = selectedClasses.length === 0 || selectedClasses.includes(car.classe);
       const matchesBrand = selectedBrand.length === 0 || selectedBrand.includes(car.fabricant);
-      const matchesArmed = !showArmedOnly || car.caractéristiques.armé === "Oui";
+      const matchesArmed = !showArmedOnly || car.caractéristiques.armé === true;
       const isFlyingVehicle = car.classe === "Hélicoptère" || car.classe === "Navi";
       const matchesFlying = !showFlyingOnly || isFlyingVehicle;
       return matchesPrice && matchesClass && matchesBrand && matchesArmed && matchesFlying;

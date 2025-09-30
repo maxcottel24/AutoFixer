@@ -141,7 +141,7 @@ export const CarPage: React.FC = () => {
               )}
               
               {/* Badge pour véhicules armés */}
-              {car.caractéristiques.armé === "Oui" && (
+              {car.caractéristiques.armé === true && (
                 <div className="bg-red-600 text-white px-3 py-1 rounded-full text-sm font-bold flex items-center gap-2">
                   <Swords size={16} />
                   {t('carPage.armedPatch')}
@@ -590,7 +590,7 @@ export const CarPage: React.FC = () => {
             </div>
 
             {/* Section des armes pour les véhicules armés */}
-            {car.caractéristiques.armé === "Oui" && car.caractéristiques.armes && car.caractéristiques.armes.length > 0 && (
+            {car.caractéristiques.armé === true && car.caractéristiques.armes && car.caractéristiques.armes.length > 0 && (
               <div className="mt-8 mb-8">
                 <Text variant="weaponSystemTitle">
                   <Swords size={24} style={{ color: accentColor }} />

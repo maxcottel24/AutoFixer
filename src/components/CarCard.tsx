@@ -16,7 +16,7 @@ const formatPrice = (price: string) => {
 export const CarCard: React.FC<CarCardProps> = ({ car }) => {
   const { t } = useTranslation();
   const isFlyingVehicle = car.classe === "Hélicoptère" || car.classe === "Navi";
-  const isArmed = car.caractéristiques.armé === "Oui";
+  const isArmed = car.caractéristiques.armé === true;
   
   return (
     <div className="h-full min-h-[450px] flex flex-col bg-gray-900 rounded-lg overflow-hidden border border-red-500/20 hover:border-red-500/50 transition-all relative">

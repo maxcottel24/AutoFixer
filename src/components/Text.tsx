@@ -230,15 +230,18 @@ export function Text(props: TextProps) {
     children,
     variant = "p1",
     className,
+    as = 'p',
     ...rest
   } = props;
 
   const i18nText = tx && translate(tx, txOptions);
   const content = i18nText || children;  
+  
+  const Component = as;
 
   return (
-    <Element className={TextVariants({ className, variant })} {...rest}>
+    <Component className={TextVariants({ className, variant })} {...rest}>
       {content}
-    </Element>
+    </Component>
   );
 };

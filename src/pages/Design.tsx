@@ -38,7 +38,7 @@ export const DesignPage = () => {
         <Text variant="h1">i18n</Text>
         <Text tx="carPage:addToGarage" />
         <Text tx="CarGrid" />
-        <Text tx="vehicleClasses:Hypercar"/>
+        <Text tx="vehicleClasses:Hypercar" />
       </div>
     </div>
   );

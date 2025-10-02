@@ -21,7 +21,7 @@ const en = {
     Navi: "Navi"
   },
   navigation: {
-    garage: "Garage"
+    garage: "My Garage"
   },
   carCard: {
     viewDetails: "View Details",

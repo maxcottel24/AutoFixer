@@ -173,6 +173,12 @@ export const TextVariants = cva(['text-pretty'], {
         'gap-2',
         'text-gray-400', //investigate of why on some cars it goes a line under the text.
       ],
+      myGarage: [
+        'flex' ,
+        'items-center'  ,
+        'space-x-2' ,
+        'text-white hover:text-red-500 transition-colors relative'
+      ]
     },
   },
 });
@@ -220,6 +226,7 @@ export interface TextProps
     | 'carCardPrice'
     | 'carCardBrand'
     | 'carCardStat'
+    | 'myGarage'
     | undefined;
 }
 

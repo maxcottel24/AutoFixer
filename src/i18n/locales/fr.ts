@@ -23,7 +23,7 @@ const fr: Translations = {
     Navi: "Navi"
   },
   navigation: {
-    garage: "Garage"
+    garage: "Mon Garage"
   },
   carCard: {
     viewDetails: "Voir les détails",

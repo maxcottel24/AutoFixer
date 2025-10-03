@@ -1,5 +1,7 @@
 import React from 'react';
 import { SlidersHorizontal, Swords, Plane } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
+import { Text } from './Text';
 
 interface FiltersProps {
   priceRange: [number, number];
@@ -32,6 +34,7 @@ export const Filters: React.FC<FiltersProps> = ({
   showFlyingOnly,
   setShowFlyingOnly,
 }) => {
+  const { t } = useTranslation();
   const handleClassToggle = (classe: string) => {
     if (selectedClasses.includes(classe)) {
       setSelectedClasses(selectedClasses.filter(c => c !== classe));
@@ -49,13 +52,13 @@ export const Filters: React.FC<FiltersProps> = ({
     <div className="sticky top-20 z-40 bg-gray-900 p-4 rounded-lg shadow-lg max-w-xs w-full max-h-[calc(100vh-120px)] overflow-y-auto">
       <div className="flex items-center gap-2 mb-4">
         <SlidersHorizontal className="text-red-500" />
-        <h2 className="text-xl font-bold text-white">Filtres</h2>
+        <Text variant="filterTitleAndCarGridModel">{t('Filter.filter')}</Text>
       </div>
 
       <div className="space-y-4">
         {/* Filtre véhicules armés et volants (Premier élément) */}
         <div>
-          <h3 className="text-white mb-2">État du véhicule</h3>
+          <Text variant="filterSubtitle" className="mb-2">{t('Filter.vehicleOptions')}</Text>
           <div className="space-y-2">
             <button
               onClick={() => setShowArmedOnly(!showArmedOnly)}
@@ -66,7 +69,7 @@ export const Filters: React.FC<FiltersProps> = ({
               }`}
             >
               <Swords size={16} />
-              Véhicules armés uniquement
+              {t('Filter.weaponizedVehicles')}
             </button>
             
             <button
@@ -78,14 +81,14 @@ export const Filters: React.FC<FiltersProps> = ({
               }`}
             >
               <Plane size={16} />
-              Véhicules volants uniquement
+              {t('Filter.flyingVehicles')}
             </button>
           </div>
         </div>
 
         {/* Type de véhicule (Deuxième élément) */}
         <div>
-          <h3 className="text-white mb-2">Type de véhicule</h3>
+          <Text variant="filterSubtitle" className="mb-2">{t('Filter.vehicleType')}</Text>
           <div className="grid grid-cols-2 gap-2">
             {availableClasses.map((classe) => (
               <button
@@ -96,7 +99,7 @@ export const Filters: React.FC<FiltersProps> = ({
                   : 'bg-gray-800 text-gray-400 hover:bg-gray-700'
                   }`}
               >
-                {classe}
+                {t(`vehicleClasses.${classe}`)}
               </button>
             ))}
           </div>
@@ -104,7 +107,7 @@ export const Filters: React.FC<FiltersProps> = ({
 
         {/* Fourchette de prix (Troisième élément) */}
         <div>
-          <h3 className="text-white mb-2">Fourchette de prix (¥)</h3>
+          <Text variant="filterSubtitle" className="mb-2">{t('Filter.priceRange')}</Text>
           
           {/* Saisie manuelle */}
           <div className="flex gap-2 mb-2">
@@ -143,9 +146,9 @@ export const Filters: React.FC<FiltersProps> = ({
               }}
               className="w-full h-2 bg-gray-700 rounded-lg appearance-none cursor-pointer accent-red-500"
             />
-            <span className="text-green-400 font-mono whitespace-nowrap text-xs">
+            <Text variant="filterByPrice" className="text-green-400 font-mono whitespace-nowrap">
               {formatPrice(priceRange[0])}¥
-            </span>
+            </Text>
           </div>
           <div className="flex items-center gap-2 mt-1">
             <input
@@ -159,15 +162,15 @@ export const Filters: React.FC<FiltersProps> = ({
               }}
               className="w-full h-2 bg-gray-700 rounded-lg appearance-none cursor-pointer accent-red-500"
             />
-            <span className="text-green-400 font-mono whitespace-nowrap text-xs">
+            <Text variant="filterByPrice" className="text-green-400 font-mono whitespace-nowrap">
               {formatPrice(priceRange[1])}¥
-            </span>
+            </Text>
           </div>
         </div>
 
         {/* Filtrer par marque (Dernier élément) */}
         <div>
-          <h3 className="text-gray-400 mb-2 text-sm">Filtrer par marque :</h3>
+          <Text variant="filterSubtitle" className="text-gray-400 mb-2">{t('Filter.filterByBrand')}</Text>
           <div className="flex flex-wrap gap-1">
             {availableBrands.map((brand) => (
               <button

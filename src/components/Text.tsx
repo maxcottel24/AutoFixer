@@ -91,6 +91,11 @@ export const TextVariants = cva(['text-pretty'], {
         'font-mono',
         'text-green-400',
       ],
+      garagePrice: [
+        'text-2xl',
+        'font-mono',
+        'text-green-400',
+      ],
       carPageName: [
         'text-2xl',
         'sm:text-3xl',
@@ -178,7 +183,47 @@ export const TextVariants = cva(['text-pretty'], {
         'items-center'  ,
         'space-x-2' ,
         'text-white hover:text-red-500 transition-colors relative'
-      ]
+      ],
+      backButton: [
+        'mb-6',
+        'flex',
+        'items-center',
+        'gap-2',
+        'text-white',
+        'hover:text-gray-300',
+        'transition-colors'
+      ],
+      garageTitle: [
+        'text-3xl',
+        'font-bold',
+        'text-white',
+        'mb-8'
+      ],
+      garageTotal: [
+        'text-xl',
+        'text-white'
+      ],
+      paymentModalTransferFunds: [
+        'text-white',
+        'font-bold',
+        'text-base',
+        'sm:text-lg',
+        'text-center',
+        'px-2'
+      ],
+      paymentModalProgress: [
+        'text-gray-400',
+        'text-center',
+        'text-xs',
+        'sm:text-sm'
+      ],
+      paymentModalPaymentConfirmed: [
+        'mb-1',
+        'sm:mb-2'
+      ],
+      paymentModalPaymentSuccess: [
+        'text-green-400'
+      ],
     },
   },
 });
@@ -210,6 +255,7 @@ export interface TextProps
     | 'c1'
     | 'c2'
     | 'price'
+    | 'garagePrice'
     | 'carPageName'
     | 'carPageBrand'
     | 'carPageClass'
@@ -227,6 +273,13 @@ export interface TextProps
     | 'carCardBrand'
     | 'carCardStat'
     | 'myGarage'
+    | 'backButton'
+    | 'garageTitle'
+    | 'garageTotal'
+    | 'paymentModalTransferFunds'
+    | 'paymentModalProgress'
+    | 'paymentModalPaymentConfirmed'
+    | 'paymentModalPaymentSuccess'
     | undefined;
 }
 

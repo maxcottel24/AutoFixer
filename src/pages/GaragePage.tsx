@@ -63,14 +63,20 @@ export const GaragePage: React.FC = () => {
           className="mb-6 flex items-center gap-2 text-white hover:text-gray-300 transition-colors"
         >
           <ArrowLeft size={24} />
-<Text variant="p1">Retour au catalogue</Text>
+<Text variant="backButton">{t('garage.back')}</Text>
         </Link>
 
-        <Text variant="h2" className="mb-8">{t('garage.title')}</Text>
+        <Text variant="garageTitle" className="mb-8">{t('garage.title')}</Text>
 
         {packages.length === 0 ? (
           <div className="text-center py-12">
-            <Text variant="p1" className="text-gray-400">{t('garage.empty')}</Text>
+            <Text variant="carPageClass" className="text-gray-400">{t('garage.empty')}</Text>
+            <Link
+              to="/"
+              className="inline-block mt-4 px-6 py-2 bg-red-500 text-white rounded hover:bg-red-600 transition-colors"
+            >
+              {t('garage.browseCatalog')}
+            </Link>
           </div>
         ) : (
           <div className="space-y-6">
@@ -91,14 +97,14 @@ export const GaragePage: React.FC = () => {
                   <div className="flex-1">
                     <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start gap-2 sm:gap-0">
                       <div>
-                        <Text variant="h3">{car.nom}</Text>
-                        <Text variant="p1" className="text-red-500">{car.fabricant}</Text>
+                        <Text variant="filterTitleAndCarGridModel">{car.nom}</Text>
+                        <Text variant="carCardBrand" className="text-red-500">{car.fabricant}</Text>
                         {color && (
-                          <Text variant="p2" className="text-gray-400">Couleur: {color.nom}</Text>
+                          <Text variant="carPageClass" className="text-gray-400">Couleur: {color.nom}</Text>
                         )}
                       </div>
                       <div className="flex justify-between items-center sm:flex-col sm:items-end sm:gap-2">
-                        <Text variant="h4" className="font-mono text-green-400">
+                        <Text variant="price" className="font-mono text-green-400">
                           {formatPrice((parseInt(car.prix) + (color ? parseInt(color.prix) : 0)).toString())} ¥
                         </Text>
                         <button
@@ -110,7 +116,7 @@ export const GaragePage: React.FC = () => {
                       </div>
                     </div>
                     <div className="mt-2 text-gray-400">
-                      <Text variant="p2" className="text-gray-400">Classe: {car.car.classe}</Text>
+                      <Text variant="carPageClass" className="text-gray-400">Classe: {car.car.classe}</Text>
                     </div>
                   </div>
                 </div>
@@ -120,8 +126,8 @@ export const GaragePage: React.FC = () => {
             <div className="mt-8 bg-gray-900 rounded-lg p-6">
               <div className="flex flex-col sm:flex-row justify-between items-center gap-4">
                 <div className="flex items-baseline gap-2">
-                  <Text variant="h4">Total</Text>
-                  <Text variant="h3" className="font-mono text-green-400">
+                  <Text variant="garageTotal">Total</Text>
+                  <Text variant="garagePrice" className="font-mono text-green-400">
                     {formatPrice(total.toString())} ¥
                   </Text>
                 </div>
@@ -130,7 +136,7 @@ export const GaragePage: React.FC = () => {
                   className="w-full sm:w-auto bg-green-500 hover:bg-green-600 text-white px-8 py-3 rounded-lg font-semibold flex items-center justify-center gap-2 transition-colors"
                 >
                   <CreditCard size={20} />
-                  Payer maintenant
+                  {t('garage.payNow')}
                 </button>
               </div>
             </div>

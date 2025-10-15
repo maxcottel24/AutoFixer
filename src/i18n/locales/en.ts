@@ -34,7 +34,17 @@ const en = {
   },
   garage: {
     title: "My Garage",
-    empty: "Your garage is empty"
+    empty: "Your garage is empty",
+    back: "Back",
+    browseCatalog: "Browse catalog",
+    total: "Total",
+    payNow: "Pay now"
+  },
+  paymentModal: {
+    transferFunds: "Transfer funds for the purchase",
+    completed: "Completed",
+    paymentConfirmed: "Payment confirmed",
+    paymentSuccess: "Payment successful"
   },
   homepage: {
     title: "Welcome to",

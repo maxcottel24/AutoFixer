@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { X, Check } from 'lucide-react';
-import { Text } from './Text';
+import { useTranslation } from 'react-i18next';
+import { Text } from '../components/Text';
 
 interface PaymentModalProps {
   isOpen: boolean;
@@ -9,6 +10,7 @@ interface PaymentModalProps {
 }
 
 export const PaymentModal: React.FC<PaymentModalProps> = ({ isOpen, onClose, onSuccess }) => {
+  const { t } = useTranslation();
   const [status, setStatus] = useState<'loading' | 'confirmed'>('loading');
   const [progress, setProgress] = useState(0);
   const [isVisible, setIsVisible] = useState(false);
@@ -64,8 +66,8 @@ export const PaymentModal: React.FC<PaymentModalProps> = ({ isOpen, onClose, onS
         <div className="flex flex-col items-center gap-4 sm:gap-6">
           {status === 'loading' ? (
             <div className="py-6 sm:py-8 flex flex-col items-center gap-4 sm:gap-6 w-full">
-              <Text variant="h4" className="text-center px-2">
-                Transfert des fonds pour l'achat
+              <Text variant="paymentModalTransferFunds" className="text-center px-2">
+                {t('paymentModal.transferFunds')}
               </Text>
               
               <div className="w-full bg-gray-700 rounded-full h-2 sm:h-3">
@@ -75,8 +77,8 @@ export const PaymentModal: React.FC<PaymentModalProps> = ({ isOpen, onClose, onS
                 />
               </div>
               
-              <Text variant="c1" className="text-gray-400 text-center">
-                {Math.round(progress)}% terminé
+              <Text variant="paymentModalProgress" className="text-gray-400 text-center">
+                {Math.round(progress)}% {t('paymentModal.completed')}
               </Text>
             </div>
           ) : (
@@ -85,11 +87,11 @@ export const PaymentModal: React.FC<PaymentModalProps> = ({ isOpen, onClose, onS
                 <Check size={24} className="sm:w-8 sm:h-8 text-white" />
               </div>
               <div className="text-center px-2">
-                <Text variant="h3" className="mb-1 sm:mb-2">
-                  Paiement confirmé
+                <Text variant="paymentModalPaymentConfirmed" className="mb-1 sm:mb-2">
+                  {t('paymentModal.paymentConfirmed')}
                 </Text>
-                <Text variant="p1" className="text-green-400">
-                  Transaction terminée avec succès
+                <Text variant="paymentModalPaymentSuccess" className="text-green-400">
+                  {t('paymentModal.paymentSuccess')}
                 </Text>
               </div>
             </div>

@@ -36,7 +36,17 @@ const fr: Translations = {
   },
   garage: {
     title: "Mon garage",
-    empty: "Votre garage est vide"
+    empty: "Votre garage est vide",
+    back: "Retour au catalogue",
+    browseCatalog: "Parcourir le catalogue",
+    total: "Total",
+    payNow: "Payer maintenant"
+  },
+  paymentModal: {
+    transferFunds: "Transfert des fonds pour l'achat",
+    completed: "Terminé",
+    paymentConfirmed: "Paiement confirmé",
+    paymentSuccess: "Paiement réussi"
   },
   homepage: {
     title: "Bienvenue chez",

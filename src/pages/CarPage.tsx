@@ -75,6 +75,50 @@ const getColorTranslationKey = (colorName: string): string => {
   return colorMap[colorName] || colorName;
 };
 
+// Function to get the translation key for a car description
+const getCarDescriptionKey = (carName: string): string => {
+  const carMap: { [key: string]: string } = {
+    'Aerondight S9 Guinevere': 'aerondights9guinevere',
+    'Nazare': 'nazare',
+    'Kusanagi CT-3X': 'kusanagict3x',
+    'Apollo': 'apollo',
+    'MI 45 Apache': 'mi45apache',
+    'TT-MR7 Valkyrie': 'ttmr7valkyrie',
+    'Veliora LX': 'velioralx',
+    'Maimai P126': 'maimaip126',
+    'Sport R-7 Sterling': 'sportr7sterling',
+    'Caliburn': 'caliburn',
+    'Shion Samum': 'shionsamum',
+    'Turbo-R V-Tech': 'turborvttech',
+    'Corvette X-1': 'corvettex1',
+    'Type-66 \'Avenger\'': 'type66avenger',
+    'Type-66 \'Javelina\'': 'type66javelina',
+    'Sport R-7 Charon': 'sportr7charon',
+    'Shion Coyote': 'coyote',
+    'Viper 1996': 'viper1996',
+    'Corvette C6 2005': 'corvettec62005',
+    'Type-66 \'Jen Rowley\'': 'type66jenrowley',
+    'Emperor 620 Ragnar': 'emperor620ragnar',
+    'Galena Gecko': 'galenagecko',
+    'Alvarado V4F 570 Delegate': 'alvaradov4f570delegate',
+    'Galena Rattler': 'galenarattler',
+    'Colby Little Mule': 'colbylittlemule',
+    'Quartz Specter': 'quartzspecter',
+    'Columbus V340-F Freight': 'columbusv340ffreight',
+    'Thrax 388 Jefferson': 'thrax388jefferson',
+    'Cortes V5000 Valor': 'cortesv5000valor',
+    'Legatus 450 Aquila': 'legatus450aquila',
+    'Deleon Vindicator': 'deleonvindicator',
+    'Colby C125': 'colbyc125',
+    'Colby CX410 Butte': 'colbycx410butte',
+    'Quartz EC-L R275': 'quartzecrlr275',
+    'Supron FS3': 'supronsfs3',
+    'Hellhound': 'hellhound',
+    'Outlaw GTS': 'outlawgts',
+  };
+  return carMap[carName] || carName.toLowerCase().replace(/\s+/g, '').replace(/['"]/g, '');
+};
+
 export const CarPage: React.FC = () => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -243,298 +287,10 @@ export const CarPage: React.FC = () => {
             </div>
 
             {/* Descriptions spéciales pour certains véhicules */}
-            {car.nom === "Aerondight S9 Guinevere" && (
+            {car.nom && (
               <div className="mt-6 mb-6 p-4 bg-gradient-to-r from-gray-800/50 to-gray-700/50 rounded-lg border border-gray-600/30">
                 <Text variant="carPageDescription">
-                  L'ultime incarnation du luxe et de la vitesse : 950 chevaux d'ingénierie parfaite, une silhouette sculptée pour 306 km/h, et une aura qui transforme chaque rue en podium.
-                </Text>
-              </div>
-            )}
-
-            {car.nom === "Nazare" && (
-              <div className="mt-6 mb-6 p-4 bg-gradient-to-r from-gray-800/50 to-gray-700/50 rounded-lg border border-gray-600/30">
-                <Text variant="carPageDescription">
-                  Une moto qui crie "je vis vite" et "je meurs jeune" en même temps.
-                </Text>
-              </div>
-            )}
-
-            {car.nom === "Kusanagi CT-3X" && (
-              <div className="mt-6 mb-6 p-4 bg-gradient-to-r from-gray-800/50 to-gray-700/50 rounded-lg border border-gray-600/30">
-                <Text variant="carPageDescription">
-                  Deux roues, zéro excuses. Vous allez perdre vos dents, mais avec style.
-                </Text>
-              </div>
-            )}
-
-            {car.nom === "Apollo" && (
-              <div className="mt-6 mb-6 p-4 bg-gradient-to-r from-gray-800/50 to-gray-700/50 rounded-lg border border-gray-600/30">
-                <Text variant="carPageDescription">
-                  Tiens tiens, mais personne n'a commandé de Pizza pourtant ?
-                </Text>
-              </div>
-            )}
-
-            {car.nom === "MI 45 Apache" && (
-              <div className="mt-6 mb-6 p-4 bg-gradient-to-r from-gray-800/50 to-gray-700/50 rounded-lg border border-gray-600/30">
-                <Text variant="carPageDescription">
-                  Besoin de compenser ? Douze sièges, des missiles et un bruit qui rend sourd : la discrétion, c'est pour les pauvres.
-                </Text>
-              </div>
-            )}
-
-            {car.nom === "TT-MR7 Valkyrie" && (
-              <div className="mt-6 mb-6 p-4 bg-gradient-to-r from-gray-800/50 to-gray-700/50 rounded-lg border border-gray-600/30">
-                <Text variant="carPageDescription">
-                  Quand vos clients saignent à mort, mieux vaut arriver stylé. Trauma Team l'a compris avant vous.
-                </Text>
-              </div>
-            )}
-
-            {car.nom === "Veliora LX" && (
-              <div className="mt-6 mb-6 p-4 bg-gradient-to-r from-gray-800/50 to-gray-700/50 rounded-lg border border-gray-600/30">
-                <Text variant="carPageDescription">
-                  Vous aimez l'idée d'un penthouse volant ? Zetatech vous en vend un, avec ceintures en bonus.
-                </Text>
-              </div>
-            )}
-
-            {car.nom === "Maimai P126" && (
-              <div className="mt-6 mb-6 p-4 bg-gradient-to-r from-gray-800/50 to-gray-700/50 rounded-lg border border-gray-600/30">
-                <Text variant="carPageDescription">
-                  Une boîte à chaussures motorisée. Mais une boîte à chaussures qui peut se garer partout.
-                </Text>
-              </div>
-            )}
-
-            {car.nom === "Sport R-7 Sterling" && (
-              <div className="mt-6 mb-6 p-4 bg-gradient-to-r from-gray-800/50 to-gray-700/50 rounded-lg border border-gray-600/30">
-                <Text variant="carPageDescription">
-                  Une berline sportive pour familles riches qui n'aiment pas ralentir devant les écoles.
-                </Text>
-              </div>
-            )}
-
-            {car.nom === "Caliburn" && (
-              <div className="mt-6 mb-6 p-4 bg-gradient-to-r from-gray-800/50 to-gray-700/50 rounded-lg border border-gray-600/30">
-                <Text variant="carPageDescription">
-                  Tellement basse qu'elle racle les dos-d'âne. Mais si vous avez les moyens d'en acheter une, vous ne conduisez pas en banlieue.
-                </Text>
-              </div>
-            )}
-
-            {car.nom === "Shion Samum" && (
-              <div className="mt-6 mb-6 p-4 bg-gradient-to-r from-gray-800/50 to-gray-700/50 rounded-lg border border-gray-600/30">
-                <Text variant="carPageDescription">
-                  La voiture parfaite pour ceux qui pensent que "voiture de sport" rime avec "voiture de guerre".
-                </Text>
-              </div>
-            )}
-
-            {car.nom === "Turbo-R V-Tech" && (
-              <div className="mt-6 mb-6 p-4 bg-gradient-to-r from-gray-800/50 to-gray-700/50 rounded-lg border border-gray-600/30">
-                <Text variant="carPageDescription">
-                  Parce que parfois, hurler plus fort que vos voisins est la seule raison valable d'acheter une voiture.
-                </Text>
-              </div>
-            )}
-
-            {car.nom === "Corvette X-1" && (
-              <div className="mt-6 mb-6 p-4 bg-gradient-to-r from-gray-800/50 to-gray-700/50 rounded-lg border border-gray-600/30">
-                <Text variant="carPageDescription">
-                  Un million de ¥ pour une fusée roulante, achetée uniquement pour que vos voisins sachent que vous avez trop d'argent.
-                </Text>
-              </div>
-            )}
-
-            {car.nom === "Type-66 'Avenger'" && (
-              <div className="mt-6 mb-6 p-4 bg-gradient-to-r from-gray-800/50 to-gray-700/50 rounded-lg border border-gray-600/30">
-                <Text variant="carPageDescription">
-                  Le nom dit tout : ce n'est pas une voiture, c'est un règlement de comptes sur roues.
-                </Text>
-              </div>
-            )}
-
-            {car.nom === "Type-66 'Javelina'" && (
-              <div className="mt-6 mb-6 p-4 bg-gradient-to-r from-gray-800/50 to-gray-700/50 rounded-lg border border-gray-600/30">
-                <Text variant="carPageDescription">
-                  Un muscle car qui crache des flammes… et pas qu'avec son moteur. Armé jusqu'aux dents, c'est le seul moyen légal de transformer la route en zone de guerre.
-                </Text>
-              </div>
-            )}
-
-            {car.nom === "Sport R-7 Charon" && (
-              <div className="mt-6 mb-6 p-4 bg-gradient-to-r from-gray-800/50 to-gray-700/50 rounded-lg border border-gray-600/30">
-                <Text variant="carPageDescription">
-                  La berline qui arrive aux enterrements avec des flammes holographiques sur le capot. Parce que la discrétion, c'est pour les morts.
-                </Text>
-              </div>
-            )}
-
-            {car.nom === "Shion Coyote" && (
-              <div className="mt-6 mb-6 p-4 bg-gradient-to-r from-gray-800/50 to-gray-700/50 rounded-lg border border-gray-600/30">
-                <Text variant="carPageDescription">
-                  Pas besoin de missiles quand votre simple allure fait comprendre aux autres qu'ils doivent se pousser.
-                </Text>
-              </div>
-            )}
-
-            {car.nom === "Viper 1996" && (
-              <div className="mt-6 mb-6 p-4 bg-gradient-to-r from-gray-800/50 to-gray-700/50 rounded-lg border border-gray-600/30">
-                <Text variant="carPageDescription">
-                  Un serpent vieux de cent ans qui mord toujours plus fort que la moitié des voitures neuves.
-                </Text>
-              </div>
-            )}
-
-            {car.nom === "Corvette C6 2005" && (
-              <div className="mt-6 mb-6 p-4 bg-gradient-to-r from-gray-800/50 to-gray-700/50 rounded-lg border border-gray-600/30">
-                <Text variant="carPageDescription">
-                  Une ancienne gloire qui refuse de vieillir, coincée entre la vitrine d'un musée et le parking du supermarché.
-                </Text>
-              </div>
-            )}
-
-            {car.nom === "Type-66 'Jen Rowley'" && (
-              <div className="mt-6 mb-6 p-4 bg-gradient-to-r from-gray-800/50 to-gray-700/50 rounded-lg border border-gray-600/30">
-                <Text variant="carPageDescription">
-                  Un gros ricain bodybuildé, qui consomme plus de carburant qu'un porte-avions et en est fier.
-                </Text>
-              </div>
-            )}
-
-            {car.nom === "Emperor 620 Ragnar" && (
-              <div className="mt-6 mb-6 p-4 bg-gradient-to-r from-gray-800/50 to-gray-700/50 rounded-lg border border-gray-600/30">
-                <Text variant="carPageDescription">
-                  Le SUV idéal pour rappeler à vos voisins qu'ils sont pauvres. Même garé, il leur marche dessus.
-                </Text>
-              </div>
-            )}
-
-            {car.nom === "Galena Gecko" && (
-              <div className="mt-6 mb-6 p-4 bg-gradient-to-r from-gray-800/50 to-gray-700/50 rounded-lg border border-gray-600/30">
-                <Text variant="carPageDescription">
-                  La voiture d'occasion qui refuse de mourir. Ajoutez un missile dessus et voilà votre nouveau hobby.
-                </Text>
-              </div>
-            )}
-
-            {car.nom === "Alvarado V4F 570 Delegate" && (
-              <div className="mt-6 mb-6 p-4 bg-gradient-to-r from-gray-800/50 to-gray-700/50 rounded-lg border border-gray-600/30">
-                <Text variant="carPageDescription">
-                  Une berline américaine pleine de chrome et de prétention, parfaite pour rouler lentement tout en bloquant deux files.
-                </Text>
-              </div>
-            )}
-
-            {car.nom === "Galena Rattler" && (
-              <div className="mt-6 mb-6 p-4 bg-gradient-to-r from-gray-800/50 to-gray-700/50 rounded-lg border border-gray-600/30">
-                <Text variant="carPageDescription">
-                  Une épave roulante. Achetez-la pour prouver que vous détestez vos passagers.
-                </Text>
-              </div>
-            )}
-
-            {car.nom === "Colby Little Mule" && (
-              <div className="mt-6 mb-6 p-4 bg-gradient-to-r from-gray-800/50 to-gray-700/50 rounded-lg border border-gray-600/30">
-                <Text variant="carPageDescription">
-                  Un pick-up qui transpire la sueur et la rouille, maintenant équipé d'une mitrailleuse pour compenser son absence de personnalité.
-                </Text>
-              </div>
-            )}
-
-            {car.nom === "Quartz Specter" && (
-              <div className="mt-6 mb-6 p-4 bg-gradient-to-r from-gray-800/50 to-gray-700/50 rounded-lg border border-gray-600/30">
-                <Text variant="carPageDescription">
-                  Une compacte avec des flammes peintes dans l'ego : petite, nerveuse, et persuadée d'être une supercar.
-                </Text>
-              </div>
-            )}
-
-            {car.nom === "Columbus V340-F Freight" && (
-              <div className="mt-6 mb-6 p-4 bg-gradient-to-r from-gray-800/50 to-gray-700/50 rounded-lg border border-gray-600/30">
-                <Text variant="carPageDescription">
-                  Un fourgon. Rien de sexy. Mais qui a besoin de sexy quand on peut transporter un cadavre ET son cercueil ?
-                </Text>
-              </div>
-            )}
-
-            {car.nom === "Thrax 388 Jefferson" && (
-              <div className="mt-6 mb-6 p-4 bg-gradient-to-r from-gray-800/50 to-gray-700/50 rounded-lg border border-gray-600/30">
-                <Text variant="carPageDescription">
-                  Une berline corpo tellement blindée qu'elle pourrait survivre à votre mariage.
-                </Text>
-              </div>
-            )}
-
-            {car.nom === "Cortes V5000 Valor" && (
-              <div className="mt-6 mb-6 p-4 bg-gradient-to-r from-gray-800/50 to-gray-700/50 rounded-lg border border-gray-600/30">
-                <Text variant="carPageDescription">
-                  Une voiture si prétentieuse qu'on dirait qu'elle a été dessinée par un architecte frustré. Même garée, elle veut faire un discours.
-                </Text>
-              </div>
-            )}
-
-            {car.nom === "Legatus 450 Aquila" && (
-              <div className="mt-6 mb-6 p-4 bg-gradient-to-r from-gray-800/50 to-gray-700/50 rounded-lg border border-gray-600/30">
-                <Text variant="carPageDescription">
-                  Un utilitaire carré, parfait pour transporter vos courses… ou vos ennemis. À vous de choisir.
-                </Text>
-              </div>
-            )}
-
-            {car.nom === "Deleon Vindicator" && (
-              <div className="mt-6 mb-6 p-4 bg-gradient-to-r from-gray-800/50 to-gray-700/50 rounded-lg border border-gray-600/30">
-                <Text variant="carPageDescription">
-                  Un nom qui promet la vengeance… et une carrosserie qui promet juste des factures de garagiste. L'illusion a un prix.
-                </Text>
-              </div>
-            )}
-
-            {car.nom === "Colby C125" && (
-              <div className="mt-6 mb-6 p-4 bg-gradient-to-r from-gray-800/50 to-gray-700/50 rounded-lg border border-gray-600/30">
-                <Text variant="carPageDescription">
-                  Un bloc d'acier sans charme, né pour caler des bières dans le coffre et bloquer la circulation devant le stade.
-                </Text>
-              </div>
-            )}
-
-            {car.nom === "Colby CX410 Butte" && (
-              <div className="mt-6 mb-6 p-4 bg-gradient-to-r from-gray-800/50 to-gray-700/50 rounded-lg border border-gray-600/30">
-                <Text variant="carPageDescription">
-                  Le SUV de banlieue par excellence. Si votre rêve, c'est d'aller chercher vos gosses avec un tank, c'est pour vous.
-                </Text>
-              </div>
-            )}
-
-            {car.nom === "Quartz EC-L R275" && (
-              <div className="mt-6 mb-6 p-4 bg-gradient-to-r from-gray-800/50 to-gray-700/50 rounded-lg border border-gray-600/30">
-                <Text variant="carPageDescription">
-                  Une compacte mignonne… idéale pour les gens qui veulent mourir discrètement dans un accident.
-                </Text>
-              </div>
-            )}
-
-            {car.nom === "Supron FS3" && (
-              <div className="mt-6 mb-6 p-4 bg-gradient-to-r from-gray-800/50 to-gray-700/50 rounded-lg border border-gray-600/30">
-                <Text variant="carPageDescription">
-                  Un van utilitaire aussi excitant qu'une photocopieuse… mais assez pratique pour entasser vos gosses et vos courses.
-                </Text>
-              </div>
-            )}
-
-            {car.nom === "Hellhound" && (
-              <div className="mt-6 mb-6 p-4 bg-gradient-to-r from-gray-800/50 to-gray-700/50 rounded-lg border border-gray-600/30">
-                <Text variant="carPageDescription">
-                  Parce qu'il y a des problèmes que seule une mitrailleuse de toit et une suspension de tank peuvent régler.
-                </Text>
-              </div>
-            )}
-
-            {car.nom === "Outlaw GTS" && (
-              <div className="mt-6 mb-6 p-4 bg-gradient-to-r from-gray-800/50 to-gray-700/50 rounded-lg border border-gray-600/30">
-                <Text variant="carPageDescription">
-                  Une hypercar qui fait du bruit pour compenser son complexe d'infériorité face aux vraies légendes. Mais au moins, elle est rapide.
+                  {t(`carDescriptions.${getCarDescriptionKey(car.nom)}`)}
                 </Text>
               </div>
             )}

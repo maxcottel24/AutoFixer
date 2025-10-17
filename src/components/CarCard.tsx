@@ -2,6 +2,8 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { Car } from '../types';
 import { GaugeCircle, Battery, Shield, Crosshair, Swords, Plane } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
+import { Text } from './Text';
 
 interface CarCardProps {
   car: Car;
@@ -11,9 +13,22 @@ const formatPrice = (price: string) => {
   return price.replace(/\B(?=(\d{3})+(?!\d))/g, ',');
 };
 
+// Function to parse speed and return formatted value with translated unit
+const formatSpeed = (speedString: string, t: (key: string) => string): string => {
+  // Extract number from strings like "306 km/h"
+  const match = speedString.match(/^(\d+(?:\.\d+)?)\s*(km\/h|mph)$/i);
+  if (match) {
+    const [, number] = match;
+    return `${number} ${t('units.speed')}`;
+  }
+  // Fallback for any other format
+  return speedString;
+};
+
 export const CarCard: React.FC<CarCardProps> = ({ car }) => {
+  const { t } = useTranslation();
   const isFlyingVehicle = car.classe === "Hélicoptère" || car.classe === "Navi";
-  const isArmed = car.caractéristiques.armé === "Oui";
+  const isArmed = car.caractéristiques.armé === true;
   
   return (
     <div className="h-full min-h-[450px] flex flex-col bg-gray-900 rounded-lg overflow-hidden border border-red-500/20 hover:border-red-500/50 transition-all relative">
@@ -23,7 +38,7 @@ export const CarCard: React.FC<CarCardProps> = ({ car }) => {
         {isFlyingVehicle && (
           <div className="bg-blue-600 text-white px-2 py-1 rounded-full text-xs font-bold flex items-center gap-1">
             <Plane size={12} />
-            VOLANT
+            {t('CarGrid.flying')}
           </div>
         )}
         
@@ -31,7 +46,7 @@ export const CarCard: React.FC<CarCardProps> = ({ car }) => {
         {isArmed && (
           <div className="bg-red-600 text-white px-2 py-1 rounded-full text-xs font-bold flex items-center gap-1">
             <Swords size={12} />
-            ARMÉ
+            {t('CarGrid.armed')}
           </div>
         )}
       </div>
@@ -45,28 +60,28 @@ export const CarCard: React.FC<CarCardProps> = ({ car }) => {
       <div className="p-4 flex-col flex flex-grow">
         <div className="flex justify-between items-start min-h-[4.9rem]">
           <div>
-            <h3 className="text-xl font-bold text-white">{car.nom}</h3>
-            <p className="text-red-500">{car.fabricant}</p>
+            <Text variant="filterTitleAndCarGridModel">{car.nom}</Text>
+            <Text variant="carCardBrand" className="text-red-500">{car.fabricant}</Text>
           </div>
-          <span className="text-green-400 font-mono whitespace-nowrap">{formatPrice(car.prix)} ¥</span>
+          <Text variant="carCardPrice" className="text-green-400 font-mono whitespace-nowrap">{formatPrice(car.prix)} ¥</Text>
         </div>
         
         <div className="grid grid-cols-2 gap-2 mt-4 text-sm whitespace-nowrap min-h-[4rem]">
           <div className="flex items-center gap-2 text-gray-400">
             <GaugeCircle size={16} className="text-red-500" />
-            <span>Vitesse: {car.caractéristiques.vitesse_max}</span>
+            <Text variant="carCardStat">{t('carPage.maxSpeed')}: {formatSpeed(car.caractéristiques.vitesse_max, t)}</Text>
           </div>
           <div className="flex items-center gap-2 text-gray-400">
             <Crosshair size={16} className="text-red-500" />
-            <span>Armé: {car.caractéristiques.armé}</span>
+            <Text variant="carCardStat">{t('carPage.armed')}: {car.caractéristiques.armé ? t('carPage.yes') : t('carPage.no')}</Text>
           </div>
           <div className="flex items-center gap-2 text-gray-400">
             <Shield size={16} className="text-red-500" />
-            <span>Armure: {car.caractéristiques.réduction_des_dégâts}</span>
+            <Text variant="carCardStat">{t('carPage.damageReduction')}: {car.caractéristiques.réduction_des_dégâts}</Text>
           </div>
           <div className="flex items-center gap-2 text-gray-400">
             <Battery size={16} className="text-red-500" />
-            <span>PV: {car.caractéristiques.pv}</span>
+            <Text variant="carCardStat">{t('carPage.hp')}: {car.caractéristiques.pv}</Text>
           </div>
         </div>
         
@@ -76,7 +91,7 @@ export const CarCard: React.FC<CarCardProps> = ({ car }) => {
           to={`/car/${car.nom}`}
           className="mt-4 block w-full text-center bg-red-500 text-white py-2 rounded hover:bg-red-600 transition-color"
         >
-          Voir les détails
+          {t('carCard.viewDetails')}
         </Link>
       </div>
     </div>

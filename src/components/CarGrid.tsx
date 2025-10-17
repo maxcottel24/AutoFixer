@@ -2,8 +2,11 @@ import React, { useState, useMemo } from 'react';
 import { CarCard } from './CarCard';
 import { Filters } from './Filters';
 import { cars } from '../data/cars';
+import { useTranslation } from 'react-i18next';
+import { Text } from './Text';
 
 export const CarGrid: React.FC = () => {
+  const { t } = useTranslation();
   const minPrice = Math.min(...cars.map(car => parseInt(car.prix)));
   const maxPrice = Math.max(...cars.map(car => parseInt(car.prix)));
   const availableClasses = Array.from(new Set(cars.map(car => car.classe))).sort(); 
@@ -20,7 +23,7 @@ export const CarGrid: React.FC = () => {
       const matchesPrice = price >= priceRange[0] && price <= priceRange[1];
       const matchesClass = selectedClasses.length === 0 || selectedClasses.includes(car.classe);
       const matchesBrand = selectedBrand.length === 0 || selectedBrand.includes(car.fabricant);
-      const matchesArmed = !showArmedOnly || car.caractéristiques.armé === "Oui";
+      const matchesArmed = !showArmedOnly || car.caractéristiques.armé === true;
       const isFlyingVehicle = car.classe === "Hélicoptère" || car.classe === "Navi";
       const matchesFlying = !showFlyingOnly || isFlyingVehicle;
       return matchesPrice && matchesClass && matchesBrand && matchesArmed && matchesFlying;
@@ -59,7 +62,7 @@ export const CarGrid: React.FC = () => {
         
         {filteredCars.length === 0 && (
           <div className="text-center py-12">
-            <p className="text-gray-400">Aucun véhicule ne correspond à vos filtres</p>
+            <Text variant="p1" className="text-gray-400">{t('CarGrid.noResults')}</Text>
           </div>
         )}
       </div>

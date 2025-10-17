@@ -11,7 +11,7 @@ export const cars: Car[] = [
       "vitesse_max": "306 km/h",
       "nombre_de_places": "2",
       "puissance": "950 CV",
-      "armé": "Non",
+      "armé": false,
       "réduction_des_dégâts": 3,
       "pv": 45
     },
@@ -39,7 +39,7 @@ export const cars: Car[] = [
       "vitesse_max": "339 km/h",
       "nombre_de_places": "2",
       "puissance": "980 CV",
-      "armé": "Non",
+      "armé": false,
       "réduction_des_dégâts": 3,
       "pv": 40
     },
@@ -64,7 +64,7 @@ export const cars: Car[] = [
       "vitesse_max": "220 km/h",
       "nombre_de_places": "5",
       "puissance": "182 CV",
-      "armé": "Non",
+      "armé": false,
       "réduction_des_dégâts": 4,
       "pv": 70
     },
@@ -91,7 +91,7 @@ export const cars: Car[] = [
       "vitesse_max": "220 km/h",
       "nombre_de_places": "2-4",
       "puissance": "235 CV",
-      "armé": "Non",
+      "armé": false,
       "réduction_des_dégâts": 4,
       "pv": 50
     },
@@ -116,10 +116,10 @@ export const cars: Car[] = [
     "vitesse_max": "245 km/h",
     "nombre_de_places": "2",
     "puissance": "300 CV",
-    "armé": "Oui",
+    "armé": true,
     "réduction_des_dégâts": 5,
     "pv": 55,
-    "armes": [weapons["Mitrailleuse lourde"]]
+    "armes": [weapons["heavyMachineGun"]]
   },
   "prix": "32000",
   "image": "https://i.imgur.com/22sRZzK.jpeg",
@@ -140,10 +140,10 @@ export const cars: Car[] = [
       "vitesse_max": "255 km/h",
       "nombre_de_places": "2",
       "puissance": "302 CV",
-      "armé": "Oui",
+      "armé": true,
       "réduction_des_dégâts": 5,
       "pv": 50,
-      "armes": [weapons["Mitrailleuse lourde"]]
+      "armes": [weapons["heavyMachineGun"]]
     },
     "prix": "28000",
     "image": "https://i.imgur.com/CwUQwXa.jpeg",
@@ -166,7 +166,7 @@ export const cars: Car[] = [
       "vitesse_max": "230 km/h",
       "nombre_de_places": "2",
       "puissance": "161 CV",
-      "armé": "Non",
+      "armé": false,
       "réduction_des_dégâts": 3,
       "pv": 40
     },
@@ -190,10 +190,10 @@ export const cars: Car[] = [
         "vitesse_max": "290 km/h",
         "nombre_de_places": "2",
         "puissance": "365 CV",
-        "armé": "Oui",
+        "armé": true,
         "réduction_des_dégâts": 5,
         "pv": 50,
-        "armes": [weapons["Mitrailleuse lourde"], weapons["Missile lourd"]]
+        "armes": [weapons["heavyMachineGun"], weapons["heavyMissile"]]
       },
       "prix": "33000",
       "image": "https://i.imgur.com/xOYRko9.jpeg",
@@ -215,7 +215,7 @@ export const cars: Car[] = [
       "vitesse_max": "290 km/h",
       "nombre_de_places": "4",
       "puissance": "365 CV",
-      "armé": "Non",
+      "armé": false,
       "réduction_des_dégâts": 4,
       "pv": 50
     },
@@ -239,7 +239,7 @@ export const cars: Car[] = [
       "vitesse_max": "243 km/h",
       "nombre_de_places": "5",
       "puissance": "407 CV",
-      "armé": "Non",
+      "armé": false,
       "réduction_des_dégâts": 4,
       "pv": 60
     },
@@ -264,7 +264,7 @@ export const cars: Car[] = [
       "vitesse_max": "243 km/h",
       "nombre_de_places": "5",
       "puissance": "333 CV",
-      "armé": "Non",
+      "armé": false,
       "réduction_des_dégâts": 4,
       "pv": 48
     },
@@ -288,7 +288,7 @@ export const cars: Car[] = [
       "vitesse_max": "220 km/h",
       "nombre_de_places": "5",
       "puissance": "240 CV",
-      "armé": "Non",
+      "armé": false,
       "réduction_des_dégâts": 3,
       "pv": 45
     },
@@ -312,7 +312,7 @@ export const cars: Car[] = [
       "vitesse_max": "243 km/h",
       "nombre_de_places": "5",
       "puissance": "388 CV",
-      "armé": "Non",
+      "armé": false,
       "réduction_des_dégâts": 2,
       "pv": 52
     },
@@ -337,7 +337,7 @@ export const cars: Car[] = [
       "vitesse_max": "186 km/h",
       "nombre_de_places": "5",
       "puissance": "400 CV",
-      "armé": "Non",
+      "armé": false,
       "réduction_des_dégâts": 6,
       "pv": 60
     },
@@ -360,7 +360,7 @@ export const cars: Car[] = [
       "vitesse_max": "299 km/h",
       "nombre_de_places": "4",
       "puissance": "755 CV",
-      "armé": "Non",
+      "armé": false,
       "réduction_des_dégâts": 3,
       "pv": 51
     },
@@ -384,7 +384,7 @@ export const cars: Car[] = [
       "vitesse_max": "320 km/h",
       "nombre_de_places": "2",
       "puissance": "570 CV",
-      "armé": "Non",
+      "armé": false,
       "réduction_des_dégâts": 6,
       "pv": 75
     },
@@ -409,10 +409,10 @@ export const cars: Car[] = [
       "vitesse_max": "320 km/h",
       "nombre_de_places": "2",
       "puissance": "570 CV",
-      "armé": "Oui",
+      "armé": false,
       "réduction_des_dégâts": 8,
       "pv": 80,
-      "armes": [weapons["Mitrailleuse lourde"], weapons["Missile lourd"]]
+      "armes": [weapons["heavyMachineGun"], weapons["heavyMissile"]]
     },
     "prix": "100000",
     "image": "https://i.imgur.com/MGx3GZO.jpeg",
@@ -433,7 +433,7 @@ export const cars: Car[] = [
       "vitesse_max": "220 km/h",
       "nombre_de_places": "2",
       "puissance": "94 CV",
-      "armé": "Non",
+      "armé": false,
       "réduction_des_dégâts": 0,
       "pv": 20
     },
@@ -455,7 +455,7 @@ export const cars: Car[] = [
       "vitesse_max": "286 km/h",
       "nombre_de_places": "2",
       "puissance": "170 CV",
-      "armé": "Non",
+      "armé": false,
       "réduction_des_dégâts": 0,
       "pv": 35
     },
@@ -480,7 +480,7 @@ export const cars: Car[] = [
       "vitesse_max": "305 km/h",
       "nombre_de_places": "2",
       "puissance": "501 CV",
-      "armé": "Non",
+      "armé": false,
       "réduction_des_dégâts": 1,
       "pv": 43
     },
@@ -506,7 +506,7 @@ export const cars: Car[] = [
       "vitesse_max": "312 km/h",
       "nombre_de_places": "2",
       "puissance": "505 CV",
-      "armé": "Non",
+      "armé": false,
       "réduction_des_dégâts": 2,
       "pv": 40
     },
@@ -531,7 +531,7 @@ export const cars: Car[] = [
       "vitesse_max": "209 km/h",
       "nombre_de_places": "6",
       "puissance": "210 CV",
-      "armé": "Non",
+      "armé": false,
       "réduction_des_dégâts": 5,
       "pv": 62
     },
@@ -557,7 +557,7 @@ export const cars: Car[] = [
       "vitesse_max": "185 km/h",
       "nombre_de_places": "5",
       "puissance": "189 CV",
-      "armé": "Non",
+      "armé": false,
       "réduction_des_dégâts": 4,
       "pv": 48
     },
@@ -582,7 +582,7 @@ export const cars: Car[] = [
       "vitesse_max": "288 km/h",
       "nombre_de_places": "2",
       "puissance": "183 CV",
-      "armé": "Non",
+      "armé": false,
       "réduction_des_dégâts": 0,
       "pv": 27
     },
@@ -607,7 +607,7 @@ export const cars: Car[] = [
       "vitesse_max": "301 km/h",
       "nombre_de_places": "2",
       "puissance": "740 CV",
-      "armé": "Non",
+      "armé": false,
       "réduction_des_dégâts": 2,
       "pv": 51
     },
@@ -632,7 +632,7 @@ export const cars: Car[] = [
       "vitesse_max": "312 km/h",
       "nombre_de_places": "4",
       "puissance": "620 CV",
-      "armé": "Non",
+      "armé": false,
       "réduction_des_dégâts": 2,
       "pv": 44
     },
@@ -656,7 +656,7 @@ export const cars: Car[] = [
       "vitesse_max": "325 km/h",
       "nombre_de_places": "4",
       "puissance": "699 CV",
-      "armé": "Non",
+      "armé": false,
       "réduction_des_dégâts": 2,
       "pv": 45
     },
@@ -684,10 +684,10 @@ export const cars: Car[] = [
       "vitesse_max": "301 km/h",
       "nombre_de_places": "2",
       "puissance": "684 CV",
-      "armé": "Oui",
+      "armé": true,
       "réduction_des_dégâts": 5,
       "pv": 52,
-      "armes": [weapons["Mitrailleuse lourde"]]
+      "armes": [weapons["heavyMachineGun"]]
     },
     "prix": "84000",
     "image": "https://i.imgur.com/4UBjYTg.jpeg",
@@ -708,7 +708,7 @@ export const cars: Car[] = [
       "vitesse_max": "310 km/h",
       "nombre_de_places": "2",
       "puissance": "750 CV",
-      "armé": "Non",
+      "armé": false,
       "réduction_des_dégâts": 2,
       "pv": 46,
     },
@@ -731,7 +731,7 @@ export const cars: Car[] = [
       "vitesse_max": "301 km/h",
       "nombre_de_places": "2",
       "puissance": "684 CV",
-      "armé": "Non",
+      "armé": false,
       "réduction_des_dégâts": 3,
       "pv": 45,
     },
@@ -756,10 +756,10 @@ export const cars: Car[] = [
       "vitesse_max": "220 km/h",
       "nombre_de_places": "6",
       "puissance": "500 CV",
-      "armé": "Oui",
+      "armé": true,
       "réduction_des_dégâts": 10,
       "pv": 100,
-      "armes": [weapons["Mitrailleuse lourde"], weapons["Missile lourd"], weapons["Canon automatique 30mm"], weapons["Lance-missiles guidés"]]
+      "armes": [weapons["heavyMachineGun"], weapons["heavyMissile"], weapons["automaticCannon30mm"], weapons["guidedMissileLauncher"]]
     },
     "prix": "115000",
     "image": "https://i.imgur.com/8iSXWne.jpeg",
@@ -781,7 +781,7 @@ export const cars: Car[] = [
       "vitesse_max": "191 km/h",
       "nombre_de_places": "2",
       "puissance": "70 CV",
-      "armé": "Non",
+      "armé": false,
       "réduction_des_dégâts": 1,
       "pv": 15
     },
@@ -807,7 +807,7 @@ export const cars: Car[] = [
       "vitesse_max": "220 km/h",
       "nombre_de_places": "5",
       "puissance": "529 CV",
-      "armé": "Non",
+      "armé": false,
       "réduction_des_dégâts": 7,
       "pv": 75
     },
@@ -833,10 +833,10 @@ export const cars: Car[] = [
       "vitesse_max": "420 km/h",
       "nombre_de_places": "12",
       "puissance": "2600 CV",
-      "armé": "Oui",
+      "armé": true,
       "réduction_des_dégâts": 8,
       "pv": 106,
-      "armes": [weapons["Canon automatique 30mm"], weapons["Lance-missiles guidés"], weapons["Missile lourd"]]
+      "armes": [weapons["automaticCannon30mm"], weapons["guidedMissileLauncher"], weapons["heavyMissile"]]
     },
     "prix": "240000",
     "image": "https://i.imgur.com/4J0TGPH.jpeg",
@@ -856,7 +856,7 @@ export const cars: Car[] = [
       "vitesse_max": "509 km/h",
       "nombre_de_places": "5",
       "puissance": "1800 CV",
-      "armé": "Non",
+      "armé": false,
       "réduction_des_dégâts": 5,
       "pv": 92,
     },
@@ -878,7 +878,7 @@ export const cars: Car[] = [
       "vitesse_max": "420 km/h",
       "nombre_de_places": "4",
       "puissance": "1200 CV",
-      "armé": "Non",
+      "armé": false,
       "réduction_des_dégâts": 6,
       "pv": 75
     },
@@ -910,7 +910,7 @@ export const cars: Car[] = [
       "vitesse_max": "580 km/h",
       "nombre_de_places": "1",
       "puissance": "2500 CV",
-      "armé": "Non",
+      "armé": false,
       "réduction_des_dégâts": 0,
       "pv": 15,
     },

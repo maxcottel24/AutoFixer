@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { X, Check } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
+import { Text } from '../components/Text';
 
 interface PaymentModalProps {
   isOpen: boolean;
@@ -8,6 +10,7 @@ interface PaymentModalProps {
 }
 
 export const PaymentModal: React.FC<PaymentModalProps> = ({ isOpen, onClose, onSuccess }) => {
+  const { t } = useTranslation();
   const [status, setStatus] = useState<'loading' | 'confirmed'>('loading');
   const [progress, setProgress] = useState(0);
   const [isVisible, setIsVisible] = useState(false);
@@ -63,9 +66,9 @@ export const PaymentModal: React.FC<PaymentModalProps> = ({ isOpen, onClose, onS
         <div className="flex flex-col items-center gap-4 sm:gap-6">
           {status === 'loading' ? (
             <div className="py-6 sm:py-8 flex flex-col items-center gap-4 sm:gap-6 w-full">
-              <h3 className="text-white font-bold text-base sm:text-lg text-center px-2">
-                Transfert des fonds pour l'achat
-              </h3>
+              <Text variant="paymentModalTransferFunds" className="text-center px-2">
+                {t('paymentModal.transferFunds')}
+              </Text>
               
               <div className="w-full bg-gray-700 rounded-full h-2 sm:h-3">
                 <div 
@@ -74,9 +77,9 @@ export const PaymentModal: React.FC<PaymentModalProps> = ({ isOpen, onClose, onS
                 />
               </div>
               
-              <p className="text-gray-400 text-center text-xs sm:text-sm">
-                {Math.round(progress)}% terminé
-              </p>
+              <Text variant="paymentModalProgress" className="text-gray-400 text-center">
+                {Math.round(progress)}% {t('paymentModal.completed')}
+              </Text>
             </div>
           ) : (
             <div className="py-6 sm:py-8 flex flex-col items-center gap-3 sm:gap-4">
@@ -84,12 +87,12 @@ export const PaymentModal: React.FC<PaymentModalProps> = ({ isOpen, onClose, onS
                 <Check size={24} className="sm:w-8 sm:h-8 text-white" />
               </div>
               <div className="text-center px-2">
-                <p className="text-white font-bold text-lg sm:text-xl mb-1 sm:mb-2">
-                  Paiement confirmé
-                </p>
-                <p className="text-green-400 text-sm sm:text-base">
-                  Transaction terminée avec succès
-                </p>
+                <Text variant="paymentModalPaymentConfirmed" className="mb-1 sm:mb-2">
+                  {t('paymentModal.paymentConfirmed')}
+                </Text>
+                <Text variant="paymentModalPaymentSuccess" className="text-green-400">
+                  {t('paymentModal.paymentSuccess')}
+                </Text>
               </div>
             </div>
           )}

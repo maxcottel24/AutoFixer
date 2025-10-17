@@ -1,28 +1,28 @@
 import { WeaponStats } from '../types';
 
-// Définition des armes disponibles
+// Définition des armes disponibles avec clés de traduction
 export const weapons: { [key: string]: WeaponStats } = {
-  "Mitrailleuse lourde": {
-    nom: "Mitrailleuse lourde",
-    type: "Mitrailleuse",
+  "heavyMachineGun": {
+    nom: "heavyMachineGun",
+    type: "machineGun",
     dégâts: "2d6",
     portée: "100m"
   },
-  "Canon automatique 30mm": {
-    nom: "Canon automatique 30mm",
-    type: "Canon",
+  "automaticCannon30mm": {
+    nom: "automaticCannon30mm",
+    type: "cannon",
     dégâts: "3d6",
     portée: "150m"
   },
-  "Missile lourd": {
-    nom: "Missile lourd",
-    type: "Lance-missiles",
+  "heavyMissile": {
+    nom: "heavyMissile",
+    type: "missileLauncher",
     dégâts: "3d6",
     portée: "800m"
   },
-  "Lance-missiles guidés": {
-    nom: "Lance-missiles guidés",
-    type: "Lance-missiles",
+  "guidedMissileLauncher": {
+    nom: "guidedMissileLauncher",
+    type: "missileLauncher",
     dégâts: "5d6",
     portée: "800m"
   }

@@ -4,6 +4,8 @@ import { Link } from 'react-router-dom';
 import { Trash2, ArrowLeft, CreditCard } from 'lucide-react';
 import { CarCartItem, ColorCartItem } from '../types';
 import { PaymentModal } from '../components/PaymentModal';
+import { useTranslation } from 'react-i18next';
+import { Text } from '../components/Text';
 
 const formatPrice = (price: string) => {
   return price.replace(/\B(?=(\d{3})+(?!\d))/g, ',');
@@ -16,6 +18,7 @@ const isColorItem = (item: CarCartItem | ColorCartItem): item is ColorCartItem =
 export const GaragePage: React.FC = () => {
   const { cart, removePackage, clearCart } = useCart();
   const [showPaymentModal, setShowPaymentModal] = useState(false);
+  const { t } = useTranslation();
 
   // Trouver toutes les voitures dans le panier
   const carItems = cart.filter(item => !isColorItem(item)) as CarCartItem[];
@@ -60,19 +63,19 @@ export const GaragePage: React.FC = () => {
           className="mb-6 flex items-center gap-2 text-white hover:text-gray-300 transition-colors"
         >
           <ArrowLeft size={24} />
-          <span>Retour au catalogue</span>
+<Text variant="backButton">{t('garage.back')}</Text>
         </Link>
 
-        <h1 className="text-3xl font-bold text-white mb-8">Mon garage</h1>
+        <Text variant="garageTitle" className="mb-8">{t('garage.title')}</Text>
 
         {packages.length === 0 ? (
           <div className="text-center py-12">
-            <p className="text-gray-400">Votre garage est vide</p>
+            <Text variant="carPageClass" className="text-gray-400">{t('garage.empty')}</Text>
             <Link
               to="/"
               className="inline-block mt-4 px-6 py-2 bg-red-500 text-white rounded hover:bg-red-600 transition-colors"
             >
-              Parcourir le catalogue
+              {t('garage.browseCatalog')}
             </Link>
           </div>
         ) : (
@@ -94,16 +97,16 @@ export const GaragePage: React.FC = () => {
                   <div className="flex-1">
                     <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start gap-2 sm:gap-0">
                       <div>
-                        <h2 className="text-xl font-bold text-white">{car.nom}</h2>
-                        <p className="text-red-500">{car.fabricant}</p>
+                        <Text variant="filterTitleAndCarGridModel">{car.nom}</Text>
+                        <Text variant="carCardBrand" className="text-red-500">{car.fabricant}</Text>
                         {color && (
-                          <p className="text-gray-400">Couleur: {color.nom}</p>
+                          <Text variant="carPageClass" className="text-gray-400">Couleur: {color.nom}</Text>
                         )}
                       </div>
                       <div className="flex justify-between items-center sm:flex-col sm:items-end sm:gap-2">
-                        <p className="text-xl font-mono text-green-400">
+                        <Text variant="price" className="font-mono text-green-400">
                           {formatPrice((parseInt(car.prix) + (color ? parseInt(color.prix) : 0)).toString())} ¥
-                        </p>
+                        </Text>
                         <button
                           onClick={() => removePackage(car.nom)}
                           className="text-red-500 hover:text-red-400 transition-colors"
@@ -113,7 +116,7 @@ export const GaragePage: React.FC = () => {
                       </div>
                     </div>
                     <div className="mt-2 text-gray-400">
-                      <p>Classe: {car.car.classe}</p>
+                      <Text variant="carPageClass" className="text-gray-400">Classe: {car.car.classe}</Text>
                     </div>
                   </div>
                 </div>
@@ -123,17 +126,17 @@ export const GaragePage: React.FC = () => {
             <div className="mt-8 bg-gray-900 rounded-lg p-6">
               <div className="flex flex-col sm:flex-row justify-between items-center gap-4">
                 <div className="flex items-baseline gap-2">
-                  <p className="text-xl text-white">Total</p>
-                  <p className="text-2xl font-mono text-green-400">
+                  <Text variant="garageTotal">Total</Text>
+                  <Text variant="garagePrice" className="font-mono text-green-400">
                     {formatPrice(total.toString())} ¥
-                  </p>
+                  </Text>
                 </div>
                 <button
                   onClick={handlePayment}
                   className="w-full sm:w-auto bg-green-500 hover:bg-green-600 text-white px-8 py-3 rounded-lg font-semibold flex items-center justify-center gap-2 transition-colors"
                 >
                   <CreditCard size={20} />
-                  Payer maintenant
+                  {t('garage.payNow')}
                 </button>
               </div>
             </div>

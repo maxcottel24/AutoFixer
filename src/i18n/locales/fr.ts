@@ -64,7 +64,7 @@ const fr: Translations = {
     numberOfPlaces: "Nombre de places",
     power: "Puissance",
     armed: "Armé",
-    damageReduction: "Réduction des dégâts",
+    damageReduction: "Armure",
     hp: "PV",
     weaponSystem: "Système d'armement",
     damage: "Dégâts",
@@ -72,7 +72,22 @@ const fr: Translations = {
     return: "Retour",
     flyingPatch: "VOLANT",
     armedPatch: "ARMÉ",
-    exclusiveColorPrice: "2,500 ¥ la couleur"
+    exclusiveColorPrice: "2,500 ¥ la couleur",
+    yes: "Oui",
+    no: "Non",
+  },
+  units: {
+    speed: "km/h",
+    hp: "CV",
+  },
+  weapons: {
+    heavyMachineGun: "Mitrailleuse lourde",
+    automaticCannon30mm: "Canon automatique 30mm",
+    heavyMissile: "Missile lourd",
+    guidedMissileLauncher: "Lance-missiles guidés",
+    machineGun: "Mitrailleuse",
+    cannon: "Canon",
+    missileLauncher: "Lance-missiles"
   },
   carDescriptions: {
     aerondights9guinevere: "L'ultime incarnation du luxe et de la vitesse : 950 chevaux d'ingénierie parfaite, une silhouette sculptée pour 306 km/h, et une aura qui transforme chaque rue en podium.",

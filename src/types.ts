@@ -1,6 +1,6 @@
 export interface WeaponStats {
   nom: string;
-  type: "Mitrailleuse" | "Canon" | "Lance-missiles";
+  type: "machineGun" | "cannon" | "missileLauncher";
   dégâts: string;
   portée: string;
 }

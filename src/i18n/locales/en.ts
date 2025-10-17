@@ -62,7 +62,7 @@ const en = {
     numberOfPlaces: "Number of places",
     power: "Power",
     armed: "Armed",
-    damageReduction: "Damage reduction",
+    damageReduction: "Armor",
     hp: "HP",
     weaponSystem: "Weapon system",
     damage: "Damage",
@@ -70,7 +70,22 @@ const en = {
     return: "Back",
     flyingPatch: "FLYING",
     armedPatch: "ARMED",
-    exclusiveColorPrice: "2,500 ¥ the color"
+    exclusiveColorPrice: "2,500 ¥ the color",
+    yes: "Yes",
+    no: "No",
+  },
+  units: {
+    speed: "mp/h",
+    hp: "HP",
+  },
+  weapons: {
+    heavyMachineGun: "Heavy Machine Gun",
+    automaticCannon30mm: "30mm Automatic Cannon",
+    heavyMissile: "Heavy Missile",
+    guidedMissileLauncher: "Guided Missile Launcher",
+    machineGun: "Machine Gun",
+    cannon: "Cannon",
+    missileLauncher: "Missile Launcher"
   },
   carDescriptions: {
     aerondights9guinevere: "The ultimate incarnation of luxury and speed: 950 horsepower of perfect engineering, a silhouette sculpted for 306 km/h, and an aura that transforms every street into a podium.",

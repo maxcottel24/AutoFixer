@@ -119,6 +119,30 @@ const getCarDescriptionKey = (carName: string): string => {
   return carMap[carName] || carName.toLowerCase().replace(/\s+/g, '').replace(/['"]/g, '');
 };
 
+// Function to parse speed and return formatted value with translated unit
+const formatSpeed = (speedString: string, t: (key: string) => string): string => {
+  // Extract number from strings like "306 km/h"
+  const match = speedString.match(/^(\d+(?:\.\d+)?)\s*(km\/h|mph)$/i);
+  if (match) {
+    const [, number] = match;
+    return `${number} ${t('units.speed')}`;
+  }
+  // Fallback for any other format
+  return speedString;
+};
+
+// Function to parse power and return formatted value with translated unit
+const formatPower = (powerString: string, t: (key: string) => string): string => {
+  // Extract number from strings like "950 CV"
+  const match = powerString.match(/^(\d+(?:\.\d+)?)\s*(CV|HP)$/i);
+  if (match) {
+    const [, number] = match;
+    return `${number} ${t('units.hp')}`;
+  }
+  // Fallback for any other format
+  return powerString;
+};
+
 export const CarPage: React.FC = () => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -300,7 +324,7 @@ export const CarPage: React.FC = () => {
                 <GaugeCircle size={24} style={{ color: accentColor }} className="shrink-0" />
                 <div>
                   <Text variant="carPageTitleStats">{t('carPage.maxSpeed')}</Text>
-                  <Text variant="carPageStats">{car.caractéristiques.vitesse_max}</Text>
+                  <Text variant="carPageStats">{formatSpeed(car.caractéristiques.vitesse_max, t)}</Text>
                 </div>
               </div>
 
@@ -316,7 +340,7 @@ export const CarPage: React.FC = () => {
                 <Zap size={24} style={{ color: accentColor }} className="shrink-0" />
                 <div>
                   <Text variant="carPageTitleStats">{t('carPage.power')}</Text>
-                  <Text variant="carPageStats">{car.caractéristiques.puissance}</Text>
+                  <Text variant="carPageStats">{formatPower(car.caractéristiques.puissance, t)}</Text>
                 </div>
               </div>
 
@@ -324,7 +348,7 @@ export const CarPage: React.FC = () => {
                 <Crosshair size={24} style={{ color: accentColor }} className="shrink-0" />
                 <div>
                   <Text variant="carPageTitleStats">{t('carPage.armed')}</Text>
-                  <Text variant="carPageStats">{car.caractéristiques.armé}</Text>
+                  <Text variant="carPageStats">{car.caractéristiques.armé ? t('carPage.yes') : t('carPage.no')}</Text>
                 </div>
               </div>
 
@@ -367,8 +391,8 @@ export const CarPage: React.FC = () => {
                       <div className="flex items-center gap-3 mb-4">
                         <Target size={24} style={{ color: accentColor }} className="shrink-0" />
                         <div>
-                          <Text variant="weaponSystemSubtitle">{arme.nom}</Text>
-                          <Text variant="carPageTitleStats">{arme.type}</Text>
+                          <Text variant="weaponSystemSubtitle">{t(`weapons.${arme.nom}`)}</Text>
+                          <Text variant="carPageTitleStats">{t(`weapons.${arme.type}`)}</Text>
                         </div>
                       </div>
                       

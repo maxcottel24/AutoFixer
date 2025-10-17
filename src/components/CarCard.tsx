@@ -13,6 +13,18 @@ const formatPrice = (price: string) => {
   return price.replace(/\B(?=(\d{3})+(?!\d))/g, ',');
 };
 
+// Function to parse speed and return formatted value with translated unit
+const formatSpeed = (speedString: string, t: (key: string) => string): string => {
+  // Extract number from strings like "306 km/h"
+  const match = speedString.match(/^(\d+(?:\.\d+)?)\s*(km\/h|mph)$/i);
+  if (match) {
+    const [, number] = match;
+    return `${number} ${t('units.speed')}`;
+  }
+  // Fallback for any other format
+  return speedString;
+};
+
 export const CarCard: React.FC<CarCardProps> = ({ car }) => {
   const { t } = useTranslation();
   const isFlyingVehicle = car.classe === "Hélicoptère" || car.classe === "Navi";
@@ -57,19 +69,19 @@ export const CarCard: React.FC<CarCardProps> = ({ car }) => {
         <div className="grid grid-cols-2 gap-2 mt-4 text-sm whitespace-nowrap min-h-[4rem]">
           <div className="flex items-center gap-2 text-gray-400">
             <GaugeCircle size={16} className="text-red-500" />
-            <Text variant="carCardStat">{t('carCard.speed')}: {car.caractéristiques.vitesse_max}</Text>
+            <Text variant="carCardStat">{t('carPage.maxSpeed')}: {formatSpeed(car.caractéristiques.vitesse_max, t)}</Text>
           </div>
           <div className="flex items-center gap-2 text-gray-400">
             <Crosshair size={16} className="text-red-500" />
-            <Text variant="carCardStat">{t('carCard.armed')}: {car.caractéristiques.armé}</Text>
+            <Text variant="carCardStat">{t('carPage.armed')}: {car.caractéristiques.armé ? t('carPage.yes') : t('carPage.no')}</Text>
           </div>
           <div className="flex items-center gap-2 text-gray-400">
             <Shield size={16} className="text-red-500" />
-            <Text variant="carCardStat">{t('carCard.armor')}: {car.caractéristiques.réduction_des_dégâts}</Text>
+            <Text variant="carCardStat">{t('carPage.damageReduction')}: {car.caractéristiques.réduction_des_dégâts}</Text>
           </div>
           <div className="flex items-center gap-2 text-gray-400">
             <Battery size={16} className="text-red-500" />
-            <Text variant="carCardStat">{t('carCard.hp')}: {car.caractéristiques.pv}</Text>
+            <Text variant="carCardStat">{t('carPage.hp')}: {car.caractéristiques.pv}</Text>
           </div>
         </div>
         

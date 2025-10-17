@@ -119,7 +119,7 @@ export const cars: Car[] = [
     "armé": true,
     "réduction_des_dégâts": 5,
     "pv": 55,
-    "armes": [weapons["Mitrailleuse lourde"]]
+    "armes": [weapons["heavyMachineGun"]]
   },
   "prix": "32000",
   "image": "https://i.imgur.com/22sRZzK.jpeg",
@@ -143,7 +143,7 @@ export const cars: Car[] = [
       "armé": true,
       "réduction_des_dégâts": 5,
       "pv": 50,
-      "armes": [weapons["Mitrailleuse lourde"]]
+      "armes": [weapons["heavyMachineGun"]]
     },
     "prix": "28000",
     "image": "https://i.imgur.com/CwUQwXa.jpeg",
@@ -193,7 +193,7 @@ export const cars: Car[] = [
         "armé": true,
         "réduction_des_dégâts": 5,
         "pv": 50,
-        "armes": [weapons["Mitrailleuse lourde"], weapons["Missile lourd"]]
+        "armes": [weapons["heavyMachineGun"], weapons["heavyMissile"]]
       },
       "prix": "33000",
       "image": "https://i.imgur.com/xOYRko9.jpeg",
@@ -412,7 +412,7 @@ export const cars: Car[] = [
       "armé": false,
       "réduction_des_dégâts": 8,
       "pv": 80,
-      "armes": [weapons["Mitrailleuse lourde"], weapons["Missile lourd"]]
+      "armes": [weapons["heavyMachineGun"], weapons["heavyMissile"]]
     },
     "prix": "100000",
     "image": "https://i.imgur.com/MGx3GZO.jpeg",
@@ -687,7 +687,7 @@ export const cars: Car[] = [
       "armé": true,
       "réduction_des_dégâts": 5,
       "pv": 52,
-      "armes": [weapons["Mitrailleuse lourde"]]
+      "armes": [weapons["heavyMachineGun"]]
     },
     "prix": "84000",
     "image": "https://i.imgur.com/4UBjYTg.jpeg",
@@ -759,7 +759,7 @@ export const cars: Car[] = [
       "armé": true,
       "réduction_des_dégâts": 10,
       "pv": 100,
-      "armes": [weapons["Mitrailleuse lourde"], weapons["Missile lourd"], weapons["Canon automatique 30mm"], weapons["Lance-missiles guidés"]]
+      "armes": [weapons["heavyMachineGun"], weapons["heavyMissile"], weapons["automaticCannon30mm"], weapons["guidedMissileLauncher"]]
     },
     "prix": "115000",
     "image": "https://i.imgur.com/8iSXWne.jpeg",
@@ -836,7 +836,7 @@ export const cars: Car[] = [
       "armé": true,
       "réduction_des_dégâts": 8,
       "pv": 106,
-      "armes": [weapons["Canon automatique 30mm"], weapons["Lance-missiles guidés"], weapons["Missile lourd"]]
+      "armes": [weapons["automaticCannon30mm"], weapons["guidedMissileLauncher"], weapons["heavyMissile"]]
     },
     "prix": "240000",
     "image": "https://i.imgur.com/4J0TGPH.jpeg",

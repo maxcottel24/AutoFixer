@@ -60,10 +60,10 @@ export const GaragePage: React.FC = () => {
       <div className="max-w-6xl mx-auto px-4">
         <Link
           to="/"
-          className="mb-6 flex items-center gap-2 text-white hover:text-gray-300 transition-colors"
+          className="mb-6 flex items-start gap-2 text-white hover:text-gray-300 transition-colors group"
         >
-          <ArrowLeft size={24} />
-<Text variant="backButton">{t('garage.back')}</Text>
+          <ArrowLeft size={20} className="group-hover:text-gray-300 transition-colors flex-shrink-0 mt-0.5" />
+          <Text variant="backButton" className="group-hover:text-gray-300 transition-colors">{t('garage.back')}</Text>
         </Link>
 
         <Text variant="garageTitle" className="mb-8">{t('garage.title')}</Text>

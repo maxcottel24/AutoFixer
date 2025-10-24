@@ -23,10 +23,10 @@ export const Navbar: React.FC = () => {
             <LanguageSelector />
             <Link 
               to="/garage" 
-              className="flex items-center space-x-2 text-white hover:text-red-500 transition-colors relative"
+              className="flex items-center space-x-2 text-white hover:text-red-500 transition-colors relative group"
             >
-              <ShoppingCart className="h-6 w-6" />
-              <Text variant="myGarage">{t('navigation.garage')}</Text>
+              <ShoppingCart className="h-6 w-6 group-hover:text-red-500 transition-colors" />
+              <Text variant="myGarage" className="group-hover:text-red-500 transition-colors">{t('navigation.garage')}</Text>
               {cart.length > 0 && (
                 <div className="absolute -top-1 -right-4 bg-red-500 text-white text-xs font-bold rounded-full w-5 h-5 flex items-center justify-center">
                   {cart.length}

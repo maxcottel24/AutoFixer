@@ -6,7 +6,7 @@ import { CarCartItem, ColorCartItem } from '../types';
 import { PaymentModal } from '../components/PaymentModal';
 import { useTranslation } from 'react-i18next';
 import { Text } from '../components/Text';
-import { getColorTranslationKey, getVehicleClassTranslationKey } from '../utils/translationKeys';
+import { getColorTranslationKey, getVehicleClassTranslationKey } from '../utils/translationKeys.ts';
 
 const formatPrice = (price: string) => {
   return price.replace(/\B(?=(\d{3})+(?!\d))/g, ',');

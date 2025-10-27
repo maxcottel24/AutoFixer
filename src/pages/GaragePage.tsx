@@ -6,6 +6,7 @@ import { CarCartItem, ColorCartItem } from '../types';
 import { PaymentModal } from '../components/PaymentModal';
 import { useTranslation } from 'react-i18next';
 import { Text } from '../components/Text';
+import { getColorTranslationKey, getVehicleClassTranslationKey } from '../utils/translationKeys.ts';
 
 const formatPrice = (price: string) => {
   return price.replace(/\B(?=(\d{3})+(?!\d))/g, ',');
@@ -100,7 +101,7 @@ export const GaragePage: React.FC = () => {
                         <Text variant="filterTitleAndCarGridModel">{car.nom}</Text>
                         <Text variant="carCardBrand" className="text-red-500">{car.fabricant}</Text>
                         {color && (
-                          <Text variant="carPageClass" className="text-gray-400">Couleur: {color.nom}</Text>
+                          <Text variant="carPageClass" className="text-gray-400">{t('carPage.color')}: {t(`colors.${getColorTranslationKey(color.nom)}`)}</Text>
                         )}
                       </div>
                       <div className="flex justify-between items-center sm:flex-col sm:items-end sm:gap-2">
@@ -116,7 +117,7 @@ export const GaragePage: React.FC = () => {
                       </div>
                     </div>
                     <div className="mt-2 text-gray-400">
-                      <Text variant="carPageClass" className="text-gray-400">Classe: {car.car.classe}</Text>
+                      <Text variant="carPageClass" className="text-gray-400">{t('carPage.class')}: {t(`vehicleClasses.${getVehicleClassTranslationKey(car.car.classe)}`)}</Text>
                     </div>
                   </div>
                 </div>

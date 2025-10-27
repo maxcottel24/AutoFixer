@@ -57,6 +57,7 @@ const en = {
   },
   carPage: {
     class: "Class",
+    color: "Color",
     addToGarage: "Add to garage",
     maxSpeed: "Max speed",
     numberOfPlaces: "Number of places",
@@ -151,7 +152,7 @@ const en = {
     yaibaCyberWave: "Yaiba Cyber Wave",
     quadraRetroFlash: "Quadra Retro Flash",
     brennanHyperionMauve: "Brennan Hyperion Mauve",
-    "villefortSceptreD'Airain": "Villefort Bronze Sceptre",
+    villefortSceptreDAirain: "Villefort Bronze Sceptre",
     herreraRealBurdeos: "Herrera Real Burdeos",
     archerFlecheDeGlace: "Archer Ice Arrow",
     chevillonDreadnought: "Chevillon Dreadnought",
@@ -164,7 +165,7 @@ const en = {
     militechManOWar: "Militech Man O'War",
     mahirAstonGreen: "Mahir Aston Green",
     zetatechGrisDeNeige: "Zetatech Snow Gray",
-    "traumaTeamSoinsD'Urgence": "Trauma Team Emergency",
+    traumaTeamSoinsDUrgence: "Trauma Team Emergency",
     chevroletF1: "Chevrolet F1"
   }
 }

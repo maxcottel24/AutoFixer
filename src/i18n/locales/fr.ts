@@ -59,6 +59,7 @@ const fr: Translations = {
   },
   carPage: {
     class: "Classe",
+    color: "Couleur",
     addToGarage: "Ajouter au garage",
     maxSpeed: "Vitesse max",
     numberOfPlaces: "Nombre de places",
@@ -153,7 +154,7 @@ const fr: Translations = {
     yaibaCyberWave: "Yaiba Cyber Wave",
     quadraRetroFlash: "Quadra Retro Flash",
     brennanHyperionMauve: "Brennan Hyperion Mauve",
-    "villefortSceptreD'Airain": "Villefort Sceptre d'Airain",
+    villefortSceptreDAirain: "Villefort Sceptre d'Airain",
     herreraRealBurdeos: "Herrera Real Burdeos",
     archerFlecheDeGlace: "Archer Flèche de Glace",
     chevillonDreadnought: "Chevillon Dreadnought",
@@ -166,7 +167,7 @@ const fr: Translations = {
     militechManOWar: "Militech Man O'War",
     mahirAstonGreen: "Mahir Aston Green",
     zetatechGrisDeNeige: "Zetatech Gris de Neige",
-    "traumaTeamSoinsD'Urgence": "Trauma Team Soins d'Urgence",
+    traumaTeamSoinsDUrgence: "Trauma Team Soins d'Urgence",
     chevroletF1: "Chevrolet F1"
   }
 }

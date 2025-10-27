@@ -13,7 +13,7 @@ import {
 import { ImageModal } from '../components/ImageModal';
 import { useTranslation } from 'react-i18next';
 import { Text } from '../components/Text';
-import { getColorTranslationKey, getCarDescriptionKey } from '../utils/translationKeys';
+import { getColorTranslationKey, getCarDescriptionKey } from '../utils/translationKeys.ts';
 
 const formatPrice = (price: string) => {
   return price.replace(/\B(?=(\d{3})+(?!\d))/g, ',');

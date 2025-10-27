@@ -53,7 +53,7 @@ export const getCarDescriptionKey = (carName: string): string => {
     'Kusanagi CT-3X': 'kusanagict3x',
     'Apollo': 'apollo',
     'MI-45 Apache': 'mi45apache',
-    'TTMR7 Valkyrie': 'ttmr7valkyrie',
+    'TT-MR7 Valkyrie': 'ttmr7valkyrie',
     'Veliora LX': 'velioralx',
     'Maimai P126': 'maimaip126',
     'Sport R-7 Sterling': 'sportr7sterling',

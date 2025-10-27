@@ -224,6 +224,10 @@ export const TextVariants = cva(['text-pretty'], {
       paymentModalPaymentSuccess: [
         'text-green-400'
       ],
+      countryName: [
+        'text-red-500',
+        'hover:text-red-600',
+      ],
     },
   },
 });
@@ -280,6 +284,7 @@ export interface TextProps
     | 'paymentModalProgress'
     | 'paymentModalPaymentConfirmed'
     | 'paymentModalPaymentSuccess'
+    | 'countryName'
     | undefined;
 }
 

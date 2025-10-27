@@ -47,10 +47,13 @@ export const GaragePage: React.FC = () => {
   });
 
   const handlePayment = () => {
+    console.log('Payment button clicked');
     setShowPaymentModal(true);
   };
 
   const handlePaymentSuccess = () => {
+    console.log('Payment success - clearing cart');
+    setShowPaymentModal(false); // Close modal first
     clearCart();
   };
 

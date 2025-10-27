@@ -24,7 +24,7 @@ export const PaymentModal: React.FC<PaymentModalProps> = ({ isOpen, onClose, onS
   }, [isOpen]);
 
   useEffect(() => {
-    if (status === 'loading') {
+    if (status === 'loading' && isOpen) {
       const interval = setInterval(() => {
         setProgress(prev => {
           if (prev >= 100) {
@@ -45,7 +45,7 @@ export const PaymentModal: React.FC<PaymentModalProps> = ({ isOpen, onClose, onS
 
       return () => clearInterval(interval);
     }
-  }, [status, onSuccess, onClose]);
+  }, [status, onSuccess, onClose, isOpen]);
 
   if (!isOpen) return null;
 

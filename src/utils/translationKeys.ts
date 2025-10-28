@@ -67,7 +67,7 @@ export const getCarDescriptionKey = (carName: string): string => {
     'Coyote': 'coyote',
     'Viper 1996': 'viper1996',
     'Corvette C6 2005': 'corvettec62005',
-    'Type-66 Jen Rowley': 'type66jenrowley',
+    'Type-66 \'Jen Rowley\'': 'type66jenrowley',
     'Emperor 620 Ragnar': 'emperor620ragnar',
     'Galena Gecko': 'galenagecko',
     'Alvarado V4F 570 Delegate': 'alvaradov4f570delegate',
@@ -82,7 +82,7 @@ export const getCarDescriptionKey = (carName: string): string => {
     'Colby C125': 'colbyc125',
     'Colby CX410 Butte': 'colbycx410butte',
     'Quartz EC-L R275': 'quartzecrlr275',
-    'Supron SF-S3': 'supronsfs3',
+    'Supron FS3': 'supronsfs3',
     'Hellhound': 'hellhound',
     'Outlaw GTS': 'outlawgts'
   };

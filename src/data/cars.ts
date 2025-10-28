@@ -9,6 +9,7 @@ export const cars: Car[] = [
     "classe": "Hypercar",
     "caractéristiques": {
       "vitesse_max": "306 km/h",
+      "vitesse_max_en": "190 mp/h",
       "nombre_de_places": "2",
       "puissance": "950 CV",
       "armé": false,
@@ -37,6 +38,7 @@ export const cars: Car[] = [
     "classe": "Hypercar",
     "caractéristiques": {
       "vitesse_max": "339 km/h",
+      "vitesse_max_en": "210 mp/h",
       "nombre_de_places": "2",
       "puissance": "980 CV",
       "armé": false,
@@ -62,6 +64,7 @@ export const cars: Car[] = [
     "classe": "Berline",
     "caractéristiques": {
       "vitesse_max": "220 km/h",
+      "vitesse_max_en": "136 mp/h",
       "nombre_de_places": "5",
       "puissance": "182 CV",
       "armé": false,
@@ -89,6 +92,7 @@ export const cars: Car[] = [
     "classe": "Tout terrain",
     "caractéristiques": {
       "vitesse_max": "220 km/h",
+      "vitesse_max_en": "137 mp/h",
       "nombre_de_places": "2-4",
       "puissance": "235 CV",
       "armé": false,
@@ -114,6 +118,7 @@ export const cars: Car[] = [
   "classe": "Tout terrain",
   "caractéristiques": {
     "vitesse_max": "245 km/h",
+    "vitesse_max_en": "152 mp/h",
     "nombre_de_places": "2",
     "puissance": "300 CV",
     "armé": true,
@@ -138,6 +143,7 @@ export const cars: Car[] = [
     "classe": "Citadine",
     "caractéristiques": {
       "vitesse_max": "255 km/h",
+      "vitesse_max_en": "158 mp/h",
       "nombre_de_places": "2",
       "puissance": "302 CV",
       "armé": true,
@@ -164,6 +170,7 @@ export const cars: Car[] = [
     "classe": "Citadine",
     "caractéristiques": {
       "vitesse_max": "230 km/h",
+      "vitesse_max_en": "143 mp/h",
       "nombre_de_places": "2",
       "puissance": "161 CV",
       "armé": false,
@@ -188,6 +195,7 @@ export const cars: Car[] = [
       "classe": "Citadine",
       "caractéristiques": {
         "vitesse_max": "290 km/h",
+      "vitesse_max_en": "180 mp/h",
         "nombre_de_places": "2",
         "puissance": "365 CV",
         "armé": true,
@@ -213,6 +221,7 @@ export const cars: Car[] = [
     "classe": "Citadine",
     "caractéristiques": {
       "vitesse_max": "290 km/h",
+      "vitesse_max_en": "180 mp/h",
       "nombre_de_places": "4",
       "puissance": "365 CV",
       "armé": false,
@@ -237,6 +246,7 @@ export const cars: Car[] = [
     "classe": "Berline",
     "caractéristiques": {
       "vitesse_max": "243 km/h",
+      "vitesse_max_en": "151 mp/h",
       "nombre_de_places": "5",
       "puissance": "407 CV",
       "armé": false,
@@ -262,6 +272,7 @@ export const cars: Car[] = [
     "classe": "Berline",
     "caractéristiques": {
       "vitesse_max": "243 km/h",
+      "vitesse_max_en": "151 mp/h",
       "nombre_de_places": "5",
       "puissance": "333 CV",
       "armé": false,
@@ -286,6 +297,7 @@ export const cars: Car[] = [
     "classe": "Berline",
     "caractéristiques": {
       "vitesse_max": "220 km/h",
+      "vitesse_max_en": "137 mp/h",
       "nombre_de_places": "5",
       "puissance": "240 CV",
       "armé": false,
@@ -310,6 +322,7 @@ export const cars: Car[] = [
     "classe": "Berline",
     "caractéristiques": {
       "vitesse_max": "243 km/h",
+      "vitesse_max_en": "151 mp/h",
       "nombre_de_places": "5",
       "puissance": "388 CV",
       "armé": false,
@@ -335,6 +348,7 @@ export const cars: Car[] = [
     "classe": "Utilitaire",
     "caractéristiques": {
       "vitesse_max": "186 km/h",
+      "vitesse_max_en": "116 mp/h",
       "nombre_de_places": "5",
       "puissance": "400 CV",
       "armé": false,
@@ -358,6 +372,7 @@ export const cars: Car[] = [
     "classe": "Hypercar",
     "caractéristiques": {
       "vitesse_max": "299 km/h",
+      "vitesse_max_en": "186 mp/h",
       "nombre_de_places": "4",
       "puissance": "755 CV",
       "armé": false,
@@ -382,6 +397,7 @@ export const cars: Car[] = [
     "classe": "Sport",
     "caractéristiques": {
       "vitesse_max": "320 km/h",
+      "vitesse_max_en": "199 mp/h",
       "nombre_de_places": "2",
       "puissance": "570 CV",
       "armé": false,
@@ -407,6 +423,7 @@ export const cars: Car[] = [
     "classe": "Sport",
     "caractéristiques": {
       "vitesse_max": "320 km/h",
+      "vitesse_max_en": "199 mp/h",
       "nombre_de_places": "2",
       "puissance": "570 CV",
       "armé": false,
@@ -431,6 +448,7 @@ export const cars: Car[] = [
     "classe": "Motos",
     "caractéristiques": {
       "vitesse_max": "220 km/h",
+      "vitesse_max_en": "137 mp/h",
       "nombre_de_places": "2",
       "puissance": "94 CV",
       "armé": false,
@@ -453,6 +471,7 @@ export const cars: Car[] = [
     "classe": "Motos",
     "caractéristiques": {
       "vitesse_max": "286 km/h",
+      "vitesse_max_en": "178 mp/h",
       "nombre_de_places": "2",
       "puissance": "170 CV",
       "armé": false,
@@ -478,6 +497,7 @@ export const cars: Car[] = [
     "classe": "Sport",
     "caractéristiques": {
       "vitesse_max": "305 km/h",
+      "vitesse_max_en": "190 mp/h",
       "nombre_de_places": "2",
       "puissance": "501 CV",
       "armé": false,
@@ -504,6 +524,7 @@ export const cars: Car[] = [
     "classe": "Sport",
     "caractéristiques": {
       "vitesse_max": "312 km/h",
+      "vitesse_max_en": "194 mp/h",
       "nombre_de_places": "2",
       "puissance": "505 CV",
       "armé": false,
@@ -529,6 +550,7 @@ export const cars: Car[] = [
     "classe": "Utilitaire",
     "caractéristiques": {
       "vitesse_max": "209 km/h",
+      "vitesse_max_en": "130 mp/h",
       "nombre_de_places": "6",
       "puissance": "210 CV",
       "armé": false,
@@ -555,6 +577,7 @@ export const cars: Car[] = [
     "classe": "Utilitaire",
     "caractéristiques": {
       "vitesse_max": "185 km/h",
+      "vitesse_max_en": "115 mp/h",
       "nombre_de_places": "5",
       "puissance": "189 CV",
       "armé": false,
@@ -580,6 +603,7 @@ export const cars: Car[] = [
     "classe": "Motos",
     "caractéristiques": {
       "vitesse_max": "288 km/h",
+      "vitesse_max_en": "179 mp/h",
       "nombre_de_places": "2",
       "puissance": "183 CV",
       "armé": false,
@@ -605,6 +629,7 @@ export const cars: Car[] = [
     "classe": "Sport",
     "caractéristiques": {
       "vitesse_max": "301 km/h",
+      "vitesse_max_en": "187 mp/h",
       "nombre_de_places": "2",
       "puissance": "740 CV",
       "armé": false,
@@ -630,6 +655,7 @@ export const cars: Car[] = [
     "classe": "Sport",
     "caractéristiques": {
       "vitesse_max": "312 km/h",
+      "vitesse_max_en": "194 mp/h",
       "nombre_de_places": "4",
       "puissance": "620 CV",
       "armé": false,
@@ -654,6 +680,7 @@ export const cars: Car[] = [
     "classe": "Sport",
     "caractéristiques": {
       "vitesse_max": "325 km/h",
+      "vitesse_max_en": "202 mp/h",
       "nombre_de_places": "4",
       "puissance": "699 CV",
       "armé": false,
@@ -682,6 +709,7 @@ export const cars: Car[] = [
     "classe": "Sport",
     "caractéristiques": {
       "vitesse_max": "301 km/h",
+      "vitesse_max_en": "187 mp/h",
       "nombre_de_places": "2",
       "puissance": "684 CV",
       "armé": true,
@@ -706,6 +734,7 @@ export const cars: Car[] = [
     "classe": "Sport",
     "caractéristiques": {
       "vitesse_max": "310 km/h",
+      "vitesse_max_en": "193 mp/h",
       "nombre_de_places": "2",
       "puissance": "750 CV",
       "armé": false,
@@ -729,6 +758,7 @@ export const cars: Car[] = [
     "classe": "Sport",
     "caractéristiques": {
       "vitesse_max": "301 km/h",
+      "vitesse_max_en": "187 mp/h",
       "nombre_de_places": "2",
       "puissance": "684 CV",
       "armé": false,
@@ -754,6 +784,7 @@ export const cars: Car[] = [
     "classe": "Tout terrain",
     "caractéristiques": {
       "vitesse_max": "220 km/h",
+      "vitesse_max_en": "137 mp/h",
       "nombre_de_places": "6",
       "puissance": "500 CV",
       "armé": true,
@@ -779,6 +810,7 @@ export const cars: Car[] = [
     "classe": "Citadine",
     "caractéristiques": {
       "vitesse_max": "191 km/h",
+      "vitesse_max_en": "119 mp/h",
       "nombre_de_places": "2",
       "puissance": "70 CV",
       "armé": false,
@@ -805,6 +837,7 @@ export const cars: Car[] = [
     "classe": "SUV",
     "caractéristiques": {
       "vitesse_max": "220 km/h",
+      "vitesse_max_en": "137 mp/h",
       "nombre_de_places": "5",
       "puissance": "529 CV",
       "armé": false,
@@ -831,6 +864,7 @@ export const cars: Car[] = [
     "classe": "Hélicoptère",
     "caractéristiques": {
       "vitesse_max": "420 km/h",
+      "vitesse_max_en": "261 mp/h",
       "nombre_de_places": "12",
       "puissance": "2600 CV",
       "armé": true,
@@ -854,6 +888,7 @@ export const cars: Car[] = [
     "classe": "Navi",
     "caractéristiques": {
       "vitesse_max": "509 km/h",
+      "vitesse_max_en": "316 mp/h",
       "nombre_de_places": "5",
       "puissance": "1800 CV",
       "armé": false,
@@ -876,6 +911,7 @@ export const cars: Car[] = [
     "classe": "Navi",
     "caractéristiques": {
       "vitesse_max": "420 km/h",
+      "vitesse_max_en": "261 mp/h",
       "nombre_de_places": "4",
       "puissance": "1200 CV",
       "armé": false,
@@ -908,6 +944,7 @@ export const cars: Car[] = [
     "classe": "Hypercar",
     "caractéristiques": {
       "vitesse_max": "580 km/h",
+      "vitesse_max_en": "360 mp/h",
       "nombre_de_places": "1",
       "puissance": "2500 CV",
       "armé": false,

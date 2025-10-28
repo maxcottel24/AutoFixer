@@ -13,20 +13,24 @@ const formatPrice = (price: string) => {
   return price.replace(/\B(?=(\d{3})+(?!\d))/g, ',');
 };
 
-// Function to parse speed and return formatted value with translated unit
-const formatSpeed = (speedString: string, t: (key: string) => string): string => {
-  // Extract number from strings like "306 km/h"
-  const match = speedString.match(/^(\d+(?:\.\d+)?)\s*(km\/h|mph)$/i);
+// Function to get the correct speed based on language
+const getSpeedForLanguage = (car: Car, t: (key: string) => string, currentLanguage: string): string => {
+  const speed = currentLanguage === 'en' && car.caractéristiques.vitesse_max_en 
+    ? car.caractéristiques.vitesse_max_en 
+    : car.caractéristiques.vitesse_max;
+  
+  // Extract number from strings like "306 km/h" or "190 mp/h"
+  const match = speed.match(/^(\d+(?:\.\d+)?)\s*(km\/h|mp\/h)$/i);
   if (match) {
     const [, number] = match;
     return `${number} ${t('units.speed')}`;
   }
   // Fallback for any other format
-  return speedString;
+  return speed;
 };
 
 export const CarCard: React.FC<CarCardProps> = ({ car }) => {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   const isFlyingVehicle = car.classe === "Hélicoptère" || car.classe === "Navi";
   const isArmed = car.caractéristiques.armé === true;
   
@@ -69,7 +73,7 @@ export const CarCard: React.FC<CarCardProps> = ({ car }) => {
         <div className="grid grid-cols-2 gap-2 mt-4 text-sm whitespace-nowrap min-h-[4rem]">
           <div className="flex items-center gap-2 text-gray-400">
             <GaugeCircle size={16} className="text-red-500" />
-            <Text variant="carCardStat">{t('carPage.maxSpeed')}: {formatSpeed(car.caractéristiques.vitesse_max, t)}</Text>
+            <Text variant="carCardStat">{t('carPage.maxSpeed')}: {getSpeedForLanguage(car, t, i18n.language)}</Text>
           </div>
           <div className="flex items-center gap-2 text-gray-400">
             <Crosshair size={16} className="text-red-500" />

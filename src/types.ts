@@ -7,6 +7,7 @@ export interface WeaponStats {
 
 export interface CarStats {
   vitesse_max: string;
+  vitesse_max_en?: string;
   nombre_de_places: string;
   puissance: string;
   armé: boolean;

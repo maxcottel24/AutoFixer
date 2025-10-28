@@ -29,16 +29,20 @@ const isExclusiveColor = (selectedColor: string, car: Car) => {
   return car.exclusiveColors.hex === selectedColor;
 };
 
-// Function to parse speed and return formatted value with translated unit
-const formatSpeed = (speedString: string, t: (key: string) => string): string => {
-  // Extract number from strings like "306 km/h"
-  const match = speedString.match(/^(\d+(?:\.\d+)?)\s*(km\/h|mph)$/i);
+// Function to get the correct speed based on language
+const getSpeedForLanguage = (car: Car, t: (key: string) => string, currentLanguage: string): string => {
+  const speed = currentLanguage === 'en' && car.caractéristiques.vitesse_max_en 
+    ? car.caractéristiques.vitesse_max_en 
+    : car.caractéristiques.vitesse_max;
+  
+  // Extract number from strings like "306 km/h" or "190 mp/h"
+  const match = speed.match(/^(\d+(?:\.\d+)?)\s*(km\/h|mp\/h)$/i);
   if (match) {
     const [, number] = match;
     return `${number} ${t('units.speed')}`;
   }
   // Fallback for any other format
-  return speedString;
+  return speed;
 };
 
 // Function to parse power and return formatted value with translated unit
@@ -62,7 +66,7 @@ export const CarPage: React.FC = () => {
   const { carName } = useParams();
   const navigate = useNavigate();
   const { addToCart } = useCart();
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   
   const car = cars.find(c => c.nom === carName);
   
@@ -234,7 +238,7 @@ export const CarPage: React.FC = () => {
                 <GaugeCircle size={24} style={{ color: accentColor }} className="shrink-0" />
                 <div>
                   <Text variant="carPageTitleStats">{t('carPage.maxSpeed')}</Text>
-                  <Text variant="carPageStats">{formatSpeed(car.caractéristiques.vitesse_max, t)}</Text>
+                  <Text variant="carPageStats">{getSpeedForLanguage(car, t, i18n.language)}</Text>
                 </div>
               </div>
 

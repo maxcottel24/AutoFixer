@@ -48,6 +48,13 @@ const fr: Translations = {
     paymentConfirmed: "Paiement confirmé",
     paymentSuccess: "Paiement réussi"
   },
+  hackedModal: {
+    intrusionDetected: "INTRUSION DÉTECTÉE",
+    compromised: "COMPROMIS",
+    hackComplete: "PIRATAGE TERMINÉ",
+    fundsStolen: "Vos fonds ont été volés !",
+    warning: "⚠️ Brèche système en cours..."
+  },
   homepage: {
     title: "Bienvenue chez",
     subtitle: "Votre concessionnaire premium à Melnéo"

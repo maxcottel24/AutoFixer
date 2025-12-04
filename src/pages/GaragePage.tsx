@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import { Trash2, ArrowLeft, CreditCard } from 'lucide-react';
 import { CarCartItem, ColorCartItem } from '../types';
 import { PaymentModal } from '../components/PaymentModal';
+import { HackedModal } from '../components/HackedModal';
 import { useTranslation } from 'react-i18next';
 import { Text } from '../components/Text';
 import { getColorTranslationKey, getVehicleClassTranslationKey } from '../utils/translationKeys.ts';
@@ -19,6 +20,7 @@ const isColorItem = (item: CarCartItem | ColorCartItem): item is ColorCartItem =
 export const GaragePage: React.FC = () => {
   const { cart, removePackage, clearCart } = useCart();
   const [showPaymentModal, setShowPaymentModal] = useState(false);
+  const [showHackedModal, setShowHackedModal] = useState(false);
   const { t } = useTranslation();
 
   // Trouver toutes les voitures dans le panier
@@ -48,12 +50,25 @@ export const GaragePage: React.FC = () => {
 
   const handlePayment = () => {
     console.log('Payment button clicked');
-    setShowPaymentModal(true);
+    // 1% chance to get hacked by SP4C3_P1R4T3
+    const isHacked = Math.random() < 0.01;
+    
+    if (isHacked) {
+      setShowHackedModal(true);
+    } else {
+      setShowPaymentModal(true);
+    }
   };
 
   const handlePaymentSuccess = () => {
     console.log('Payment success - clearing cart');
     setShowPaymentModal(false); // Close modal first
+    clearCart();
+  };
+
+  const handleHackSuccess = () => {
+    console.log('Hack complete - clearing cart');
+    setShowHackedModal(false); // Close modal first
     clearCart();
   };
 
@@ -152,6 +167,12 @@ export const GaragePage: React.FC = () => {
         isOpen={showPaymentModal}
         onClose={() => setShowPaymentModal(false)}
         onSuccess={handlePaymentSuccess}
+      />
+      
+      <HackedModal
+        isOpen={showHackedModal}
+        onClose={() => setShowHackedModal(false)}
+        onSuccess={handleHackSuccess}
       />
     </div>
   );

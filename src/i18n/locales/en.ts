@@ -46,6 +46,13 @@ const en = {
     paymentConfirmed: "Payment confirmed",
     paymentSuccess: "Payment successful"
   },
+  hackedModal: {
+    intrusionDetected: "INTRUSION DETECTED",
+    compromised: "COMPROMISED",
+    hackComplete: "HACK COMPLETE",
+    fundsStolen: "Your funds have been stolen!",
+    warning: "⚠️ System breach in progress..."
+  },
   homepage: {
     title: "Welcome to",
     subtitle: "Your premium car dealership in Melnéo"

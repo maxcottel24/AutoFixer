@@ -9,6 +9,8 @@ import { useTranslation } from 'react-i18next';
 import { Text } from '../components/Text';
 import { getColorTranslationKey, getVehicleClassTranslationKey } from '../utils/translationKeys.ts';
 
+const CHANCETOBEHACKED = 0.05;
+
 const formatPrice = (price: string) => {
   return price.replace(/\B(?=(\d{3})+(?!\d))/g, ',');
 };
@@ -51,7 +53,7 @@ export const GaragePage: React.FC = () => {
   const handlePayment = () => {
     console.log('Payment button clicked');
     // 1% chance to get hacked by SP4C3_P1R4T3
-    const isHacked = Math.random() < 0.01;
+    const isHacked = Math.random() < CHANCETOBEHACKED;
     
     if (isHacked) {
       setShowHackedModal(true);

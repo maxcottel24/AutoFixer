@@ -100,7 +100,7 @@ export const HackedModal: React.FC<HackedModalProps> = ({ isOpen, onClose, onSuc
             </div>
 
             {showSkull && (
-              <div className="flex flex-col items-center gap-3 animate-bounce">
+              <div className="flex flex-col items-center gap-3">
                 <Skull className="text-red-500" size={64} />
                 <div className="text-center px-2">
                   <Text variant="paymentModalPaymentConfirmed" className="mb-2 text-red-500">

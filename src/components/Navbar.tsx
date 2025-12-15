@@ -14,9 +14,9 @@ export const Navbar: React.FC = () => {
     <nav className="sticky top-0 z-50 bg-gray-900 border-b border-gray-700 shadow-lg">
       <div className="max-w-7xl mx-auto px-4">
         <div className="flex justify-between items-center h-16">
-        <Link to="/" className="flex items-center space-x-2">
+        <Link to="/" id="autofixer" className="flex items-center space-x-2">
             <Car className="h-8 w-8 text-red-500" />
-            <Text id="autofixer" variant="filterTitleAndCarGridModel" className="text-white">AutoFixer</Text>
+            <Text variant="filterTitleAndCarGridModel" className="text-white">AutoFixer</Text>
           </Link>
           
           <div className="flex items-center space-x-4">

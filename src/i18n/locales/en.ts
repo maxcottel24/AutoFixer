@@ -112,7 +112,7 @@ const en = {
     type66avenger: "The name says it all: this isn't a car, it's a score settlement on wheels.",
     type66javelina: "A muscle car that spits flames... and not just with its engine. Armed to the teeth, it's the only legal way to turn the road into a war zone.",
     sportr7charon: "The sedan that arrives at funerals with holographic flames on the hood. Because discretion is for the dead.",
-    coyote: "No need for missiles when your mere presence makes others understand they need to move aside.",
+    shioncoyote: "No need for missiles when your mere presence makes others understand they need to move aside.",
     viper1996: "A hundred-year-old snake that still bites harder than half the new cars.",
     corvettec62005: "An old glory that refuses to age, stuck between a museum showcase and the supermarket parking lot.",
     type66jenrowley: "A bodybuilder American, who consumes more fuel than an aircraft carrier and is proud of it.",
